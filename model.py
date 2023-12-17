@@ -20,9 +20,9 @@ class User(db.Model):
     num_rating = db.Column(db.Integer)
     about_me = db.Column(db.String(150))
 
-    #friends = db.relationship("Friend", back_populates='user')
-    # friends =db.relationship("Friend", back_populates='friend_1')
-
+    # friends = db.relationship("friend", foreign_keys="[Friend.user_id]")
+    ratings = db.relationship("Rating", back_populates="user")
+    shelfs = db.relationship("Rating", back_populates="user")
 
     def __repr__(self):
         """Returns info about user."""
@@ -47,6 +47,8 @@ class Book(db.Model):
     avg_rating = db.Column(db.Float)
     num_rating = db.Column(db.Integer)
 
+    book_genre = db.relationship("BookGenre", back_populates="book")
+    ratings = db.relationship("Rating", back_populates="book")
 
     def __repr__(self):
         """Returns info about book."""
@@ -59,9 +61,69 @@ class Genre(db.Model):
 
     __tablename__ = 'genres'
 
-    book_id = db.Column(db.Integer,
+    genre_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
+    name = db.Column(db.String(15), unique=True)
+
+    book_genre = db.relationship("BookGenre", back_populates="genre")
+
+    def __repr__(self):
+        """Returns info about genre."""
+
+        return f'<Genre genre_id={self.genre_id} name={self.name}'
+    
+
+class BookGenre(db.Model):
+    """A table to connect books to genres"""
+
+    __tablename__ = "bookgenre"
+
+    book_genre_id = db.Column(db.Integer,
+                        autoincrement=True,
+                        primary_key=True)
+    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+    genre_id = db.Column(db.Integer, db.ForeignKey("genres.genre_id"))
+
+    book = db.relationship("Book", back_populates="book_genre")
+    genre = db.relationship("Genre", back_populates="book_genre")
+
+    def __repr__(self):
+        return f'<BookGenre book_genre_id={self.book_genre_id} book_id={self.book_id} genre_id{self.genre_id}>'
+
+
+class Rating(db.Model):
+    """A rating."""
+
+    __tablename__ = 'ratings'
+
+    rating_id = db.Column(db.Integer,
+                        autoincrement= True,
+                        primary_key=True)
+    score = db.Column(db.Integer)     #1-5
+    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
+
+    movie = db.relationship("Book", back_populates="ratings")
+    user = db.relationship("User", back_populates="ratings")
+
+    def __repr__(self):
+        return f'<Rating rating_id={self.rating_id} book_id={self.book_id}>'
+
+
+class Shelf(db.Model):
+    """A shelf users can store a collection of books on."""
+
+    shelf_id = db.Column(db.Integer,
+                        autoincrement= True,
+                        primary_key=True)
+    shelf_name = db.Column(db.String(20))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
+
+    user = db.relationship("User", back_populates="shelfs")
+
+    def __repr__(self):
+        return f'<Shelf shelf_id={self.rating_id} book_id={self.book_id}>'
 
 
 # class Friend(db.Model):
@@ -75,8 +137,8 @@ class Genre(db.Model):
 #     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 #     friend_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
-#     friend_1 = db.relationship("User", back_populates="friends")
-#     friend_2 = db.relationship("User", back_populates="friends")
+#     user = db.relationship("User", back_populates="user")
+#     friend = db.relationship("User", back_populates="friend")
 
 #     def __repr__(self):
 #         return f'<Friend friend_id={self.friend_id} friend_1={self.user} friend_2={self.friend_id}>'
