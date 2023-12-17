@@ -49,6 +49,7 @@ class Book(db.Model):
 
     book_genre = db.relationship("BookGenre", back_populates="book")
     ratings = db.relationship("Rating", back_populates="book")
+    bookshelf = db.relationship("BookShelf", back_populates="book")
 
     def __repr__(self):
         """Returns info about book."""
@@ -114,16 +115,34 @@ class Rating(db.Model):
 class Shelf(db.Model):
     """A shelf users can store a collection of books on."""
 
+    __tablename__ = "shelfs"
+
     shelf_id = db.Column(db.Integer,
                         autoincrement= True,
                         primary_key=True)
     shelf_name = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
 
+    bookshelf = db.relationship("BookShelf", back_populates="shelf")
     user = db.relationship("User", back_populates="shelfs")
 
     def __repr__(self):
         return f'<Shelf shelf_id={self.rating_id} book_id={self.book_id}>'
+    
+
+class BookShelf(db.Model):
+    """A shelf with the collection of books connection"""
+
+    __tablename__ = "bookshelfs"
+
+    bookshelf_id = db.Column(db.Integer,
+                        autoincrement= True,
+                        primary_key=True)
+    shelf_id = db.Column(db.Integer, db.ForeignKey("shelfs.shelf_id")) 
+    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+
+    shelf = db.relationship("Shelf", back_populates="bookshelf")
+    book = db.relationship("Book", back_populates="bookshelf")
 
 
 # class Friend(db.Model):
