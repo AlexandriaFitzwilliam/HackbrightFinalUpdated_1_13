@@ -20,6 +20,10 @@ class User(db.Model):
     num_rating = db.Column(db.Integer)
     about_me = db.Column(db.String(150))
 
+    #friends = db.relationship("Friend", back_populates='user')
+    # friends =db.relationship("Friend", back_populates='friend_1')
+
+
     def __repr__(self):
         """Returns info about user."""
 
@@ -27,10 +31,10 @@ class User(db.Model):
     
 
 
-def Book(db.Model):
+class Book(db.Model):
     """A Book"""
 
-    __tablename__ = 'users'
+    __tablename__ = 'books'
 
     book_id = db.Column(db.Integer,
                         autoincrement=True,
@@ -48,6 +52,34 @@ def Book(db.Model):
         """Returns info about book."""
 
         return f'<Book book_id={self.book_id} title={self.title}>'
+    
+
+class Genre(db.Model):
+    """A book genre"""
+
+    __tablename__ = 'genres'
+
+    book_id = db.Column(db.Integer,
+                        autoincrement=True,
+                        primary_key=True)
+
+
+# class Friend(db.Model):
+#     """Two users who are connected as friends."""
+
+#     __tablename__ = 'friends'
+
+#     friend_id = db.Column(db.Integer,
+#                         autoincrement= True,
+#                         primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+#     friend_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+
+#     friend_1 = db.relationship("User", back_populates="friends")
+#     friend_2 = db.relationship("User", back_populates="friends")
+
+#     def __repr__(self):
+#         return f'<Friend friend_id={self.friend_id} friend_1={self.user} friend_2={self.friend_id}>'
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=True):
