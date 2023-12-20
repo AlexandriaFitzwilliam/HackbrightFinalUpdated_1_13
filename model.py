@@ -105,7 +105,7 @@ class Rating(db.Model):
     book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
 
-    movie = db.relationship("Book", back_populates="ratings")
+    book = db.relationship("Book", back_populates="ratings")
     user = db.relationship("User", back_populates="ratings")
 
     def __repr__(self):
