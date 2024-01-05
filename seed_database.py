@@ -104,5 +104,20 @@ for x in range(10):
 model.db.session.add_all(ratings_in_db)
 model.db.session.add_all(shelfs_in_db)
 model.db.session.commit()
-print(ratings_in_db)
-print(shelfs_in_db)
+
+
+#add two books to every wishlist
+bookshelf_in_db = []
+for shelf in shelfs_in_db:
+    
+    for r in range(2):
+        random_book = choice(books_in_db)
+
+        bookshelf = crud.create_bookshelf(
+            shelf_id=shelf.shelf_id,
+            book_id=random_book.book_id
+        )
+        bookshelf_in_db.append(bookshelf)
+
+model.db.session.add_all(bookshelf_in_db)
+model.db.session.commit()
