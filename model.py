@@ -13,7 +13,7 @@ class User(db.Model):
     user_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
-    username = db.Column(db.String(15), unique=True)
+    username = db.Column(db.String(30), unique=True)
     password = db.Column(db.String(20))
     profile_pic = db.Column(db.String(50))
     avg_rating = db.Column(db.Float)
@@ -22,7 +22,7 @@ class User(db.Model):
 
     # friends = db.relationship("friend", foreign_keys="[Friend.user_id]")
     ratings = db.relationship("Rating", back_populates="user")
-    shelfs = db.relationship("Rating", back_populates="user")
+    shelf = db.relationship("Shelf", back_populates="user")
 
     def __repr__(self):
         """Returns info about user."""
@@ -90,7 +90,7 @@ class BookGenre(db.Model):
     genre = db.relationship("Genre", back_populates="book_genre")
 
     def __repr__(self):
-        return f'<BookGenre book_genre_id={self.book_genre_id} book_id={self.book_id} genre_id{self.genre_id}>'
+        return f'<BookGenre book_genre_id={self.book_genre_id} book_id={self.book_id} genre_id={self.genre_id}>'
 
 
 class Rating(db.Model):
@@ -124,10 +124,10 @@ class Shelf(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
 
     bookshelf = db.relationship("BookShelf", back_populates="shelf")
-    user = db.relationship("User", back_populates="shelfs")
+    user = db.relationship("User", back_populates="shelf")
 
     def __repr__(self):
-        return f'<Shelf shelf_id={self.rating_id} book_id={self.book_id}>'
+        return f'<Shelf shelf_id={self.shelf_id} user_id={self.user_id}>'
     
 
 class BookShelf(db.Model):
