@@ -11,3 +11,14 @@ function Homepage(props) {
       </div>
     );
   }
+
+
+  // function userProfile(props){
+  //   const {user} = props;
+  //   const userShelves = [];
+
+  //   React.useEffect(() =>{
+
+  //   }
+  // )
+  // }
