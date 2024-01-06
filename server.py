@@ -36,6 +36,15 @@ def show_user_ratings(user_id):
     return render_template("user_reviews.html", user=user)
 
 
+@app.route("/book/<book_id>")
+def show_book_details(book_id):
+    """Shows details of one book."""
+
+    book = crud.get_book_by_id(book_id)
+
+    return render_template("book_details.html", book=book)
+
+
 @app.route('/api/<username>')
 def get_user(username):
 
