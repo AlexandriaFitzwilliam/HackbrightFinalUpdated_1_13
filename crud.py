@@ -74,6 +74,7 @@ def create_genre(name):
 
     return genre
 
+
 def get_genres():
     """Returns all genres."""
 
@@ -112,6 +113,11 @@ def create_shelf(shelf_name, user_id):
     )
 
     return shelf
+
+def get_shelf_by_user_id(user_id):
+    """Return shelves based off a user_id"""
+
+    return Shelf.query.filter(Shelf.user_id == user_id).all()
 
 
 def create_bookshelf(shelf_id, book_id):

@@ -5,6 +5,9 @@ function Homepage(props) {
           <h1>Library</h1>
           <p className="lead">Managing your books.</p>
         </div>
+        <button>
+          Log In
+        </button>
       </div>
     );
   }

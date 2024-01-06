@@ -89,6 +89,12 @@ for x in range(10):
     )
     shelfs_in_db.append(first_shelf)
 
+    second_shelf = crud.create_shelf(
+        shelf_name = "Test2 Shelf",
+        user_id=user.user_id
+    )
+    shelfs_in_db.append(second_shelf)
+
     #create 5 random reviews for each user
     for r in range(5):
         score = randint(1,5)
@@ -118,6 +124,7 @@ for shelf in shelfs_in_db:
             book_id=random_book.book_id
         )
         bookshelf_in_db.append(bookshelf)
+        
 
 model.db.session.add_all(bookshelf_in_db)
 model.db.session.commit()

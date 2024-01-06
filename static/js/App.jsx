@@ -1,4 +1,5 @@
 function App() {
+    const [shelves, setShelves] = React.useState({});
 
     return (
         <ReactRouterDOM.BrowserRouter>

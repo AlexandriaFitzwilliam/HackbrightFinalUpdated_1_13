@@ -3,7 +3,7 @@
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
 from model import db ,connect_to_db
-#import crud
+import crud
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
@@ -18,6 +18,12 @@ def homepage():
     return render_template('base.html')
 
 
+@app.route('/api/<username>')
+def get_user(username):
+
+    user = crud.get_user_by_username(username)
+
+    return jsonify(user)
 
 if __name__ == "__main__":
     connect_to_db(app)
