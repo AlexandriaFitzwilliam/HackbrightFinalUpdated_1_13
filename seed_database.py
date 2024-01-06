@@ -112,6 +112,14 @@ model.db.session.add_all(shelfs_in_db)
 model.db.session.commit()
 
 
+#add avg rating
+for book in books_in_db:
+    new_avg = 0
+    for rating in book.ratings:
+        new_avg += rating.score
+    book.avg_rating = new_avg/book.num_rating
+    
+
 #add two books to every wishlist
 bookshelf_in_db = []
 for shelf in shelfs_in_db:

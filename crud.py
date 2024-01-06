@@ -101,6 +101,15 @@ def create_rating(score, book_id, user_id):
         user_id = user_id
     )
 
+    book = get_book_by_id(book_id)
+    book.num_rating += 1
+    
+    new_avg = 0
+    for rating in book.ratings:
+        new_avg += rating.score
+    
+    book.avg_rating = new_avg/book.num_rating
+
     return rating
 
 
