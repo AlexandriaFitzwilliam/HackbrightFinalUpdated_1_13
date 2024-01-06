@@ -18,23 +18,22 @@ def homepage():
     return render_template('base.html')
 
 
-@app.route("/test_profile")
-def show_user():
+@app.route("/user/<user_id>")
+def show_user(user_id):
     """Shows the User's shelves"""
 
-    user = crud.get_user_by_id(1)
-
-    print()
-    print("************************")
-    print(f'user.username={user.username}')
-    print(f'user.shelf={user.shelf}')
-    print("************************")
-    print()
+    user = crud.get_user_by_id(user_id)
 
     return render_template("user_page.html", user=user)
 
 
+@app.route("/user/reviews/<user_id>")
+def show_user_ratings(user_id):
+    """Shows the User's ratings"""
 
+    user = crud.get_user_by_id(user_id)
+
+    return render_template("user_reviews.html", user=user)
 
 
 @app.route('/api/<username>')
