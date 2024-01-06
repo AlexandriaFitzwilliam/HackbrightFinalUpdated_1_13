@@ -1,0 +1,24 @@
+
+
+{% block title %}{{ user.username }}'s Page{% endblock %}
+
+{% block body %}
+<h1>{{ user.username }}</h1>
+<ul>
+    <h2>Shelves</h2>
+{% for shelf in user.shelf %}
+    <li>
+        {{ shelf.shelf_name }}:
+        <span class="shelf">
+            {% for book in shelf.bookshelf %}
+            <span class="bookshelf">
+                {{book.book.title}}
+            </span>
+            {% endfor %}
+        </span>
+    </li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}
