@@ -42,7 +42,7 @@ def show_book_details(book_id):
 
     book = crud.get_book_by_id(book_id)
 
-    return render_template("book_details.html", book=book)
+    return render_template("book_detail.html", book=book)
 
 
 @app.route('/api/<username>')
