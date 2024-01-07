@@ -63,6 +63,9 @@ def get_user(username):
 @app.route('/api/view_all/<shelf_id>')
 def get_all_books_in_shelf(shelf_id):
     
+    all_books = crud.get_books_by_shelf_id(shelf_id)
+
+    return jsonify(all_books)
 
 
 if __name__ == "__main__":

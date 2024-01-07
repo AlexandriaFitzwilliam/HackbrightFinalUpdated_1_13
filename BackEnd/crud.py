@@ -67,6 +67,17 @@ def get_book_by_title(title):
     return Book.query.filter(Book.title == title)
 
 
+def get_books_by_shelf_id(shelf_id):
+    """Return all books"""
+
+    books = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
+
+    books = books.filter(Book)
+
+    return Book.query.filter(BookShelf.shelf_id == shelf_id).all()
+
+
+
 def get_book_by_partial(partial, search_area):
     """Returns a list of books based off of string partial"""
 
