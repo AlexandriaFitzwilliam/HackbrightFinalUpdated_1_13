@@ -45,12 +45,24 @@ def show_book_details(book_id):
     return render_template("book_detail.html", book=book)
 
 
+# @app.route("/search/<book_partial>")
+# def show_books_by_partial(book_partial):
+#     """Shows multiple books with matching partial info"""
+
+
+
+
 @app.route('/api/<username>')
 def get_user(username):
 
     user = crud.get_user_by_username(username)
 
     return jsonify(user)
+
+
+@app.route('/api/view_all/<shelf_id>')
+def get_all_books_in_shelf(shelf_id):
+    
 
 
 if __name__ == "__main__":
