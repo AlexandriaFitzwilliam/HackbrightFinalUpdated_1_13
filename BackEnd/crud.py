@@ -1,6 +1,6 @@
 """CRUD operations"""
 
-from model import db, User, Book, Shelf, BookShelf, Genre, BookGenre, Rating
+from model import db, User, connect_to_db, Book, Shelf, BookShelf, Genre, BookGenre, Rating
 
 def create_user(username, password):
     """Creates and returns a new user"""
@@ -70,11 +70,14 @@ def get_book_by_title(title):
 def get_books_by_shelf_id(shelf_id):
     """Return all books"""
 
-    books = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
+    books_in_shelf = []
+    bookshelves = db.session.query(BookShelf).join(Book).all()
 
-    books = books.filter(Book)
+    for bookshelf in bookshelves:
+        if bookshelf.shelf_id == shelf_id:
+            books_in_shelf.append(bookshelf.book)
 
-    return Book.query.filter(BookShelf.shelf_id == shelf_id).all()
+    return books_in_shelf
 
 
 
@@ -162,3 +165,17 @@ def create_bookshelf(shelf_id, book_id):
     )
 
     return bookshelf
+
+def get_bookshelf_by_id(id):
+    """Returns a bookshelf by its id."""
+
+    return BookShelf.query.filter(BookShelf.bookshelf_id == id).first()
+
+
+if __name__ == "__main__":
+    from server import app
+
+    connect_to_db(app)
+    # app = Flask(__name__)
+    # app.secret_key = "dev"
+    # app.jinja_env.undefined = StrictUndefined

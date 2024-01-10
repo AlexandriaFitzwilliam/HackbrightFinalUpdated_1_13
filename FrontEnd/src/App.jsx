@@ -33,3 +33,16 @@ function App() {
 }
 
 export default App
+
+
+function UserShelfPage(props) {
+  const {books, setBooks} = props
+
+  Reach.useEffect(() => {
+    fetch('/api/view_all/<shelf_id>')  //need to figure out how to add id to send
+      .then((response) => response.json())
+      .then((result) => setBooks(result));
+  }, []);
+
+
+}

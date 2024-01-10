@@ -65,9 +65,11 @@ def get_all_books_in_shelf(shelf_id):
     
     all_books = crud.get_books_by_shelf_id(shelf_id)
 
-    return jsonify(all_books)
+    return jsonify({book.book_id: book.to_dict() for book in all_books})
 
 
 if __name__ == "__main__":
+    # with app.app_context():
+
     connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)

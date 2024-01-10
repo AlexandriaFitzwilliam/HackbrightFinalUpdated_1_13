@@ -56,6 +56,18 @@ class Book(db.Model):
 
         return f'<Book book_id={self.book_id} title={self.title}>'
     
+    def to_dict(self):
+        return { 'book_id' : self.book_id,
+                'title' : self.title,
+                'author' : self.author,
+                'overview' : self.overview,
+                'publish_date' : self.publish_date,
+                'cover_pic' : self.cover_pic,
+                'avg_rating' : self.avg_rating,
+                'num_rating' : self.num_rating,
+                'genres' : self.book_genre
+        }
+    
 
 class Genre(db.Model):
     """A book genre"""
