@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/headers/header'
 import Home from './components/home/home'
+import About from './components/about/about'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +12,7 @@ function App() {
     <div>
       <Header />
       <Home />
+      <About />
     </div>
   )
 }
