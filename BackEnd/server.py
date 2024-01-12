@@ -18,33 +18,6 @@ def homepage():
     return render_template('base.html')
 
 
-@app.route("/user/<user_id>")
-def show_user(user_id):
-    """Shows the User's shelves"""
-
-    user = crud.get_user_by_id(user_id)
-
-    return render_template("user_page.html", user=user)
-
-
-@app.route("/user/reviews/<user_id>")
-def show_user_ratings(user_id):
-    """Shows the User's ratings"""
-
-    user = crud.get_user_by_id(user_id)
-
-    return render_template("user_reviews.html", user=user)
-
-
-@app.route("/book/<book_id>")
-def show_book_details(book_id):
-    """Shows details of one book."""
-
-    book = crud.get_book_by_id(book_id)
-
-    return render_template("book_detail.html", book=book)
-
-
 @app.route('/api/<username>')
 def get_user(username):
 
@@ -58,13 +31,6 @@ def get_one_book_by_id(book_id):
 
     book = crud.get_book_by_id(book_id)
 
-    print('******************************')
-    print('******************************')
-    print(f'book_id={book_id}')
-    print(f'book={book}')
-    print('******************************')
-    print('******************************')
-
     return jsonify(book.to_dict())
 
 
@@ -76,14 +42,6 @@ def get_all_books_in_shelf(shelf_id):
 
     for book in all_books:
         all_books_dic[book.book_id] = book.to_dict()
-
-    print('******************************')
-    print('******************************')
-    print(f'shelf_id={shelf_id}')
-    print(f'all_books={all_books}')
-    print(f'all_books_dic={all_books_dic}')
-    print('******************************')
-    print('******************************')
 
     return jsonify(all_books_dic)
 
