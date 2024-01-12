@@ -7,6 +7,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header = () => {
     return (
+        <div>
+
+
         <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -30,6 +33,8 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      </div>
     )
 }
 
