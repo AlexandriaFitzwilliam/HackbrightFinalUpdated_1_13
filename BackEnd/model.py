@@ -64,8 +64,7 @@ class Book(db.Model):
                 'publish_date' : self.publish_date,
                 'cover_pic' : self.cover_pic,
                 'avg_rating' : self.avg_rating,
-                'num_rating' : self.num_rating,
-                'genres' : self.book_genre
+                'num_rating' : self.num_rating
         }
     
 

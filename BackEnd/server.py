@@ -45,13 +45,6 @@ def show_book_details(book_id):
     return render_template("book_detail.html", book=book)
 
 
-# @app.route("/search/<book_partial>")
-# def show_books_by_partial(book_partial):
-#     """Shows multiple books with matching partial info"""
-
-
-
-
 @app.route('/api/<username>')
 def get_user(username):
 
@@ -60,12 +53,39 @@ def get_user(username):
     return jsonify(user)
 
 
-@app.route('/api/view_all/<shelf_id>')
+@app.route('/api/book/<book_id>')
+def get_one_book_by_id(book_id):
+
+    book = crud.get_book_by_id(book_id)
+
+    print('******************************')
+    print('******************************')
+    print(f'book_id={book_id}')
+    print(f'book={book}')
+    print('******************************')
+    print('******************************')
+
+    return jsonify(book.to_dict())
+
+
+@app.route('/api/view_all/<int:shelf_id>')
 def get_all_books_in_shelf(shelf_id):
     
     all_books = crud.get_books_by_shelf_id(shelf_id)
+    all_books_dic = {}
 
-    return jsonify({book.book_id: book.to_dict() for book in all_books})
+    for book in all_books:
+        all_books_dic[book.book_id] = book.to_dict()
+
+    print('******************************')
+    print('******************************')
+    print(f'shelf_id={shelf_id}')
+    print(f'all_books={all_books}')
+    print(f'all_books_dic={all_books_dic}')
+    print('******************************')
+    print('******************************')
+
+    return jsonify(all_books_dic)
 
 
 if __name__ == "__main__":
