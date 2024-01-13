@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react'
-import './about.css';
+import './shelf_details.css';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const About = (props) => {
+const ShelfDetails = (props) => {
     const [books, setBooks] = React.useState({})
     const bookCards = []
 
@@ -24,7 +24,7 @@ const About = (props) => {
         //   publish_date={book.publish_date}
         //   cover_pic={book.cover_pic}
           avg_rating={book.avg_rating}
-          num_ratings={book.num_ratings}
+          // num_ratings={book.num_ratings}
           />
         );
         bookCards.push(bookCard)
@@ -34,14 +34,15 @@ const About = (props) => {
 
     return (
         <div>
-            
-            {bookCards}
-
+            <h1>Shelf Name Goes Here</h1>
+            <span>
+              {bookCards}
+            </span>
         </div>
-    )
+    );
 }
 
-export default About
+export default ShelfDetails
 
 
 function BookCard(props) {
@@ -53,7 +54,8 @@ function BookCard(props) {
     // publish_date, 
     // cover_pic,
     avg_rating,
-    num_ratings} = props;
+    // num_ratings
+                  } = props;
     return (
         <div className='bookcard'>
             
