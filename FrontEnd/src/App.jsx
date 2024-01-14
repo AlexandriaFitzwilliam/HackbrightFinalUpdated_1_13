@@ -5,6 +5,7 @@ import Home from './components/home/home'
 import ShelfDetails from './components/about/shelf_details'
 import BookOverview from './components/book_overview/book_overview';
 import Reviews from './components/reviews/reviews';
+import UserReviews from './components/user_reviews/user_reviews';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <ShelfDetails />
       <BookOverview />
       <Reviews />
+      <UserReviews />
     </div>
   )
 }

@@ -139,7 +139,8 @@ class Rating(db.Model):
                 'score' : self.score,
                 'book_id' : self.book_id,
                 'user_id' : self.user_id,
-                'username': self.user.username
+                'username': self.user.username,
+                'book_title':self.book.title
         }
 
 
