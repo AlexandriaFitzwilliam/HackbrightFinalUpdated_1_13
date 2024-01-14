@@ -100,6 +100,53 @@ class Book(db.Model):
 
         return f'<Book book_id={self.book_id} title={self.title}>'
     
+    @classmethod
+    def create_book(self, title, author, overview, publish_date, cover_pic):
+        """Create and return a new book."""
+
+        book = Book(
+            title = title,
+            author = author,
+            overview = overview,
+            publish_date = publish_date,
+            cover_pic = cover_pic,
+            avg_rating = 0,
+            num_rating = 0
+        )
+
+        return book
+    
+    @classmethod
+    def get_all(self):
+        """Returns all books"""
+
+        return Book.query.all()
+    
+    @classmethod
+    def get_by_id(self, book_id):
+        """Returns a book by its id."""
+
+        return Book.query.get(book_id)
+    
+    @classmethod
+    def get_by_title(self, title):
+        """Returns a book by its title."""
+    
+        return Book.query.filter(Book.title == title).first()
+    
+    @classmethod
+    def get_by_shelf_id(self, shelf_id):
+        """Return all books in a shelf"""
+
+        books_in_shelf = []
+        bookshelves = db.session.query(BookShelf).join(Book).all()
+
+        for bookshelf in bookshelves:
+            if bookshelf.shelf_id == shelf_id:
+                books_in_shelf.append(bookshelf.book)
+
+        return books_in_shelf
+
     def to_dict(self):
         return { 'book_id' : self.book_id,
                 'title' : self.title,
