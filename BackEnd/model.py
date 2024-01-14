@@ -128,11 +128,18 @@ class Rating(db.Model):
 
         return Rating.query.filter(Rating.book_id == book_id).all()
     
+    @classmethod
+    def get_by_user_id(self, user_id):
+        """Returns a Rating based off a given user_id"""
+
+        return Rating.query.filter(Rating.user_id == user_id).all()
+    
     def to_dict(self):
         return { 'rating_id' : self.rating_id,
                 'score' : self.score,
                 'book_id' : self.book_id,
-                'user_id' : self.user_id
+                'user_id' : self.user_id,
+                'username': self.user.username
         }
 
 

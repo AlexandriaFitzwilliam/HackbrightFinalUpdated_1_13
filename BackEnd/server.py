@@ -45,10 +45,23 @@ def get_all_books_in_shelf(shelf_id):
 
     return jsonify(all_books_dic)
 
+
 @app.route('/api/book_ratings/<int:book_id>')
 def get_all_ratings_for_book(book_id):
 
     all_ratings = Rating.get_by_book_id(book_id)
+    all_ratings_dic = {}
+
+    for rating in all_ratings:
+        all_ratings_dic[rating.rating_id] = rating.to_dict()
+
+    return jsonify(all_ratings_dic)
+
+
+@app.route('/api/user_ratings/<int:user_id>')
+def get_all_ratings_for_user(user_id):
+
+    all_ratings = Rating.get_by_user_id(user_id)
     all_ratings_dic = {}
 
     for rating in all_ratings:
