@@ -7,6 +7,7 @@ import BookOverview from './components/book_overview/book_overview';
 import Reviews from './components/reviews/reviews';
 import UserReviews from './components/user_reviews/user_reviews';
 import AllUsers from './components/all_users/all_users';
+import UserDetails from './components/user_details/user_details';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Reviews />
       <UserReviews />
       <AllUsers />
+      <UserDetails />
     </div>
   )
 }
