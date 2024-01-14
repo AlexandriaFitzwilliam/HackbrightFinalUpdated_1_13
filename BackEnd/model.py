@@ -30,6 +30,19 @@ class User(db.Model):
         return f'<User user_id={self.user_id} username={self.username}>'
     
     @classmethod
+    def create(username, password):
+        """Creates a new user"""
+
+        user = User(username=username,
+                    password=password,
+                    profile_pic="test",
+                    avg_rating=0,
+                    num_rating=0,
+                    about_me="Here's a little thing about me...")
+        
+        return user
+
+    @classmethod
     def get_all(self):
         """Returns all users."""
 
@@ -40,6 +53,12 @@ class User(db.Model):
         """Returns a user by their user_id"""
 
         return User.query.filter(User.user_id == user_id).one()
+    
+    @classmethod
+    def get_by_username(self, username):
+        """Returns a user by their username."""
+
+        return User.query.filter(User.username == username).first()
     
     def to_dict(self):
         """Returns info of each user as a dictionary"""
