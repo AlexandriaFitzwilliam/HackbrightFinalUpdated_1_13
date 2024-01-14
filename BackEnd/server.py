@@ -79,7 +79,7 @@ def get_all_ratings_for_user(user_id):
     for rating in all_ratings:
         all_ratings_dict[rating.rating_id] = rating.to_dict()
 
-    return jsonify(all_ratings_dic)
+    return jsonify(all_ratings_dict)
 
 
 if __name__ == "__main__":
