@@ -2,7 +2,7 @@
 
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
-from model import db ,connect_to_db, Rating, User
+from model import db ,connect_to_db, Rating, User, Book
 import crud
 from jinja2 import StrictUndefined
 
@@ -29,7 +29,7 @@ def get_user(user_id):
 @app.route('/api/book/<book_id>')
 def get_one_book_by_id(book_id):
 
-    book = crud.get_book_by_id(book_id)
+    book = Book.get_by_id(book_id)
 
     return jsonify(book.to_dict())
 
