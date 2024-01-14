@@ -1,8 +1,6 @@
 import React from 'react';
-import { useState } from 'react'
 import './shelf_details.css';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import BookCard from '../book_details/book_details'
 
 const ShelfDetails = (props) => {
     const [books, setBooks] = React.useState({})
@@ -35,47 +33,47 @@ const ShelfDetails = (props) => {
     return (
         <div>
             <h1>Shelf Name Goes Here</h1>
-            <span>
-              {bookCards}
-            </span>
+            <span></span>
+            {bookCards}
+            
         </div>
-    );
+    )
 }
 
 export default ShelfDetails
 
 
-function BookCard(props) {
-  const {
-    // id, 
-    title, 
-    author, 
-    // overview, 
-    // publish_date, 
-    // cover_pic,
-    avg_rating,
-    // num_ratings
-                  } = props;
-    return (
-        <div className='bookcard'>
+// function BookCard(props) {
+//   const {
+//     // id, 
+//     title, 
+//     author, 
+//     // overview, 
+//     // publish_date, 
+//     // cover_pic,
+//     avg_rating,
+//     // num_ratings
+//                   } = props;
+//     return (
+//         <div className='bookcard'>
             
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>
-                {author}
-                </Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-                <ListGroup.Item>Average Rating: {avg_rating}</ListGroup.Item>
-                {/* <ListGroup.Item>Number of Ratings: {num_ratings}</ListGroup.Item> */}
-            </ListGroup>
-            <Card.Body>
-                <Card.Link href="#">Book Details</Card.Link>
-            </Card.Body>
-            </Card>
+//             <Card style={{ width: '18rem' }}>
+//             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+//             <Card.Body>
+//                 <Card.Title>{title}</Card.Title>
+//                 <Card.Text>
+//                 {author}
+//                 </Card.Text>
+//             </Card.Body>
+//             <ListGroup className="list-group-flush">
+//                 <ListGroup.Item>Average Rating: {avg_rating}</ListGroup.Item>
+//                 {/* <ListGroup.Item>Number of Ratings: {num_ratings}</ListGroup.Item> */}
+//             </ListGroup>
+//             <Card.Body>
+//                 <Card.Link href="#">Book Details</Card.Link>
+//             </Card.Body>
+//             </Card>
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
