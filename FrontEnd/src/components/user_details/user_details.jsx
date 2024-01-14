@@ -14,16 +14,7 @@ const UserDetails = () => {
           .then((result) => setUserInfo(result));
       }, []);
 
-    //   for (const [key, value] of Object.entries(userInfo)) {
-    //     const key = value
-    //     console.log(`key`)
-    //   }
-
-    // console.log(`object.entries(userInfo) = ${userInfo.username}`)
-
-
-
-
+      
     return (
         <div>
             <h1>User Details go here. Are you updating?</h1>
@@ -44,7 +35,8 @@ const UserDetails = () => {
             <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
             <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
         </ListGroup>
-        <UserReviews />
+        <h4>The below user ratings are done through the user_details page.</h4>
+        <UserReviews user_id={userInfo.user_id}/>
         </div>
 
         </div>
@@ -52,23 +44,3 @@ const UserDetails = () => {
 }
 
 export default UserDetails
-
-// function UserInfo(props) {
-//     const {username} = props;
-
-//     return (
-//         <div className='user-details'>
-//             <Figure>
-//         {/* <Figure.Image
-//             width={171}
-//             height={180}
-//             alt="171x180"
-//             src="holder.js/171x180"
-//         /> */}
-//         <Figure.Caption>
-//             Username: {username}
-//         </Figure.Caption>
-//         </Figure>
-//         </div>
-//     )
-// }

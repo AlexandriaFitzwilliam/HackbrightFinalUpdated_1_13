@@ -2,10 +2,23 @@ import React from 'react';
 import './user_reviews.css';
 import Card from 'react-bootstrap/Card';
 
-const UserReviews = () => {
+const UserReviews = (props) => {
+    const {user_id} = props
     const [ratings, setRatings] = React.useState({})
     const ratingCards = []
 
+    console.log("**************************")
+    console.log(`${user_id}`)
+    console.log("**************************")
+
+    const url = `/api/user_ratings/${user_id}`
+    console.log("**************************")
+    console.log(typeof user_id)
+    console.log(typeof url)
+    console.log("**************************")
+
+
+    // I dont know why this isn't working!!!!!!!
     React.useEffect(() => {
         fetch(`/api/user_ratings/1`)
           .then((response) => response.json())
@@ -25,7 +38,7 @@ const UserReviews = () => {
 
     return (
         <div>
-            <h1>Ratings go here</h1>
+            <h1>One User's Ratings go here</h1>
             <span>{ratingCards}</span>
 
         </div>
