@@ -2,7 +2,7 @@
 
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
-from model import db ,connect_to_db, Rating
+from model import db ,connect_to_db, Rating, User
 import crud
 from jinja2 import StrictUndefined
 
@@ -50,22 +50,34 @@ def get_all_books_in_shelf(shelf_id):
 def get_all_ratings_for_book(book_id):
 
     all_ratings = Rating.get_by_book_id(book_id)
-    all_ratings_dic = {}
+    all_ratings_dict = {}
 
     for rating in all_ratings:
-        all_ratings_dic[rating.rating_id] = rating.to_dict()
+        all_ratings_dict[rating.rating_id] = rating.to_dict()
 
-    return jsonify(all_ratings_dic)
+    return jsonify(all_ratings_dict)
+
+
+@app.route('/api/all_users')
+def get_all_users():
+
+    all_users = User.get_all()
+    all_users_dict = {}
+
+    for user in all_users:
+        all_users_dict[user.user_id] = user.to_dict()
+
+    return jsonify(all_users_dict)
 
 
 @app.route('/api/user_ratings/<int:user_id>')
 def get_all_ratings_for_user(user_id):
 
     all_ratings = Rating.get_by_user_id(user_id)
-    all_ratings_dic = {}
+    all_ratings_dict = {}
 
     for rating in all_ratings:
-        all_ratings_dic[rating.rating_id] = rating.to_dict()
+        all_ratings_dict[rating.rating_id] = rating.to_dict()
 
     return jsonify(all_ratings_dic)
 

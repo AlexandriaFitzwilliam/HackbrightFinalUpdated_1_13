@@ -29,6 +29,25 @@ class User(db.Model):
 
         return f'<User user_id={self.user_id} username={self.username}>'
     
+    @classmethod
+    def get_all(self):
+        """Returns all users."""
+
+        return User.query.all()
+    
+    def to_dict(self):
+        """Returns info of each user as a dictionary"""
+
+        return {
+            'user_id':self.user_id,
+            'username':self.username,
+            'password':self.password,
+            'profile_pic':self.profile_pic,
+            'avg_rating':self.avg_rating,
+            'num_rating':self.num_rating,
+            'about_me':self.about_me
+        }
+    
 
 
 class Book(db.Model):
