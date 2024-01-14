@@ -35,6 +35,12 @@ class User(db.Model):
 
         return User.query.all()
     
+    @classmethod
+    def get_by_id(self, user_id):
+        """Returns a user by their user_id"""
+
+        return User.query.filter(User.user_id == user_id).one()
+    
     def to_dict(self):
         """Returns info of each user as a dictionary"""
 

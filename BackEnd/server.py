@@ -18,12 +18,12 @@ def homepage():
     return render_template('base.html')
 
 
-@app.route('/api/<username>')
-def get_user(username):
+@app.route('/api/user/<user_id>')
+def get_user(user_id):
 
-    user = crud.get_user_by_username(username)
+    user = User.get_by_id(user_id)
 
-    return jsonify(user)
+    return jsonify(user.to_dict())
 
 
 @app.route('/api/book/<book_id>')
