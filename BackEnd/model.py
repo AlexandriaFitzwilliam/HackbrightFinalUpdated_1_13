@@ -121,6 +121,20 @@ class Rating(db.Model):
 
     def __repr__(self):
         return f'<Rating rating_id={self.rating_id} book_id={self.book_id}>'
+    
+    @classmethod
+    def get_by_book_id(self, book_id):
+        """Returns a Rating based off a given book_id"""
+
+        return Rating.query.filter(Rating.book_id == book_id).all()
+    
+    def to_dict(self):
+        return { 'rating_id' : self.rating_id,
+                'score' : self.score,
+                'book_id' : self.book_id,
+                'user_id' : self.user_id
+        }
+
 
 
 class Shelf(db.Model):

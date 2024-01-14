@@ -68,7 +68,7 @@ def get_book_by_title(title):
 
 
 def get_books_by_shelf_id(shelf_id):
-    """Return all books"""
+    """Return all books in a shelf"""
 
     books_in_shelf = []
     bookshelves = db.session.query(BookShelf).join(Book).all()
