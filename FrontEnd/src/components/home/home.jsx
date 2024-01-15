@@ -7,6 +7,7 @@ const Home = () => {
 
     return (
         <div>
+            <h1>Log in</h1>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Username</Form.Label>

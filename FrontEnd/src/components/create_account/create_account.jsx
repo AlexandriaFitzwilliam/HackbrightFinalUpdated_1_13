@@ -7,6 +7,7 @@ const CreateAccount = () => {
 
     return (
         <div>
+            <h1>Create Account</h1>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Username</Form.Label>
