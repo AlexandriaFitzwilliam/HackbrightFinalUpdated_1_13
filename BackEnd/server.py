@@ -18,6 +18,19 @@ def homepage():
     return render_template('base.html')
 
 
+@app.route('/api/user/<username>')
+def get_user_with_username(username):
+    """Gets a user object from the db and returns"""
+
+    user = User.get_by_username(username)
+
+    if user == None:
+        return None
+    else:
+        return jsonify(user.to_dict())
+
+
+
 @app.route('/api/user/<user_id>')
 def get_user(user_id):
 

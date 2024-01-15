@@ -8,6 +8,7 @@ import Reviews from './components/reviews/reviews';
 import UserReviews from './components/user_reviews/user_reviews';
 import AllUsers from './components/all_users/all_users';
 import UserDetails from './components/user_details/user_details';
+import CreateAccount from './components/create_account/create_account';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Header />
       <Home />
+      <CreateAccount />
       <ShelfDetails />
       <BookOverview />
       <Reviews />
