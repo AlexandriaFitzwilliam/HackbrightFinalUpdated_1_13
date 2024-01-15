@@ -17,7 +17,7 @@ const UserDetails = () => {
       
     return (
         <div>
-            <h1>User Details go here. Are you updating?</h1>
+            <h1>User Details go here.</h1>
             <div className='user-details'>
             <Figure>
                 <Figure.Image

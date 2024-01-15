@@ -31,8 +31,8 @@ function App() {
       <CreateAccount />
       <ShelfDetails />
       <BookOverview />
-      <Reviews />
-      <UserReviews />
+      {/* <Reviews /> */}
+      {/* <UserReviews /> */}
       <AllUsers />
       <UserDetails />
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './book_overview.css';
+import Reviews from '../reviews/reviews'
 
 
 function BookOverview(props) {
@@ -32,6 +33,8 @@ function BookOverview(props) {
               <h5>{num_rating}</h5>
               <h5>{publish_date}</h5>
               <p>{overview}</p>
+              <h5>The below reviews are done through reviews page</h5>
+              <Reviews />
   
           </div>
       )
