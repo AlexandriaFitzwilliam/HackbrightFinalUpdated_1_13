@@ -8,7 +8,7 @@ const UserReviews = (props) => {
     const ratingCards = []
 
     console.log("**************************")
-    console.log(`${user_id}`)
+    console.log(`user_id=${user_id}`)
     console.log("**************************")
 
     const url = `/api/user_ratings/${user_id}`
@@ -20,10 +20,10 @@ const UserReviews = (props) => {
 
     // I dont know why this isn't working!!!!!!!
     React.useEffect(() => {
-        fetch(`/api/user_ratings/1`)
+        fetch(`/api/user_ratings/${user_id}`)
           .then((response) => response.json())
           .then((result) => setRatings(result));
-      }, []);
+      }, [user_id]);
 
       for (const rating of Object.values(ratings)) {
         const ratingCard = (
@@ -35,7 +35,7 @@ const UserReviews = (props) => {
         ratingCards.push(ratingCard)
       }
 
-
+      
     return (
         <div>
             <h1>One User's Ratings go here</h1>

@@ -12,9 +12,10 @@ const UserDetails = () => {
         fetch(`/api/user/1`)
           .then((response) => response.json())
           .then((result) => setUserInfo(result));
-      }, []);
+    }, []);
 
-      
+    // console.log(`userInfo.user_id=${userInfo.user_id}`)
+    // console.log(userInfo, 'line 18')
     return (
         <div>
             <h1>User Details go here.</h1>

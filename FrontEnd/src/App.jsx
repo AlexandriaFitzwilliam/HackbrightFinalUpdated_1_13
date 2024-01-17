@@ -1,7 +1,9 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom';
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-dom";
 import Header from './components/headers/header';
 import Home from './components/home/home';
 import ShelfDetails from './components/about/shelf_details';
@@ -16,7 +18,7 @@ function App() {
 
   return (
     <div>
-      {/* <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="shelf" element={<ShelfDetails />} />
           <Route path="book" element={<BookOverview />} />
@@ -25,16 +27,16 @@ function App() {
           <Route path="homepage" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
         </Routes>
-      </BrowserRouter> */}
-      <Header />
+      </Router>
+      {/* <Header />
       <Home />
       <CreateAccount />
       <ShelfDetails />
-      <BookOverview />
-      {/* <Reviews /> */}
-      {/* <UserReviews /> */}
+      <BookOverview /> 
+      <Reviews />
+      <UserReviews />
       <AllUsers />
-      <UserDetails />
+      <UserDetails /> */}
     </div>
   );
 }

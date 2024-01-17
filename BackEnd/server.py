@@ -31,15 +31,14 @@ def get_user_with_username(username):
 
 
 
-@app.route('/api/user/<user_id>')
+@app.route('/api/user/<int:user_id>')
 def get_user(user_id):
 
     user = User.get_by_id(user_id)
-
     return jsonify(user.to_dict())
 
 
-@app.route('/api/book/<book_id>')
+@app.route('/api/book/<int:book_id>')
 def get_one_book_by_id(book_id):
 
     book = Book.get_by_id(book_id)
