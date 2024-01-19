@@ -7,18 +7,6 @@ const UserReviews = (props) => {
     const [ratings, setRatings] = React.useState({})
     const ratingCards = []
 
-    console.log("**************************")
-    console.log(`user_id=${user_id}`)
-    console.log("**************************")
-
-    const url = `/api/user_ratings/${user_id}`
-    console.log("**************************")
-    console.log(typeof user_id)
-    console.log(typeof url)
-    console.log("**************************")
-
-
-    // I dont know why this isn't working!!!!!!!
     React.useEffect(() => {
         fetch(`/api/user_ratings/${user_id}`)
           .then((response) => response.json())

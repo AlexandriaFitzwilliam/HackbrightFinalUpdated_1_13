@@ -1,11 +1,11 @@
 import React from 'react';
 import './all_users.css';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import {Link} from "react-router-dom";
 
 const AllUsers = () => {
-    const [users, setUsers] = React.useState({})
-    const userCards = []
+    const [users, setUsers] = React.useState({});
+    const userCards = [];
 
     React.useEffect(() => {
         fetch(`/api/all_users`)
@@ -20,6 +20,7 @@ const AllUsers = () => {
             avg_rating={user.avg_rating}
             num_ratings={user.num_ratings}
             profile_pic={user.profile_pic}
+            id={user.user_id}
             />
         );
         userCards.push(userCard)
@@ -38,20 +39,19 @@ const AllUsers = () => {
 export default AllUsers
 
 function UserCard(props) {
-    const {username, avg_rating, num_ratings, profile_pic} = props;
-
+    const {username, avg_rating, num_ratings, profile_pic, user_id} = props;
 
     return (
-        <div className='usercard'>
+        <div className='usercard' id={user_id}>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>{username}}</Card.Title>
+        <Card.Title>{username}</Card.Title>
         <Card.Text>
           Number of Ratings: {num_ratings}
           Average Rating: {avg_rating}
         </Card.Text>
-        <Button variant="primary">View User</Button>
+        <Link to="/user_details">View User</Link>
       </Card.Body>
     </Card>
             <br />
