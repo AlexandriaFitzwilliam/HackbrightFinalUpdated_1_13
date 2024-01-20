@@ -30,6 +30,17 @@ def get_user_with_username(username):
         return jsonify(user.to_dict())
 
 
+@app.route('/api/create_account/<username>/<password>')
+def create_account(username, password):
+    """Adds a new user to db."""
+
+    print("*******************************")
+    print("*******************************")
+    print(f'username={username}')
+    print(f'password={password}')
+    print("*******************************")
+    print("*******************************")
+
 
 @app.route('/api/user/<int:user_id>')
 def get_user(user_id):

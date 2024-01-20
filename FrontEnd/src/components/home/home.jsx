@@ -4,26 +4,37 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Home = () => {
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const user = {username, password}
+        console.log(user)
+    }
 
     return (
         <div>
             <h1>Log in</h1>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Username</Form.Label>
-                    <Form.Control type="username" placeholder="Enter username" />
+                    <Form.Control type="username" placeholder="Enter username" 
+                    value={username} onChange={(e)=>setUsername(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" 
+                    value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
                 <br></br>
-                <Button variant="primary" type="submit">
+                {/* <Button variant="primary" type="submit">
                     Create Account
-                </Button>
+                </Button> */}
             </Form>
         </div>
     )

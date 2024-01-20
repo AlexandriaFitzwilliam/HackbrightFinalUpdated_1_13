@@ -14,7 +14,14 @@ const CreateAccount = () => {
         const newUser={newUsername, newPassword}
     
         console.log(newUser)
+
+
+        fetch(`/api/create_account/${newUsername}/${newPassword}`)
+
+
     }
+
+    
 
 
 
