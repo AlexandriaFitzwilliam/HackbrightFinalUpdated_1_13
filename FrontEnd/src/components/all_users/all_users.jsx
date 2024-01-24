@@ -2,10 +2,12 @@ import React from 'react';
 import './all_users.css';
 import Card from 'react-bootstrap/Card';
 import {Link} from "react-router-dom";
+// import {Link, useRouteMatch} from "react-router-dom";
 
 const AllUsers = () => {
     const [users, setUsers] = React.useState({});
     const userCards = [];
+    // let {path, url} = useRouteMatch();
 
     React.useEffect(() => {
         fetch(`/api/all_users`)
@@ -51,7 +53,7 @@ function UserCard(props) {
           Number of Ratings: {num_ratings}
           Average Rating: {avg_rating}
         </Card.Text>
-        <Link to="/user_details">View User</Link>
+        <Link to={`/user/:${user_id}`}>View User</Link>
       </Card.Body>
     </Card>
             <br />

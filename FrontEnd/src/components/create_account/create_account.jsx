@@ -16,8 +16,18 @@ const CreateAccount = () => {
         console.log(newUser)
 
 
-        fetch(`/api/create_account/${newUsername}/${newPassword}`)
-
+        // fetch(`/api/create_account/${newUsername}/${newPassword}`)
+        fetch('/api/create_account', {
+            method: 'POST',
+            body: JSON.stringify(newUser),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson.success);
+            });
 
     }
 

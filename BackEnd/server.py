@@ -30,9 +30,12 @@ def get_user_with_username(username):
         return jsonify(user.to_dict())
 
 
-@app.route('/api/create_account/<username>/<password>')
-def create_account(username, password):
+@app.route('/api/create_account', methods=["POST"])
+def create_account():
     """Adds a new user to db."""
+
+    username=request.json.get("newUsername")
+    password=request.json.get("newPassword")
 
     print("*******************************")
     print("*******************************")
@@ -40,6 +43,15 @@ def create_account(username, password):
     print(f'password={password}')
     print("*******************************")
     print("*******************************")
+
+    # new_user=User.create(username,password)
+
+    # db.session.add(new_user)
+    # db.session.commit()
+
+    return {
+        "success":True
+    }
 
 
 @app.route('/api/user/<int:user_id>')

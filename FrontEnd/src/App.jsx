@@ -22,7 +22,7 @@ function App() {
           <Route path="shelf" element={<ShelfDetails />} />
           <Route path="book" element={<BookOverview />} />
           <Route path="all_users" element={<AllUsers />} />
-          <Route path="user_details" element={<UserDetails />} />
+          <Route path="user" element={<UserDetails />} />
           <Route path="homepage" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
         </Routes>

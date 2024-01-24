@@ -3,16 +3,19 @@ import './user_details.css';
 import Figure from 'react-bootstrap/Figure';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UserReviews from '../user_reviews/user_reviews'
+// import {useParams, useRouteMatch} from "react-router-dom"
 
 
 const UserDetails = () => {
     const [userInfo, setUserInfo] = React.useState({})
+    // const {user_id} = useParams();
+    // console.log(`user_id=${user_id}`)
 
-    React.useEffect(() => {
-        fetch(`/api/user/1`)
-          .then((response) => response.json())
-          .then((result) => setUserInfo(result));
-    }, []);
+    // React.useEffect(() => {
+    //     fetch(`/api/user/${user_id}`)
+    //       .then((response) => response.json())
+    //       .then((result) => setUserInfo(result));
+    // }, [user_id]);
 
     // console.log(`userInfo.user_id=${userInfo.user_id}`)
     // console.log(userInfo, 'line 18')
