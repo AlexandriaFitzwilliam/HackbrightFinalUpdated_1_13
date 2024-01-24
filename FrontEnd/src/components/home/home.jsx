@@ -9,9 +9,19 @@ const Home = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        const userLogin = {username, password}
 
-        const user = {username, password}
-        console.log(user)
+        fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify(userLogin),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson.success);
+            });
     }
 
     return (

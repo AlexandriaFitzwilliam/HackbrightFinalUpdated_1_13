@@ -34,23 +34,39 @@ def get_user_with_username(username):
 def create_account():
     """Adds a new user to db."""
 
-    username=request.json.get("newUsername")
-    password=request.json.get("newPassword")
+    new_username=request.json.get("newUsername")
+    new_password=request.json.get("newPassword")
+    success=False
 
-    print("*******************************")
-    print("*******************************")
-    print(f'username={username}')
-    print(f'password={password}')
-    print("*******************************")
-    print("*******************************")
-
-    # new_user=User.create(username,password)
-
-    # db.session.add(new_user)
-    # db.session.commit()
+    if User.get_by_username(new_username)==None:
+        new_user = User.create(new_username,new_password)
+        db.session.add(new_user)
+        db.session.commit()
+        success=True
 
     return {
-        "success":True
+        "success":success
+    }
+
+
+@app.route('/api/login', methods=["POST"])
+def attempt_login():
+    """Sees if login matches db."""
+    username=request.json.get("username")
+    password=request.json.get("password")
+
+    user = User.get_by_username(username)
+
+    if user == None or password != user.password:
+        success = False
+    elif password == user.password:
+        success = True
+    else:
+        print("Something is wrong in attempt_login")
+        success = False
+
+    return {
+        "success":success
     }
 
 

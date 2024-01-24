@@ -9,14 +9,9 @@ const CreateAccount = () => {
 
 
     function handleSubmit(e) {
-
         e.preventDefault();
         const newUser={newUsername, newPassword}
-    
-        console.log(newUser)
 
-
-        // fetch(`/api/create_account/${newUsername}/${newPassword}`)
         fetch('/api/create_account', {
             method: 'POST',
             body: JSON.stringify(newUser),
@@ -30,9 +25,6 @@ const CreateAccount = () => {
             });
 
     }
-
-    
-
 
 
     return (
