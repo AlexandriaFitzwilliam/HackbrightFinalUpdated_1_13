@@ -12,6 +12,7 @@ import UserReviews from './components/user_reviews/user_reviews';
 import AllUsers from './components/all_users/all_users';
 import UserDetails from './components/user_details/user_details';
 import CreateAccount from './components/create_account/create_account';
+import LoggedInHome from './components/logged_in_home/logged_in_home';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="user" element={<UserDetails />} />
           <Route path="homepage" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
+          <Route path="user_home" element={<LoggedInHome />} />
         </Routes>
       </BrowserRouter> }
       {/* <Header />
