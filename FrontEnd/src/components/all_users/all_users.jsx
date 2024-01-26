@@ -53,7 +53,7 @@ function UserCard(props) {
           Number of Ratings: {num_ratings}
           Average Rating: {avg_rating}
         </Card.Text>
-        <Link to={`/user/:${user_id}`}>View User</Link>
+        <Link to={`/user/${user_id}`}>View User</Link>
       </Card.Body>
     </Card>
             <br />

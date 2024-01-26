@@ -70,7 +70,7 @@ def attempt_login():
     }
 
 
-@app.route('/api/user/<int:user_id>')
+@app.route('/api/userid/<int:user_id>')
 def get_user(user_id):
 
     user = User.get_by_id(user_id)

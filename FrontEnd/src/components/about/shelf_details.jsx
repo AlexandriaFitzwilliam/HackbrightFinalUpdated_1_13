@@ -3,14 +3,15 @@ import './shelf_details.css';
 import BookCard from '../book_details/book_details'
 
 const ShelfDetails = (props) => {
-    const [books, setBooks] = React.useState({})
-    const bookCards = []
+    const {user_id} = props;
+    const [books, setBooks] = React.useState({});
+    const bookCards = [];
 
   React.useEffect(() => {
-    fetch(`/api/view_all/5`)
+    fetch(`/api/view_all/${user_id}`)
       .then((response) => response.json())
       .then((result) => setBooks(result));
-  }, []);
+  }, [user_id]);
 
   for (const book of Object.values(books)) {
         const bookCard = (

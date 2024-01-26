@@ -23,7 +23,7 @@ function App() {
           <Route path="shelf" element={<ShelfDetails />} />
           <Route path="book" element={<BookOverview />} />
           <Route path="all_users" element={<AllUsers />} />
-          <Route path="user" element={<UserDetails />} />
+          <Route path="user/:id" element={<UserDetails />} />
           <Route path="homepage" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
           <Route path="user_home" element={<LoggedInHome />} />
