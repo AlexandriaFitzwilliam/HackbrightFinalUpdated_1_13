@@ -9,15 +9,16 @@ import {useParams} from "react-router-dom"
 const UserDetails = (props) => {
     const {user_id} = props;
     const [userInfo, setUserInfo] = React.useState({});
-    const {id} = useParams()
+    let { id } = useParams();
+    console.log(id)
 
     console.log('*****************')
-    console.log(id)
+    console.log(params.id)
     console.log('*****************')
     console.log(user_id)
 
     React.useEffect(() => {
-        fetch(`/api/userid/${id}`)
+        fetch(`/api/userid/${user_id}`)
           .then((response) => response.json())
           .then((result) => setUserInfo(result));
     }, [user_id]);
