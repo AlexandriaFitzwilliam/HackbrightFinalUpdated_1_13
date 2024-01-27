@@ -214,16 +214,34 @@ class Rating(db.Model):
         return f'<Rating rating_id={self.rating_id} book_id={self.book_id}>'
     
     @classmethod
+    def create(self, user_id, book_id, score):
+        """Creates and returns a new rating"""
+
+        rating = Rating(
+            user_id=user_id,
+            book_id=book_id,
+            score=score
+        )
+
+        return rating
+    
+    @classmethod
     def get_by_book_id(self, book_id):
-        """Returns a Rating based off a given book_id"""
+        """Returns all Ratings based off a given book_id"""
 
         return Rating.query.filter(Rating.book_id == book_id).all()
     
     @classmethod
     def get_by_user_id(self, user_id):
-        """Returns a Rating based off a given user_id"""
+        """Returns a Ratings based off a given user_id"""
 
         return Rating.query.filter(Rating.user_id == user_id).all()
+    
+    @classmethod
+    def get_by_user_and_book(self, user_id, book_id):
+        """Returns one rating based off user and book combo"""
+
+        return Rating.query.filter(Rating.user_id == user_id, Rating.book_id == book_id).first()
     
     def to_dict(self):
         return { 'rating_id' : self.rating_id,

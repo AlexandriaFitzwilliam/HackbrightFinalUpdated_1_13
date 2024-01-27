@@ -3,26 +3,32 @@ import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const CreateRating = (props) => {
-    const [score, setScore] = React.useState("1");
-    const {book_id, user_id} = props
+const CreateRating = () => {
+    const [score, setScore] = React.useState(1);
+    // const {book_id, user_id} = props
+    const book_id = 1;
+    const user_id = 4;
+
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        
 
-        // fetch('/api/create_account', {
-        //     method: 'POST',
-        //     body: JSON.stringify(newUser),
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //       console.log(responseJson.success);
-        //     });
+        console.log(score)
+        const newRating = {user_id, book_id, score}
+    
+
+        fetch('/api/create_rating', {
+            method: 'POST',
+            body: JSON.stringify(newRating),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson.success);
+            });
 
     }
 
@@ -33,7 +39,11 @@ const CreateRating = (props) => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
                     <Form.Label>Book Title Goes Here</Form.Label>
-                    <Form.Select aria-label="Choose a rating">
+                    <Form.Select 
+                    aria-label="Choose a rating"
+                    value={score} 
+                    onChange={e=>setScore(e.target.value)}
+                    >
                         <option>Choose a rating</option>
                         <option value="1">One Star</option>
                         <option value="2">Two Stars</option>

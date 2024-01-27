@@ -133,6 +133,27 @@ def get_all_ratings_for_user(user_id):
     return jsonify(all_ratings_dict)
 
 
+@app.route('/api/create_rating', methods=["POST"])
+def attempt_create_rating():
+    """Sees if login matches db."""
+    user_id=request.json.get("user_id")
+    book_id=request.json.get("book_id")
+    score=request.json.get("score")
+
+    rating = Rating.get_by_user_and_book(user_id=user_id, book_id=book_id)
+
+    if rating:
+        success=False
+    else:
+        new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score)
+        db.session.add(new_rating)
+        db.session.commit()
+        success=True
+
+    return {
+        "success":success
+    }
+
 if __name__ == "__main__":
     # with app.app_context():
 
