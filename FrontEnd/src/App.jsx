@@ -25,7 +25,7 @@ function App() {
           <Route path="book" element={<BookOverview />} />
           <Route path="all_users" element={<AllUsers />} />
           <Route 
-            path="user/:id" 
+            path="/all_users/user/:id" 
             element={<UserDetails />} 
             loader={({ id }) => {console.log(id)}}
           /> 

@@ -13,12 +13,11 @@ const UserDetails = (props) => {
     console.log(id)
 
     console.log('*****************')
-    console.log(params.id)
+    console.log(id)
     console.log('*****************')
-    console.log(user_id)
 
     React.useEffect(() => {
-        fetch(`/api/userid/${user_id}`)
+        fetch(`/api/userid/${id}`)
           .then((response) => response.json())
           .then((result) => setUserInfo(result));
     }, [user_id]);

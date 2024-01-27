@@ -2,12 +2,10 @@ import React from 'react';
 import './all_users.css';
 import Card from 'react-bootstrap/Card';
 import {Link} from "react-router-dom";
-// import {Link, useRouteMatch} from "react-router-dom";
 
 const AllUsers = () => {
     const [users, setUsers] = React.useState({});
     const userCards = [];
-    // let {path, url} = useRouteMatch();
 
     React.useEffect(() => {
         fetch(`/api/all_users`)
