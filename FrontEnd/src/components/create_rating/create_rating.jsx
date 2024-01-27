@@ -3,48 +3,45 @@ import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const CreateRating = () => {
-    const [newUsername, setNewUsername] = React.useState("");
-    const [newPassword, setNewPassword] = React.useState("");
+const CreateRating = (props) => {
+    const [score, setScore] = React.useState("1");
+    const {book_id, user_id} = props
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        const newUser={newUsername, newPassword}
+        
 
-        fetch('/api/create_account', {
-            method: 'POST',
-            body: JSON.stringify(newUser),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          })
-            .then((response) => response.json())
-            .then((responseJson) => {
-              console.log(responseJson.success);
-            });
+        // fetch('/api/create_account', {
+        //     method: 'POST',
+        //     body: JSON.stringify(newUser),
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //   })
+        //     .then((response) => response.json())
+        //     .then((responseJson) => {
+        //       console.log(responseJson.success);
+        //     });
 
     }
 
 
     return (
         <div>
-            <h1>Create Account</h1>
+            <h1>Create Rating</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="username" placeholder="Enter username" 
-                    value={newUsername} onChange={(e)=>setNewUsername(e.target.value)}/>
+                    <Form.Label>Book Title Goes Here</Form.Label>
+                    <Form.Select aria-label="Choose a rating">
+                        <option>Choose a rating</option>
+                        <option value="1">One Star</option>
+                        <option value="2">Two Stars</option>
+                        <option value="3">Three Stars</option>
+                        <option value="4">Four Stars</option>
+                        <option value="5">Five Stars</option>
+                    </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" 
-                    value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}/>
-                </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Retype Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group> */}
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
