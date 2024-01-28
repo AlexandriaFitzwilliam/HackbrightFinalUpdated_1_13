@@ -2,19 +2,19 @@ import React from 'react';
 import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {useParams} from "react-router-dom"
+import {redirect, useParams} from "react-router-dom"
 
 const CreateRating = () => {
     const [score, setScore] = React.useState(1);
     let { book } = useParams();
-    const user_id = 11;
+    const user_id = 12;
 
 
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(score)
+        console.log(book)
         const newRating = {user_id, book, score}
     
 
@@ -27,7 +27,10 @@ const CreateRating = () => {
           })
             .then((response) => response.json())
             .then((responseJson) => {
-              console.log(responseJson.success);
+              console.log(responseJson.success)
+              if (responseJson.succes == true) {
+                return redirect('/home');
+              }
             });
 
     }
