@@ -7,7 +7,7 @@ const CreateRating = () => {
     const [score, setScore] = React.useState(1);
     // const {book_id, user_id} = props
     const book_id = 1;
-    const user_id = 4;
+    const user_id = 11;
 
 
 

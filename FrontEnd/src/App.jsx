@@ -1,7 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/headers/header';
 import Home from './components/home/home';
@@ -20,30 +19,22 @@ function App() {
   return (
     <div>
       { <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="shelf" element={<ShelfDetails />} />
           <Route path="book" element={<BookOverview />} />
-          <Route path="all_users" element={<AllUsers />} />
+          <Route path="users" element={<AllUsers />} />
           <Route 
-            path="/all_users/user/:id" 
+            path="/users/user/:id" 
             element={<UserDetails />} 
             loader={({ id }) => {console.log(id)}}
           /> 
-          <Route path="homepage" element={<Home />} />
+          <Route path="login" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
           <Route path="user_home" element={<LoggedInHome />} />
           <Route path="create_rating" element={<CreateRating />} />
         </Routes>
       </BrowserRouter> }
-      {/* <Header />
-      <Home />
-      <CreateAccount />
-      <ShelfDetails />
-      <BookOverview /> 
-      <Reviews />
-      <UserReviews />
-      <AllUsers />
-    <UserDetails /> */}
     </div>
   );
 }
