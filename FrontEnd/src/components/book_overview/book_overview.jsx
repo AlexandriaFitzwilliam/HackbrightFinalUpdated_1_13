@@ -1,6 +1,7 @@
 import React from 'react';
 import './book_overview.css';
 import Reviews from '../reviews/reviews'
+import {Link} from "react-router-dom";
 
 
 function BookOverview(props) {
@@ -34,6 +35,7 @@ function BookOverview(props) {
               <h5>{publish_date}</h5>
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>
+              <Link to={`create_rating/${book_id}`}>Add Rating</Link>
               <Reviews />
   
           </div>

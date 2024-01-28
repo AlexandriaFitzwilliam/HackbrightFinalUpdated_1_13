@@ -31,8 +31,11 @@ function App() {
           /> 
           <Route path="login" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
-          <Route path="user_home" element={<LoggedInHome />} />
-          <Route path="create_rating" element={<CreateRating />} />
+          <Route path="home" element={<LoggedInHome />} />
+          <Route path="book/create_rating/:book" 
+          element={<CreateRating />} 
+          loader={({ book }) => console.log(book)}
+          />
         </Routes>
       </BrowserRouter> }
     </div>

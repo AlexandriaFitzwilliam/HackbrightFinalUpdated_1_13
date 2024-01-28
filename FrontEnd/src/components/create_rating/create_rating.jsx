@@ -2,11 +2,11 @@ import React from 'react';
 import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import {useParams} from "react-router-dom"
 
 const CreateRating = () => {
     const [score, setScore] = React.useState(1);
-    // const {book_id, user_id} = props
-    const book_id = 1;
+    let { book } = useParams();
     const user_id = 11;
 
 
@@ -15,7 +15,7 @@ const CreateRating = () => {
         e.preventDefault();
 
         console.log(score)
-        const newRating = {user_id, book_id, score}
+        const newRating = {user_id, book, score}
     
 
         fetch('/api/create_rating', {
