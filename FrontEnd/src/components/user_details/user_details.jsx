@@ -38,7 +38,7 @@ const UserDetails = (props) => {
                 </Figure.Caption>
         </Figure>
         <ListGroup>
-            <ListGroup.Item>Number of Ratings: {userInfo.num_ratings}</ListGroup.Item>
+            <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
             <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
             <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
         </ListGroup>

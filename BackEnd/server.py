@@ -154,6 +154,19 @@ def attempt_create_rating():
         "success":success
     }
 
+@app.route('/api/search_title', methods=["POST"])
+def search_books_title():
+    """Looks in db for book with that title"""
+
+    title=request.json.get("partial")
+    title=title.lower()
+    success=False
+
+    return {
+        "success":success
+    }
+
+
 if __name__ == "__main__":
     # with app.app_context():
 

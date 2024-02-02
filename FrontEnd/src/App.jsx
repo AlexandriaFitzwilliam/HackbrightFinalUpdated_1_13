@@ -15,6 +15,7 @@ import LoggedInHome from './components/logged_in_home/logged_in_home';
 import CreateRating from './components/create_rating/create_rating';
 
 function App() {
+  const user_id=11;
 
   return (
     <div>
@@ -31,7 +32,7 @@ function App() {
           /> 
           <Route path="login" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
-          <Route path="home" element={<LoggedInHome />} />
+          <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
           <Route path="book/create_rating/:book" 
           element={<CreateRating />} 
           loader={({ book }) => console.log(book)}
