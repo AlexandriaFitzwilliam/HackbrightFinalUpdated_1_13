@@ -146,6 +146,23 @@ class Book(db.Model):
                 books_in_shelf.append(bookshelf.book)
 
         return books_in_shelf
+    
+    
+    # def add_rating(self):
+    #     self.num_rating += 1
+        
+    #     ratings = Rating.query.filter(book_id==self.book_id).all()
+    #     total_ratings = 0
+    #     total_score = 0
+
+    #     for rating in ratings:
+    #         total_score += rating.score
+    #         total_ratings += 1
+
+    #     self.avg_rating = total_score / total_ratings
+
+    #     return
+
 
     def to_dict(self):
         return { 'book_id' : self.book_id,
@@ -222,6 +239,23 @@ class Rating(db.Model):
             book_id=book_id,
             score=score
         )
+        db.session.add(rating)
+        db.session.commit()
+
+        # rating.book.num_rating += 1
+        # rating.user.num_rating += 1
+        
+        total_user_score = rating.user.avg_rating * rating.user.num_rating
+        rating.user.num_rating += 1
+        total_user_score += score
+        rating.user.avg_rating = total_user_score / rating.user.num_rating
+
+        total_book_score = rating.book.avg_rating * rating.book.num_rating
+        rating.book.num_rating += 1
+        total_book_score += score
+        rating.book.avg_rating = total_book_score / rating.book.num_rating
+
+        db.session.commit()
 
         return rating
     
