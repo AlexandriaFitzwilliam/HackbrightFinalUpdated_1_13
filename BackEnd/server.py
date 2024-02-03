@@ -142,16 +142,20 @@ def attempt_create_rating():
 
     rating = Rating.get_by_user_and_book(user_id=user_id, book_id=book_id)
 
+    print("*****************")
+    print(rating)
+    print("***********")
+
     if rating:
         success=False
     else:
         new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score)
-        # db.session.add(new_rating)
-        # db.session.commit()
+        db.session.add(new_rating)
+        db.session.commit()
         if new_rating:
-            success=False
-        else:
             success=True
+        else:
+            success=False
 
     return {
         "success":success

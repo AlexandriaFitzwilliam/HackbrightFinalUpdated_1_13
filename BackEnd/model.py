@@ -237,25 +237,25 @@ class Rating(db.Model):
         rating = Rating(
             user_id=user_id,
             book_id=book_id,
-            score=int(score)
+            score=float(score)
         )
-        db.session.add(rating)
-        db.session.commit()
+        # db.session.add(rating)
+        # db.session.commit()
 
-        # rating.book.num_rating += 1
-        # rating.user.num_rating += 1
+        # # rating.book.num_rating += 1
+        # # rating.user.num_rating += 1
         
-        total_user_score = rating.user.avg_rating * rating.user.num_rating
-        rating.user.num_rating += 1
-        total_user_score += score
-        rating.user.avg_rating = total_user_score / rating.user.num_rating
+        # total_user_score = float(rating.user.avg_rating) * float(rating.user.num_rating)
+        # rating.user.num_rating += 1
+        # total_user_score += score
+        # rating.user.avg_rating = total_user_score / rating.user.num_rating
 
-        total_book_score = rating.book.avg_rating * rating.book.num_rating
-        rating.book.num_rating += 1
-        total_book_score += score
-        rating.book.avg_rating = total_book_score / rating.book.num_rating
+        # total_book_score = float(rating.book.avg_rating) * (rating.book.num_rating)
+        # rating.book.num_rating += 1
+        # total_book_score += score
+        # rating.book.avg_rating = total_book_score / rating.book.num_rating
 
-        db.session.commit()
+        # db.session.commit()
 
         return rating
     

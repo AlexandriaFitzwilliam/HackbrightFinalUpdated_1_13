@@ -18,7 +18,7 @@ const AllUsers = () => {
             <UserCard
             username={user.username}
             avg_rating={user.avg_rating}
-            num_ratings={user.num_ratings}
+            num_ratings={user.num_rating}
             profile_pic={user.profile_pic}
             user_id={user.user_id} // this needs to be user_id={user.user_id} -Thu
             />
@@ -49,6 +49,8 @@ function UserCard(props) {
         <Card.Title>{username}</Card.Title>
         <Card.Text>
           Number of Ratings: {num_ratings}
+        </Card.Text>
+        <Card.Text>
           Average Rating: {avg_rating}
         </Card.Text>
         <Link to={`user/${user_id}`}>View User</Link>
