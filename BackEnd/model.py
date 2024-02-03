@@ -63,6 +63,10 @@ class User(db.Model):
     def to_dict(self):
         """Returns info of each user as a dictionary"""
 
+        shelf_ids = []
+        for shelf in self.shelf:
+            shelf_ids.append(shelf.shelf_id)
+
         return {
             'user_id':self.user_id,
             'username':self.username,
@@ -70,8 +74,25 @@ class User(db.Model):
             'profile_pic':self.profile_pic,
             'avg_rating':self.avg_rating,
             'num_rating':self.num_rating,
-            'about_me':self.about_me
+            'about_me':self.about_me,
+            'shelf_ids':shelf_ids
         }
+    
+    def added_rating(self):
+        """Increased count for num ratings and recalculated avg score"""
+
+        total_nums = 0
+        total_score = 0
+        for rating in self.ratings:
+            total_score += rating.score
+            total_nums += 1
+
+        self.avg_rating = total_score / total_nums
+        self.num_rating = total_nums
+
+        return
+
+
     
 
 

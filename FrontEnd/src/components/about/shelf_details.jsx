@@ -7,6 +7,8 @@ const ShelfDetails = (props) => {
     const [books, setBooks] = React.useState({});
     const bookCards = [];
 
+    console.log(`Shelf Details user_id = ${user_id}`)
+
   React.useEffect(() => {
     fetch(`/api/view_all/${user_id}`)
       .then((response) => response.json())
@@ -36,6 +38,7 @@ const ShelfDetails = (props) => {
             <h1>Shelf Name Goes Here</h1>
             <span></span>
             {bookCards}
+            
             
         </div>
     )
