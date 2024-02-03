@@ -41,32 +41,32 @@ for x in range(10):
 model.db.session.add_all(books_in_db)
 model.db.session.commit()
 
-#creates 5 genres and add to db
-genres_in_db = []
-genres = ['fantasy', 'sci-fi', 'romance', 'fiction', 'ya']
+# #creates 5 genres and add to db
+# genres_in_db = []
+# genres = ['fantasy', 'sci-fi', 'romance', 'fiction', 'ya']
 
-for genre in genres:
-    genre_instance = crud.create_genre(name=genre)
-    genres_in_db.append(genre_instance)
+# for genre in genres:
+#     genre_instance = crud.create_genre(name=genre)
+#     genres_in_db.append(genre_instance)
 
-model.db.session.add_all(genres_in_db)
-model.db.session.commit()
+# model.db.session.add_all(genres_in_db)
+# model.db.session.commit()
 
 
-#gives every book in db 2 genres
-#not smart enough to see if it is the same genre or not
-bookgenres_in_db = []
-for x in range(2):
-    for book in books_in_db:
-        random_genre = choice(genres_in_db)
-        bookgenre = crud.create_bookgenre(
-            book_id=book.book_id,
-            genre_id=random_genre.genre_id
-        )
-        bookgenres_in_db.append(bookgenre)
+# #gives every book in db 2 genres
+# #not smart enough to see if it is the same genre or not
+# bookgenres_in_db = []
+# for x in range(2):
+#     for book in books_in_db:
+#         random_genre = choice(genres_in_db)
+#         bookgenre = crud.create_bookgenre(
+#             book_id=book.book_id,
+#             genre_id=random_genre.genre_id
+#         )
+#         bookgenres_in_db.append(bookgenre)
 
-model.db.session.add_all(bookgenres_in_db)
-model.db.session.commit()
+# model.db.session.add_all(bookgenres_in_db)
+# model.db.session.commit()
 
 
 ratings_in_db = []

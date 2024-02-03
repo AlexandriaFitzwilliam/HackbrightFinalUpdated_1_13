@@ -7,7 +7,7 @@ import {redirect, useParams} from "react-router-dom"
 const CreateRating = () => {
     const [score, setScore] = React.useState(1);
     let { book } = useParams();
-    const user_id = 12;
+    const user_id = 11;
 
 
 

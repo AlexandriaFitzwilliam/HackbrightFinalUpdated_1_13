@@ -237,7 +237,7 @@ class Rating(db.Model):
         rating = Rating(
             user_id=user_id,
             book_id=book_id,
-            score=score
+            score=int(score)
         )
         db.session.add(rating)
         db.session.commit()

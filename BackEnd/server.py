@@ -137,7 +137,7 @@ def get_all_ratings_for_user(user_id):
 def attempt_create_rating():
     """Sees if login matches db."""
     user_id=request.json.get("user_id")
-    book_id=request.json.get("book_id")
+    book_id=request.json.get("book")
     score=request.json.get("score")
 
     rating = Rating.get_by_user_and_book(user_id=user_id, book_id=book_id)
