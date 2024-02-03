@@ -4,12 +4,12 @@ import Figure from 'react-bootstrap/Figure';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UserReviews from '../user_reviews/user_reviews'
 import ShelfDetails from '../about/shelf_details.jsx';
+import AllShelfs from '../all_shelfs/all_shelfs.jsx';
 
 
 const LoggedInHome = (props) => {
     const {user_id} = props;
     const [userInfo, setUserInfo] = React.useState({});
-    const shelfCards = []
 
     console.log('*****************')
     console.log(user_id)
@@ -43,6 +43,7 @@ const LoggedInHome = (props) => {
             <ListGroup.Item>Shelf Ids: {userInfo.shelf_ids}</ListGroup.Item>
         </ListGroup>
         <h4>The below user ratings are done through the logged in homepage.</h4>
+        <AllShelfs user_id={userInfo.user_id}/>
         <ShelfDetails user_id={userInfo.user_id}/>
         <UserReviews user_id={userInfo.user_id}/>
         </div>
