@@ -14,6 +14,7 @@ import CreateAccount from './components/create_account/create_account';
 import LoggedInHome from './components/logged_in_home/logged_in_home';
 import CreateRating from './components/create_rating/create_rating';
 import CreateShelf from './components/create_shelf/create_shelf';
+import AddBook from './components/add_book_to_shelf/add_book_to_shelf';
 
 function App() {
   const user_id=11;
@@ -39,6 +40,7 @@ function App() {
           loader={({ book }) => console.log(book)}
           />
           <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
+          <Route path="add_book" element={<AddBook user_id={user_id}/>} />
         </Routes>
       </BrowserRouter> }
     </div>
