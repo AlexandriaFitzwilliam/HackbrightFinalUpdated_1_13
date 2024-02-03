@@ -41,6 +41,7 @@ const UserDetails = (props) => {
             <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
             <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
             <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
+            <ListGroup.Item>Shelf Ids: {userInfo.shelf_ids}</ListGroup.Item>
         </ListGroup>
         <h4>The below user ratings are done through the user_details page.</h4>
         <UserReviews user_id={userInfo.user_id}/>
