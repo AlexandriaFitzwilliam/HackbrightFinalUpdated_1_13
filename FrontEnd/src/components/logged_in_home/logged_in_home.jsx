@@ -44,7 +44,7 @@ const LoggedInHome = (props) => {
         </ListGroup>
         <h4>The below user ratings are done through the logged in homepage.</h4>
         <AllShelfs user_id={userInfo.user_id}/>
-        <ShelfDetails user_id={userInfo.user_id}/>
+        {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
         <UserReviews user_id={userInfo.user_id}/>
         </div>
 
