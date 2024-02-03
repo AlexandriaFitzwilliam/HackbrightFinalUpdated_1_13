@@ -121,6 +121,18 @@ def get_all_users():
     return jsonify(all_users_dict)
 
 
+@app.route('/api/all_shelfs/<int:user_id>')
+def get_all_shelfs(user_id):
+
+    all_shelfs = Shelf.get_by_user_id(user_id)
+    all_shelfs_dict = {}
+
+    for shelf in all_shelfs:
+        all_shelfs_dict[shelf.shelf_id] = shelf.to_dict()
+
+    return jsonify(all_shelfs_dict)
+
+
 @app.route('/api/user_ratings/<int:user_id>')
 def get_all_ratings_for_user(user_id):
 

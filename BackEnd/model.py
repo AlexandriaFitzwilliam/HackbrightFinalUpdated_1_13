@@ -330,9 +330,23 @@ class Shelf(db.Model):
         shelf = Shelf(user_id=user_id, shelf_name=shelf_name)
 
         return shelf
+    
+    @classmethod
+    def get_by_user_id(self, user_id):
+        """Returns a list of shelves by user_id"""
+
+        shelfs = Shelf.query.filter(Shelf.user_id == user_id).all()
+
+        return shelfs
 
     def __repr__(self):
         return f'<Shelf shelf_id={self.shelf_id} user_id={self.user_id}>'
+    
+    def to_dict(self):
+        return { 'shelf_id' : self.shelf_id,
+                'name' : self.shelf_name,
+                'user_id' : self.user_id,
+        }
     
 
 class BookShelf(db.Model):

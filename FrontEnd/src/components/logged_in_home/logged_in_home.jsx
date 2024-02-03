@@ -9,6 +9,7 @@ import ShelfDetails from '../about/shelf_details.jsx';
 const LoggedInHome = (props) => {
     const {user_id} = props;
     const [userInfo, setUserInfo] = React.useState({});
+    const shelfCards = []
 
     console.log('*****************')
     console.log(user_id)
