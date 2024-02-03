@@ -302,6 +302,14 @@ class Shelf(db.Model):
     bookshelf = db.relationship("BookShelf", back_populates="shelf")
     user = db.relationship("User", back_populates="shelf")
 
+    @classmethod
+    def create(self, user_id, shelf_name):
+        """Creates and returns a shelf"""
+
+        shelf = Shelf(user_id=user_id, shelf_name=shelf_name)
+
+        return shelf
+
     def __repr__(self):
         return f'<Shelf shelf_id={self.shelf_id} user_id={self.user_id}>'
     

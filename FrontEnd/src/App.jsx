@@ -13,6 +13,7 @@ import UserDetails from './components/user_details/user_details';
 import CreateAccount from './components/create_account/create_account';
 import LoggedInHome from './components/logged_in_home/logged_in_home';
 import CreateRating from './components/create_rating/create_rating';
+import CreateShelf from './components/create_shelf/create_shelf';
 
 function App() {
   const user_id=11;
@@ -37,6 +38,7 @@ function App() {
           element={<CreateRating />} 
           loader={({ book }) => console.log(book)}
           />
+          <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
         </Routes>
       </BrowserRouter> }
     </div>

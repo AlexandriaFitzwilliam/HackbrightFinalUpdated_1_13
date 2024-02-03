@@ -41,10 +41,6 @@ const CreateAccount = () => {
                     <Form.Control type="password" placeholder="Password" 
                     value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}/>
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Retype Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group> */}
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

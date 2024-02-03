@@ -2,7 +2,7 @@
 
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
-from model import db ,connect_to_db, Rating, User, Book
+from model import db ,connect_to_db, Rating, User, Book, Shelf
 import crud
 from jinja2 import StrictUndefined
 
@@ -152,6 +152,30 @@ def attempt_create_rating():
             success=False
         else:
             success=True
+
+    return {
+        "success":success
+    }
+
+@app.route('/api/create_shelf', methods=["POST"])
+def attempt_create_shelf():
+    """Sees if login matches db."""
+    user_id=request.json.get("user_id")
+    shelf_name=request.json.get("shelfName")
+
+    print("******************")
+    print(shelf_name)
+    print("**************")
+
+    shelf = Shelf.create(user_id=user_id, shelf_name=shelf_name)
+
+    if shelf:
+        db.session.add(shelf)
+        db.session.commit()
+        success=True
+    else:
+        success=False
+        
 
     return {
         "success":success
