@@ -47,7 +47,7 @@ const CreateRating = () => {
                     value={score} 
                     onChange={e=>setScore(e.target.value)}
                     >
-                        <option>Choose a rating</option>
+                        {/* <option>Choose a rating</option> */}
                         <option value="1">One Star</option>
                         <option value="2">Two Stars</option>
                         <option value="3">Three Stars</option>

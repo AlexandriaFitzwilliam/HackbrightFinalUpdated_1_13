@@ -7,6 +7,7 @@ import AllShelfs from '../all_shelfs/all_shelfs';
 
 const AddBook = (props) => {
     const [shelfs, setShelfs] = React.useState({});
+    const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
 
@@ -67,13 +68,12 @@ const AddBook = (props) => {
                     <Form.Label>Book Title Goes Here</Form.Label>
                     <Form.Select 
                     aria-label="Choose a Shelf"
-                    value={shelfs} 
-                    onChange={e=>setShelf(e.target.shelf_name)}
+                    value={new_shelf} 
+                    onChange={e=>setNewShelf(e.target.shelf_name)}
                     >
                         {userShelfs}
 
                     </Form.Select>
-                    <span>{userShelfs}</span>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
