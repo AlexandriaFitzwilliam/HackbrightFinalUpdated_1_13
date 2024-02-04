@@ -9,11 +9,18 @@ const ShelfDetails = (props) => {
 
     console.log(`Shelf Details shelf_id = ${shelf_id}`)
 
+
   React.useEffect(() => {
     fetch(`/api/view_all/${shelf_id}`)
-      .then((response) => response.json())
-      .then((result) => setBooks(result));
+      .then((response) => {
+        return response.json()
+      })
+      .then((result) => {
+        console.log(`result=${result}`)
+        setBooks(result)
+      });
   }, [shelf_id]);
+  console.log(books)
 
   for (const book of Object.values(books)) {
         const bookCard = (
@@ -29,16 +36,18 @@ const ShelfDetails = (props) => {
           />
         );
         bookCards.push(bookCard)
+        console.log(`bookCards inside=${bookCards}`)
       }
+      console.log(`bookCards=${bookCards}`)
 
 
 
     return (
         <div>
             <h1>Shelf Name Goes Here</h1>
-            <span></span>
+            <span>
             {bookCards}
-            
+            </span>
             
         </div>
     )

@@ -17,6 +17,7 @@ function BookCard(props) {
                     } = props;
       return (
           <div className='bookcard'>
+            <h1>this is inside bookcard</h1>
               
               <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />

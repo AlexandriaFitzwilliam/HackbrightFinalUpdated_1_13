@@ -159,14 +159,32 @@ class Book(db.Model):
     def get_by_shelf_id(self, shelf_id):
         """Return all books in a shelf"""
 
-        books_in_shelf = []
-        bookshelves = db.session.query(BookShelf).join(Book).all()
+        # books_in_shelf = []
+        # bookshelves = db.session.query(BookShelf).join(Book).all()
+        # print()
+        # print(bookshelves)
+        # print()
 
-        for bookshelf in bookshelves:
-            if bookshelf.shelf_id == shelf_id:
-                books_in_shelf.append(bookshelf.book)
+        # for bookshelf in bookshelves:
+        #     print()
+        #     print(f'bookshelf.shelf_id={bookshelf.shelf_id}')
+        #     if bookshelf.shelf_id == shelf_id:
+        #         print()
+        #         print()
+        #         print("**********************")
+        #         print(f'bookshelf.book={bookshelf.book}')
+        #         books_in_shelf.append(bookshelf.book)
 
-        return books_in_shelf
+        bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
+        for book in bookshelves:
+            print()
+            print()
+            print(f'bookshelf={book}')
+        print()
+        print()
+        print(f'bookshelves={bookshelves}')
+
+        return bookshelves
     
     
     # def add_rating(self):
@@ -369,6 +387,11 @@ class BookShelf(db.Model):
         bookshelf = BookShelf(book_id=book_id, shelf_id=shelf_id)
 
         return bookshelf
+    
+    @classmethod
+    def get_all(self):
+
+        return BookShelf.query.all()
     
     @classmethod
     def get(self, book_id, shelf_id):

@@ -88,11 +88,14 @@ def get_one_book_by_id(book_id):
 @app.route('/api/view_all/<int:shelf_id>')
 def get_all_books_in_shelf(shelf_id):
     
-    all_books = crud.get_books_by_shelf_id(shelf_id)
+    all_books = Book.get_by_shelf_id(shelf_id=shelf_id)
     all_books_dic = {}
 
     for book in all_books:
         all_books_dic[book.book_id] = book.to_dict()
+
+    print(all_books_dic)
+    print(jsonify(all_books_dic))
 
     return jsonify(all_books_dic)
 
@@ -152,6 +155,10 @@ def attempt_create_bookshelf():
     success = False
 
     bookshelf = BookShelf.get(book_id=book_id, shelf_id=shelf_id)
+    print()
+    print('*************************')
+    print(f'shelf_id={shelf_id}')
+    print()
 
     if bookshelf:
         success = False
