@@ -147,7 +147,7 @@ def get_all_ratings_for_user(user_id):
 
 @app.route('/api/create_bookshelf', methods=["POST"])
 def attempt_create_bookshelf():
-    shelf_id = request.json.get("shelf_id")
+    shelf_id = request.json.get("new_shelf")
     book_id = request.json.get("book_id")
     success = False
 
@@ -160,6 +160,8 @@ def attempt_create_bookshelf():
         db.session.add(new_bookshelf)
         db.session.commit()
         success = True
+        print("*************")
+        print(f'new-bookshelf = {new_bookshelf}')
 
     return {
             "success":success

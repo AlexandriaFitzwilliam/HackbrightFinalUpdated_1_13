@@ -10,7 +10,7 @@ const AddBook = (props) => {
     const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
-    const book_id = 2;
+    const book_id = 3;
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
@@ -34,22 +34,23 @@ const AddBook = (props) => {
 
         // console.log(book)
         // const newRating = {user_id, book, score}
-    
+        const newBookShelf = {new_shelf, book_id}
 
-        // fetch('/api/create_rating', {
-        //     method: 'POST',
-        //     body: JSON.stringify(newRating),
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //       console.log(responseJson.success)
-        //       if (responseJson.succes == true) {
-        //         return redirect('/home');
-        //       }
-        //     });
+
+        fetch('/api/create_bookshelf', {
+            method: 'POST',
+            body: JSON.stringify(newBookShelf),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson.success)
+              if (responseJson.succes == true) {
+                return redirect('/home');
+              }
+            });
 
     }
 
