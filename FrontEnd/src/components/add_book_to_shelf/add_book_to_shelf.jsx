@@ -2,11 +2,13 @@ import React from 'react';
 // import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import AllShelfs from '../all_shelfs/all_shelfs';
 // import {redirect, useParams} from "react-router-dom"
 
 const AddBook = (props) => {
-    const [shelf, setShelfs] = React.useState("");
+    const [shelfs, setShelfs] = React.useState({});
     const {user_id} = props;
+    const userShelfs = [];
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
@@ -14,9 +16,23 @@ const AddBook = (props) => {
           .then((result) => setShelfs(result));
       }, [user_id]);
 
-      function createOption(props) {
-        const {name, shelf_id} = props
+      for (const shelf of Object.values(shelfs)) {
+        const createOption = (
+            <CreateOption
+            name={shelf.name}
+            shelf_id={shelf.shelf_id}
+            />
+        );
+        userShelfs.push(createOption)
       }
+
+    //   function createOption(props) {
+    //     const {name, shelf_id} = props
+
+    //     return (
+    //         <option value={shelf_id}>{name}</option>
+    //     )
+    //   }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -45,22 +61,19 @@ const AddBook = (props) => {
 
     return (
         <div>
-            <h1>Create Rating</h1>
+            <h1>Add book to shelf</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
                     <Form.Label>Book Title Goes Here</Form.Label>
                     <Form.Select 
                     aria-label="Choose a Shelf"
-                    value={shelf} 
-                    onChange={e=>setScore(e.target.value)}
+                    value={shelfs} 
+                    onChange={e=>setShelf(e.target.shelf_name)}
                     >
-                        <option>Choose a Shelf</option>
-                        <option value="1">One Star</option>
-                        <option value="2">Two Stars</option>
-                        <option value="3">Three Stars</option>
-                        <option value="4">Four Stars</option>
-                        <option value="5">Five Stars</option>
+                        {userShelfs}
+
                     </Form.Select>
+                    <span>{userShelfs}</span>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
@@ -71,3 +84,12 @@ const AddBook = (props) => {
 }
 
 export default AddBook
+
+function CreateOption(props) {
+    const {name, shelf_id} = props
+
+    return (
+        <option value={shelf_id}>{name}</option>
+
+    )
+  }
