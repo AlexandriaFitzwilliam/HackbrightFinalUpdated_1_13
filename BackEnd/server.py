@@ -2,7 +2,7 @@
 
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
-from model import db ,connect_to_db, Rating, User, Book, Shelf
+from model import db ,connect_to_db, Rating, User, Book, Shelf, BookShelf
 import crud
 from jinja2 import StrictUndefined
 
@@ -145,11 +145,21 @@ def get_all_ratings_for_user(user_id):
     return jsonify(all_ratings_dict)
 
 
-@app.route('/api/create_bookshelf', method=["POST"])
+@app.route('/api/create_bookshelf', methods=["POST"])
 def attempt_create_bookshelf():
     shelf_id = request.json.get("shelf_id")
     book_id = request.json.get("book_id")
     success = False
+
+    bookshelf = BookShelf.get(book_id=book_id, shelf_id=shelf_id)
+
+    if bookshelf:
+        success = False
+    else:
+        new_bookshelf = BookShelf.create(shelf_id=shelf_id, book_id=book_id)
+        db.session.add(new_bookshelf)
+        db.session.commit()
+        success = True
 
     return {
             "success":success
@@ -174,8 +184,6 @@ def attempt_create_rating():
         success=False
     else:
         new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score)
-        db.session.add(new_rating)
-        db.session.commit()
         if new_rating:
             db.session.add(new_rating)
             db.session.commit()
@@ -191,7 +199,7 @@ def attempt_create_rating():
 
 @app.route('/api/create_shelf', methods=["POST"])
 def attempt_create_shelf():
-    """Sees if login matches db."""
+    """Checks if book is already on shelf, if not adds it."""
     user_id=request.json.get("user_id")
     shelf_name=request.json.get("shelfName")
 

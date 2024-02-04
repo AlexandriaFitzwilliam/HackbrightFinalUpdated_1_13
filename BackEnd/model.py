@@ -363,6 +363,18 @@ class BookShelf(db.Model):
     shelf = db.relationship("Shelf", back_populates="bookshelf")
     book = db.relationship("Book", back_populates="bookshelf")
 
+    @classmethod
+    def create(self, book_id, shelf_id):
+
+        bookshelf = BookShelf(book_id=book_id, shelf_id=shelf_id)
+
+        return bookshelf
+    
+    @classmethod
+    def get(self, book_id, shelf_id):
+
+        return BookShelf.query.filter(BookShelf.book_id == book_id, BookShelf.shelf_id==shelf_id).first()
+
 
 # class Friend(db.Model):
 #     """Two users who are connected as friends."""
