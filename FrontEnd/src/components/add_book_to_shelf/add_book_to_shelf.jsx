@@ -10,6 +10,7 @@ const AddBook = (props) => {
     const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
+    const book_id = 2;
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
@@ -27,13 +28,6 @@ const AddBook = (props) => {
         userShelfs.push(createOption)
       }
 
-    //   function createOption(props) {
-    //     const {name, shelf_id} = props
-
-    //     return (
-    //         <option value={shelf_id}>{name}</option>
-    //     )
-    //   }
 
     function handleSubmit(e) {
         e.preventDefault();

@@ -145,9 +145,20 @@ def get_all_ratings_for_user(user_id):
     return jsonify(all_ratings_dict)
 
 
+@app.route('/api/create_bookshelf', method=["POST"])
+def attempt_create_bookshelf():
+    shelf_id = request.json.get("shelf_id")
+    book_id = request.json.get("book_id")
+    success = False
+
+    return {
+            "success":success
+        }
+
+
 @app.route('/api/create_rating', methods=["POST"])
 def attempt_create_rating():
-    """Sees if login matches db."""
+    """Creates a rating if rating combo does not exist"""
     user_id=request.json.get("user_id")
     book_id=request.json.get("book")
     score=request.json.get("score")
