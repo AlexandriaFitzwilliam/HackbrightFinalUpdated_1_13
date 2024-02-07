@@ -1,14 +1,15 @@
 import React from 'react';
 import './book_overview.css';
 import Reviews from '../reviews/reviews'
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 
 function BookOverview(props) {
     const [bookDetails, setBookDetails] = React.useState({})
+    let { id } = useParams();
 
     React.useEffect(() => {
-        fetch(`/api/book/5`)
+        fetch(`/api/book/${id}`)
           .then((response) => response.json())
           .then((result) => setBookDetails(result));
       }, []);
@@ -30,8 +31,8 @@ function BookOverview(props) {
               
               <h1>{title}</h1>
               <h3>{author}</h3>
-              <h5>{avg_rating}</h5>
-              <h5>{num_rating}</h5>
+              <h5>Average Rating: {avg_rating}</h5>
+              <h5>Number of Ratings: {num_rating}</h5>
               <h5>{publish_date}</h5>
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>

@@ -10,11 +10,6 @@ const UserDetails = (props) => {
     const {user_id} = props;
     const [userInfo, setUserInfo] = React.useState({});
     let { id } = useParams();
-    console.log(id)
-
-    console.log('*****************')
-    console.log(id)
-    console.log('*****************')
 
     React.useEffect(() => {
         fetch(`/api/userid/${id}`)

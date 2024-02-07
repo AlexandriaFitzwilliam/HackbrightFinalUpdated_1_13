@@ -25,7 +25,12 @@ function App() {
         <Header />
         <Routes>
           <Route path="shelf" element={<ShelfDetails />} />
-          <Route path="book" element={<BookOverview />} />
+          {/* <Route path="book" element={<BookOverview />} /> */}
+          <Route 
+            path="/book/:id" 
+            element={<BookOverview />} 
+            loader={({ id }) => {console.log(id)}}
+          /> 
           <Route path="users" element={<AllUsers />} />
           <Route 
             path="/users/user/:id" 
