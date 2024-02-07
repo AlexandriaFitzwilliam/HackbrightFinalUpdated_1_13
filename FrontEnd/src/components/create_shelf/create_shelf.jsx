@@ -12,7 +12,6 @@ const CreateShelf = (props) => {
         e.preventDefault();
 
         const newShelf = {user_id, shelfName}
-        console.log(shelfName)
 
         fetch('/api/create_shelf', {
             method: 'POST',
