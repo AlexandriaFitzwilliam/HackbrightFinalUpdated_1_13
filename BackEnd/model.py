@@ -101,8 +101,8 @@ class Book(db.Model):
 
     __tablename__ = 'books'
 
-    book_id = db.Column(db.Integer,
-                        autoincrement=True,
+    book_id = db.Column(db.String(),
+                        # autoincrement=True,
                         primary_key=True)
     title = db.Column(db.String(50))
     author = db.Column(db.String(50))
@@ -222,7 +222,7 @@ class BookGenre(db.Model):
     book_genre_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
-    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+    book_id = db.Column(db.String(), db.ForeignKey("books.book_id"))
     genre_id = db.Column(db.Integer, db.ForeignKey("genres.genre_id"))
 
     book = db.relationship("Book", back_populates="book_genre")
@@ -241,7 +241,7 @@ class Rating(db.Model):
                         autoincrement= True,
                         primary_key=True)
     score = db.Column(db.Integer)     #1-5
-    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+    book_id = db.Column(db.String(), db.ForeignKey("books.book_id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
 
     book = db.relationship("Book", back_populates="ratings")
@@ -357,7 +357,7 @@ class BookShelf(db.Model):
                         autoincrement= True,
                         primary_key=True)
     shelf_id = db.Column(db.Integer, db.ForeignKey("shelfs.shelf_id")) 
-    book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
+    book_id = db.Column(db.String(), db.ForeignKey("books.book_id"))
 
     shelf = db.relationship("Shelf", back_populates="bookshelf")
     book = db.relationship("Book", back_populates="bookshelf")
