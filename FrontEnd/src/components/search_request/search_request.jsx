@@ -11,10 +11,11 @@ const SearchRequest = (props) => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(`searchParam=${searchParam}`)
-        console.log(`searchType=${searchType}`)
+        // console.log(`searchParam=${searchParam}`)
+        // console.log(`searchType=${searchType}`)
 
         const newSearch = {searchParam, searchType}
+        console.log("request to server.py made")
 
         fetch('/api/search_request', {
             method: 'POST',

@@ -5,6 +5,7 @@ from flask import (Flask, render_template, request, flash, session,
 from model import db ,connect_to_db, Rating, User, Book, Shelf, BookShelf
 from jinja2 import StrictUndefined
 import os
+import requests
 
 app = Flask(__name__)
 app.secret_key = "dev"
@@ -240,12 +241,33 @@ def search_books():
     param=request.json.get("searchParam")
     type=request.json.get("searchType")
 
+    if type == 'title' or type == 'author':
+        success = True
+        results=make_search_url(param,API_KEY)
+        books = results.get('items', [])
 
-    success=False
+        for book in books:
+            if not book.get("volumeInfo", {}).get("imageLinks", {}).get("thumbnail"):
+               book["volumeInfo"]["imageLinks"] = {"thumbnail": "URL_to_default_image_or_None"}
+            print()
+            print('*******************')
+            print(f'book.volumeInfo={book.volumeInfo}')
+            # print(f'book.volumeInfo.title={book.volumeInfo.title}')
+    else:
+        success=False
 
     return {
         "success":success
     }
+
+
+def make_search_url(param, api):
+    """Makes and returns a url for Google Book API"""
+
+    base = "https://www.googleapis.com/books/v1/volumes"
+    payload = {'q':param,'key':api}
+    response = requests.get(base, params=payload)
+    return response.json()
 
 
 if __name__ == "__main__":
