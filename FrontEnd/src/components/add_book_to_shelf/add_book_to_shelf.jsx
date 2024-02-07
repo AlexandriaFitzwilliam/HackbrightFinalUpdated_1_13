@@ -10,7 +10,7 @@ const AddBook = (props) => {
     const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
-    const book_id = 6;
+    const book_id = 3;
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)

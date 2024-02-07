@@ -159,32 +159,13 @@ class Book(db.Model):
     def get_by_shelf_id(self, shelf_id):
         """Return all books in a shelf"""
 
-        # books_in_shelf = []
-        # bookshelves = db.session.query(BookShelf).join(Book).all()
-        # print()
-        # print(bookshelves)
-        # print()
-
-        # for bookshelf in bookshelves:
-        #     print()
-        #     print(f'bookshelf.shelf_id={bookshelf.shelf_id}')
-        #     if bookshelf.shelf_id == shelf_id:
-        #         print()
-        #         print()
-        #         print("**********************")
-        #         print(f'bookshelf.book={bookshelf.book}')
-        #         books_in_shelf.append(bookshelf.book)
+        books= []
 
         bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
-        for book in bookshelves:
-            print()
-            print()
-            print(f'bookshelf={book}')
-        print()
-        print()
-        print(f'bookshelves={bookshelves}')
+        for bookshelf in bookshelves:
+            books.append(bookshelf.book)
 
-        return bookshelves
+        return books
     
     
     # def add_rating(self):
@@ -398,6 +379,11 @@ class BookShelf(db.Model):
 
         return BookShelf.query.filter(BookShelf.book_id == book_id, BookShelf.shelf_id==shelf_id).first()
 
+    def to_dict(self):
+        return { 'bookshelf_id' : self.bookshelf_id,
+                'shelf_id' : self.shelf_id,
+                'book_id' : self.book_id,
+        }
 
 # class Friend(db.Model):
 #     """Two users who are connected as friends."""

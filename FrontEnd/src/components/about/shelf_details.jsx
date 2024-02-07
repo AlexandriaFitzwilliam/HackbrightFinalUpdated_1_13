@@ -20,7 +20,7 @@ const ShelfDetails = (props) => {
         setBooks(result)
       });
   }, [shelf_id]);
-  console.log(books)
+  console.log(`books=${books}`)
 
   for (const book of Object.values(books)) {
         const bookCard = (
