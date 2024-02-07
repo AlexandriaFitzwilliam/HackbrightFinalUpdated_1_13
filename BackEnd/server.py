@@ -251,8 +251,12 @@ def search_books():
                book["volumeInfo"]["imageLinks"] = {"thumbnail": "URL_to_default_image_or_None"}
             print()
             print('*******************')
-            print(f'book.volumeInfo={book.volumeInfo}')
-            # print(f'book.volumeInfo.title={book.volumeInfo.title}')
+            print(f'book.volumeInfo={book["volumeInfo"]["title"]}')
+            id = book["id"]
+            check_book = Book.get_by_id(id)
+            # title = book["volumeInfo"]["title"]
+
+        
     else:
         success=False
 
