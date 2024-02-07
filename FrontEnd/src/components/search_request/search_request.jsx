@@ -14,20 +14,19 @@ const SearchRequest = (props) => {
         console.log(`searchParam=${searchParam}`)
         console.log(`searchType=${searchType}`)
 
-        // const newShelf = {user_id, shelfName}
-        // console.log(shelfName)
+        const newSearch = {searchParam, searchType}
 
-        // fetch('/api/create_shelf', {
-        //     method: 'POST',
-        //     body: JSON.stringify(newShelf),
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //       console.log(responseJson.success)
-        //     });
+        fetch('/api/search_request', {
+            method: 'POST',
+            body: JSON.stringify(newSearch),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson.success)
+            });
 
     }
 
@@ -46,7 +45,7 @@ const SearchRequest = (props) => {
                         onChange={e=>setSearchType(e.target.value)}
                         // onChange={e=>console.log(e.target.value)}
                         >
-                            <option>What would you like to search by?</option>
+                            <option>Search By...</option>
                             <option value='title'>title</option>
                             <option value='author'>author</option>
 

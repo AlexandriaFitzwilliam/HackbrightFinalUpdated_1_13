@@ -233,12 +233,14 @@ def attempt_create_shelf():
         "success":success
     }
 
-@app.route('/api/search_title', methods=["POST"])
-def search_books_title():
+@app.route('/api/search_request', methods=["POST"])
+def search_books():
     """Looks in db for book with that title"""
 
-    title=request.json.get("partial")
-    title=title.lower()
+    param=request.json.get("searchParam")
+    type=request.json.get("searchType")
+
+
     success=False
 
     return {
