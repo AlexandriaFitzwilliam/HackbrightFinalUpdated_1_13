@@ -33,6 +33,7 @@ const AddBook = (props) => {
         e.preventDefault();
 
         // console.log(book)
+        console.log(new_shelf)
         // const newRating = {user_id, book, score}
         const newBookShelf = {new_shelf, book_id}
 
@@ -64,7 +65,8 @@ const AddBook = (props) => {
                     <Form.Select 
                     aria-label="Choose a Shelf"
                     value={new_shelf} 
-                    onChange={e=>setNewShelf(e.target.shelf_name)}
+                    onChange={e=>setNewShelf(e.target.value)}
+                    // onChange={e=>console.log(e.target.value)}
                     >
                         {userShelfs}
 

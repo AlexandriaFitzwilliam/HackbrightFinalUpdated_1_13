@@ -158,6 +158,7 @@ def attempt_create_bookshelf():
     print()
     print('*************************')
     print(f'shelf_id={shelf_id}')
+    print(f'book_id={book_id}')
     print()
 
     if bookshelf:
