@@ -167,6 +167,23 @@ class Book(db.Model):
 
         return books
     
+    @classmethod
+    def get_by_param(self, param, param_type):
+        """Returns list of books based off a LIKE"""
+
+        param = param.title()
+
+        if param_type == 'title':
+            books = Book.query.filter(Book.title.like(f'%{param}%')).all()
+
+        elif param_type == 'author':
+            books = Book.query.filter(Book.author.like(f'%{param}%')).all()
+
+        else:
+            return
+        
+        return books
+    
     
     # def add_rating(self):
     #     self.num_rating += 1

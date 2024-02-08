@@ -192,9 +192,6 @@ def attempt_create_rating():
     rating = Rating.get_by_user_and_book(user_id=user_id, book_id=book_id)
     user = User.get_by_id(user_id=user_id)
 
-    print("*****************")
-    print(rating)
-    print("***********")
 
     if rating:
         success=False
@@ -243,22 +240,17 @@ def search_books():
 
     param=request.json.get("searchParam")
     type=request.json.get("searchType")
+    success = False
+    display_list_dic = {}
 
     if type == 'title' or type == 'author':
-        success = True
         results=make_search_url(param,API_KEY)
         books = results.get('items', [])
-        books_to_add_to_db = []
+        adding_list = []
 
         for book in books:
-            # if not book.get("volumeInfo", {}).get("imageLinks", {}).get("thumbnail"):
-            #    book["volumeInfo"]["imageLinks"] = {"thumbnail": "URL_to_default_image_or_None"}
-            print()
-            print('*******************')
-            print(f'book.volumeInfo={book["volumeInfo"]["title"]}')
 
             title = book.get('volumeInfo', {}).get('title', None)
-            print(f'title={title}')
 
             cur_book = Book.get_by_title(title=title)
 
@@ -278,63 +270,13 @@ def search_books():
                 
                 db.session.add(new_book)
                 db.session.commit()
+                adding_list.append(new_book)
 
-            testing_books = Book.get_all()
-
-            for book in testing_books:
-                print(book)
-
-        #     id = book["id"]
-        #     print()
-        #     print(f'id={id}')
-        #     if id != None:
-        #         check_book = Book.get_by_id(id)
-        #         print(f'check_book={check_book}')
-        #         if not check_book:
-        #             title = book["volumeInfo"]["title"]
-        #             print(title)
-        #             try:
-        #                 author = book["volumeInfo"]["authors"]
-        #                 print(author)
-        #             except:
-        #                 author = 'Unknown'
-        #             try:
-        #                 overview = book["volumeInfo"]["description"]
-        #                 print(overview)
-        #             except:
-        #                 overview = 'Unknown'
-        #             # sometimes the publish date format is wrong. come back to this later
-        #             try:
-        #                 publish_date = book["volumeInfo"]["publishedDate"]
-        #             except:
-        #                 publish_date = None
+        display_list = Book.get_by_param(param=param, param_type=type)
+        # success=True
 
 
-        #             try:
-        #                 cover_pic = book["volumeInfo"]["imageLinks"]["small"]
-        #             except:
-        #                 cover_pic = 'test'
-        #         #     cover_pic = 'test'
-        #             new_book = Book.create_book(
-        #                 title=title,
-        #                 author=author,
-        #                 overview=overview,
-        #                 publish_date=publish_date,
-        #                 cover_pic=cover_pic
-        #             )
-        #             print(f'new_book={new_book}')
-        #             books_to_add_to_db.append(new_book)
-        # print(books_to_add_to_db)
-        # if books_to_add_to_db:
-        #     db.session.add_all(books_to_add_to_db)
-        #     db.session.commit()
 
-        #     check_books_in_db = Book.get_all()
-        #     for book_in_db in check_books_in_db:
-        #         print(book_in_db)
-        #         # title = book["volumeInfo"]["title"]
-
-        
     else:
         success=False
 
