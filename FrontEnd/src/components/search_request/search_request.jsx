@@ -7,7 +7,9 @@ import BookCard from '../book_details/book_details';
 const SearchRequest = (props) => {
 
     const [searchParam, setSearchParam] = React.useState('');
-    const [searchType, setSearchType] = React.useState('')
+    const [searchType, setSearchType] = React.useState('');
+    const [bookSearched, setBookSearched] = React.useState({});
+    const bookCards = [];
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,12 +27,51 @@ const SearchRequest = (props) => {
               'Content-Type': 'application/json',
             },
           })
-            .then((response) => response.json())
-            .then((responseJson) => {
-              console.log(responseJson.success)
-            });
+          .then((response) => {
+            return response.json()
+          })
+          .then((result) => {
+            setBookSearched(result)
+          });
+        // }, []);
+        console.log(bookSearched)
 
+        // for (const book of Object.values(bookSearched)) {
+        //     const bookCard = (
+        //         <BookCard
+        //         //   id={book.book_id}
+        //           title={book.title}
+        //           author={book.author}
+        //         //   overview={book.overview}
+        //         //   publish_date={book.publish_date}
+        //         //   cover_pic={book.cover_pic}
+        //           avg_rating={book.avg_rating}
+        //           // num_ratings={book.num_ratings}
+        //           />
+        //     )
+        //     // console.log(bookCard)
+        //     bookCards.push(bookCard)
+        // }
+        // console.log(`bookCards=${bookCards}`)
     }
+
+    for (const book of Object.values(bookSearched)) {
+        const bookCard = (
+            <BookCard
+            //   id={book.book_id}
+              title={book.title}
+              author={book.author}
+            //   overview={book.overview}
+            //   publish_date={book.publish_date}
+            //   cover_pic={book.cover_pic}
+              avg_rating={book.avg_rating}
+              // num_ratings={book.num_ratings}
+              />
+        )
+        // console.log(bookCard)
+        bookCards.push(bookCard)
+    }
+    console.log(`bookCards=${bookCards}`)
 
 
     return (
@@ -57,6 +98,8 @@ const SearchRequest = (props) => {
                     Submit
                 </Button>
             </Form>
+            <h5>bookCards below</h5>
+            {bookCards}
         </div>
     )
 }

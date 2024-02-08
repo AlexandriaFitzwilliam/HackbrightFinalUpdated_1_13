@@ -273,16 +273,17 @@ def search_books():
                 adding_list.append(new_book)
 
         display_list = Book.get_by_param(param=param, param_type=type)
-        # success=True
 
-
+        for book in display_list:
+            display_list_dic[book.book_id] = book.to_dict()
+        
+        success=True
 
     else:
         success=False
 
-    return {
-        "success":success
-    }
+    # print(display_list_dic)
+    return jsonify(display_list_dic)
 
 
 def make_search_url(param, api):
