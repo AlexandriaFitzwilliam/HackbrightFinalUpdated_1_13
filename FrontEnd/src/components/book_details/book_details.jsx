@@ -11,14 +11,14 @@ function BookCard(props) {
       author, 
       // overview, 
       // publish_date, 
-      // cover_pic,
+      cover_pic,
       avg_rating,
       // num_ratings
                     } = props;
       return (
           <div className='bookcard'>
               <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+              <Card.Img variant="top" src={cover_pic} />
               <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>

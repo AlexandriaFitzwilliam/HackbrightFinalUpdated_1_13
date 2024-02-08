@@ -30,7 +30,7 @@ const ShelfDetails = (props) => {
           author={book.author}
         //   overview={book.overview}
         //   publish_date={book.publish_date}
-        //   cover_pic={book.cover_pic}
+          cover_pic={book.cover_pic}
           avg_rating={book.avg_rating}
           // num_ratings={book.num_ratings}
           />

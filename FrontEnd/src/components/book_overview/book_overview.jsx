@@ -2,6 +2,7 @@ import React from 'react';
 import './book_overview.css';
 import Reviews from '../reviews/reviews'
 import {Link, useParams} from "react-router-dom";
+import Image from 'react-bootstrap/Image';
 
 
 function BookOverview(props) {
@@ -29,6 +30,8 @@ function BookOverview(props) {
       return (
           <div className='bookoverview'>
               
+              <Image src={cover_pic} thumbnail />
+              <h4>{cover_pic}</h4>
               <h1>{title}</h1>
               <h3>{author}</h3>
               <h5>Average Rating: {avg_rating}</h5>

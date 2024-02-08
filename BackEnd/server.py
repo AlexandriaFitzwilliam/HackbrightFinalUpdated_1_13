@@ -258,7 +258,7 @@ def search_books():
                 author = book.get('volumeInfo', {}).get('authors', None)
                 overview = book.get('volumeInfo', {}).get('description', None)
                 publish_date = book.get('volumeInfo', {}).get('publishedDate', None)
-                cover_pic = book.get('volumeInfo', {}).get('imageLinks', {}).get('small', None)
+                cover_pic = book.get('volumeInfo', {}).get('imageLinks', {}).get('thumbnail', 'Book cover')
 
                 new_book = Book.create_book(
                         title=title,
