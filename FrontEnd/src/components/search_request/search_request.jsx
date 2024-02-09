@@ -14,9 +14,6 @@ const SearchRequest = (props) => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        // console.log(`searchParam=${searchParam}`)
-        // console.log(`searchType=${searchType}`)
-
         const newSearch = {searchParam, searchType}
         console.log("request to server.py made")
 
@@ -33,26 +30,7 @@ const SearchRequest = (props) => {
           .then((result) => {
             setBookSearched(result)
           });
-        // }, []);
-        console.log(bookSearched)
 
-        // for (const book of Object.values(bookSearched)) {
-        //     const bookCard = (
-        //         <BookCard
-        //         //   id={book.book_id}
-        //           title={book.title}
-        //           author={book.author}
-        //         //   overview={book.overview}
-        //         //   publish_date={book.publish_date}
-        //         //   cover_pic={book.cover_pic}
-        //           avg_rating={book.avg_rating}
-        //           // num_ratings={book.num_ratings}
-        //           />
-        //     )
-        //     // console.log(bookCard)
-        //     bookCards.push(bookCard)
-        // }
-        // console.log(`bookCards=${bookCards}`)
     }
 
     for (const book of Object.values(bookSearched)) {

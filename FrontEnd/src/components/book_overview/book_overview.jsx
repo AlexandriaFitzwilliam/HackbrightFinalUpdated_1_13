@@ -7,7 +7,8 @@ import Image from 'react-bootstrap/Image';
 
 function BookOverview(props) {
     const [bookDetails, setBookDetails] = React.useState({})
-    let { id } = useParams();
+    // let { id } = useParams();
+    const { id } = props
 
     React.useEffect(() => {
         fetch(`/api/book/${id}`)

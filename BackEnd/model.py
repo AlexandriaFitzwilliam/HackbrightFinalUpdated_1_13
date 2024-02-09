@@ -276,23 +276,6 @@ class Rating(db.Model):
             book_id=book_id,
             score=float(score)
         )
-        # db.session.add(rating)
-        # db.session.commit()
-
-        # # rating.book.num_rating += 1
-        # # rating.user.num_rating += 1
-        
-        # total_user_score = float(rating.user.avg_rating) * float(rating.user.num_rating)
-        # rating.user.num_rating += 1
-        # total_user_score += score
-        # rating.user.avg_rating = total_user_score / rating.user.num_rating
-
-        # total_book_score = float(rating.book.avg_rating) * (rating.book.num_rating)
-        # rating.book.num_rating += 1
-        # total_book_score += score
-        # rating.book.avg_rating = total_book_score / rating.book.num_rating
-
-        # db.session.commit()
 
         return rating
     
@@ -313,6 +296,35 @@ class Rating(db.Model):
         """Returns one rating based off user and book combo"""
 
         return Rating.query.filter(Rating.user_id == user_id, Rating.book_id == book_id).first()
+    
+    @classmethod
+    def calculate_avg_and_num(self, id, id_type):
+        """"Caclualtes the avg and num ratings for a user or book"""
+
+        if id_type == 'book':
+            ratings = Rating.query.filter(Rating.book_id == id).all()
+            book_user = Book.query.filter(Book.book_id == id).one()
+        elif id_type == 'user':
+            ratings = Rating.query.filter(Rating.user_id == id).all()
+            book_user = User.query.filter(User.user_id == id).one()
+        else:
+            return
+        
+        total_score = 0
+        total_num = 0
+
+        for rating in ratings:
+            total_score += rating.score
+            total_num += 1
+
+        avg_rating = total_score / total_num
+
+        book_user.avg_rating = avg_rating
+        book_user.num_rating = total_num
+
+        return
+
+
     
     def to_dict(self):
         return { 'rating_id' : self.rating_id,

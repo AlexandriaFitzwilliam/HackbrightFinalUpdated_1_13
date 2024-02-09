@@ -27,11 +27,12 @@ function App() {
         <Routes>
           <Route path="shelf" element={<ShelfDetails />} />
           {/* <Route path="book" element={<BookOverview />} /> */}
-          <Route 
+          {/* <Route 
             path="/book/:id" 
             element={<BookOverview />} 
             loader={({ id }) => {console.log(id)}}
-          /> 
+          />  */}
+          <Route path="book" element={<BookOverview />} />
           <Route path="users" element={<AllUsers />} />
           <Route 
             path="/users/user/:id" 
