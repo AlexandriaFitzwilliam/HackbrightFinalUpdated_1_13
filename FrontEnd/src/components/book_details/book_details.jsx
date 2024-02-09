@@ -2,11 +2,12 @@ import React from 'react';
 import './book_details.css';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 
 
 function BookCard(props) {
     const {
-      // id, 
+      id, 
       title, 
       author, 
       // overview, 
@@ -30,7 +31,8 @@ function BookCard(props) {
                   {/* <ListGroup.Item>Number of Ratings: {num_ratings}</ListGroup.Item> */}
               </ListGroup>
               <Card.Body>
-                  <Card.Link href="#">Book Details</Card.Link>
+                  <Card.Link href={`/book/${id}`}>Book Details</Card.Link>
+                  {/* <Button href='/book' id={id}>Book Details</Button> */}
               </Card.Body>
               </Card>
   

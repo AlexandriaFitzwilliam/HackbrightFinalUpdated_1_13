@@ -36,7 +36,7 @@ const SearchRequest = (props) => {
     for (const book of Object.values(bookSearched)) {
         const bookCard = (
             <BookCard
-            //   id={book.book_id}
+              id={book.book_id}
               title={book.title}
               author={book.author}
             //   overview={book.overview}

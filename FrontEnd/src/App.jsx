@@ -27,12 +27,11 @@ function App() {
         <Routes>
           <Route path="shelf" element={<ShelfDetails />} />
           {/* <Route path="book" element={<BookOverview />} /> */}
-          {/* <Route 
+          <Route 
             path="/book/:id" 
             element={<BookOverview />} 
             loader={({ id }) => {console.log(id)}}
-          />  */}
-          <Route path="book" element={<BookOverview />} />
+          /> 
           <Route path="users" element={<AllUsers />} />
           <Route 
             path="/users/user/:id" 
@@ -42,7 +41,7 @@ function App() {
           <Route path="login" element={<Home />} />
           <Route path="create_account" element={<CreateAccount />} />
           <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
-          <Route path="book/create_rating/:book" 
+          <Route path="/create_rating/:book" 
           element={<CreateRating />} 
           loader={({ book }) => console.log(book)}
           />
