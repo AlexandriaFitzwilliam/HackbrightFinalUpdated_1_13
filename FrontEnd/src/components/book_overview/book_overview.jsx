@@ -5,10 +5,9 @@ import {Link, useParams} from "react-router-dom";
 import Image from 'react-bootstrap/Image';
 
 
-function BookOverview(props) {
+function BookOverview() {
     const [bookDetails, setBookDetails] = React.useState({})
     let { id } = useParams();
-    // const { id } = props
 
     React.useEffect(() => {
         fetch(`/api/book/${id}`)
@@ -41,6 +40,8 @@ function BookOverview(props) {
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>
               <Link to={`/create_rating/${book_id}`}>Add Rating</Link>
+              <br></br>
+              <Link to={`/add_book/${book_id}`}>Add to Shelf</Link>
               <Reviews book_id={book_id}/>
   
           </div>

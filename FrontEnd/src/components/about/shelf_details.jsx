@@ -7,8 +7,6 @@ const ShelfDetails = (props) => {
     const [books, setBooks] = React.useState({});
     const bookCards = [];
 
-    console.log(`Shelf Details shelf_id = ${shelf_id}`)
-
 
   React.useEffect(() => {
     fetch(`/api/view_all/${shelf_id}`)
@@ -22,10 +20,11 @@ const ShelfDetails = (props) => {
   }, [shelf_id]);
   console.log(`books=${books}`)
 
+
   for (const book of Object.values(books)) {
         const bookCard = (
           <BookCard
-        //   id={book.book_id}
+          id={book.book_id}
           title={book.title}
           author={book.author}
         //   overview={book.overview}
@@ -36,10 +35,7 @@ const ShelfDetails = (props) => {
           />
         );
         bookCards.push(bookCard)
-        console.log(`bookCards inside=${bookCards}`)
       }
-      console.log(`bookCards=${bookCards}`)
-
 
 
     return (

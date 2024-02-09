@@ -46,7 +46,10 @@ function App() {
           loader={({ book }) => console.log(book)}
           />
           <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
-          <Route path="add_book" element={<AddBook user_id={user_id}/>} />
+          <Route path="add_book/:book" 
+          element={<AddBook user_id={user_id}/>} 
+          loader={({ book }) => console.log(book)}
+          />
           <Route path="search" element={<SearchRequest/>} />
         </Routes>
       </BrowserRouter> }

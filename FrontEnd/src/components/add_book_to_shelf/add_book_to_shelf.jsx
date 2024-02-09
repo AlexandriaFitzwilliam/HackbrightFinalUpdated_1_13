@@ -3,6 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import AllShelfs from '../all_shelfs/all_shelfs';
+import {Link, useParams} from "react-router-dom";
 // import {redirect, useParams} from "react-router-dom"
 
 const AddBook = (props) => {
@@ -10,7 +11,7 @@ const AddBook = (props) => {
     const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
-    const book_id = 3;
+    const book_id = useParams();
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
