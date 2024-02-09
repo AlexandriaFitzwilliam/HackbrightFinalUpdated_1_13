@@ -78,6 +78,7 @@ def attempt_login():
 
 @app.route('/api/userid/<int:user_id>')
 def get_user(user_id):
+    """Gets and returns user info as a dict"""
 
     user = User.get_by_id(user_id)
     return jsonify(user.to_dict())
@@ -85,6 +86,7 @@ def get_user(user_id):
 
 @app.route('/api/book/<int:book_id>')
 def get_one_book_by_id(book_id):
+    """Gets and returns book info as dict"""
 
     book = Book.get_by_id(book_id)
 
@@ -93,10 +95,11 @@ def get_one_book_by_id(book_id):
 
 @app.route('/api/view_all/<int:shelf_id>')
 def get_all_books_in_shelf(shelf_id):
+    """Gets and returns all books in a shelf by shelf id"""
     
     print(f'shelf_id={shelf_id}')
 
-    all_books = Book.get_by_shelf_id(shelf_id=shelf_id)
+    all_books = BookShelf.get_by_shelf_id(shelf_id=shelf_id)
     all_books_dic = {}
 
     for book in all_books:
@@ -110,6 +113,7 @@ def get_all_books_in_shelf(shelf_id):
 
 @app.route('/api/book_ratings/<int:book_id>')
 def get_all_ratings_for_book(book_id):
+    """Gets and returns all ratings based off book_id"""
 
     all_ratings = Rating.get_by_book_id(book_id)
     all_ratings_dict = {}
@@ -122,6 +126,7 @@ def get_all_ratings_for_book(book_id):
 
 @app.route('/api/all_users')
 def get_all_users():
+    """Gets and returns all users info as dict"""
 
     all_users = User.get_all()
     all_users_dict = {}
@@ -134,6 +139,7 @@ def get_all_users():
 
 @app.route('/api/all_shelfs/<int:user_id>')
 def get_all_shelfs(user_id):
+    """Gets and returns all shelves of a user"""
 
     all_shelfs = Shelf.get_by_user_id(user_id)
     all_shelfs_dict = {}
@@ -146,6 +152,7 @@ def get_all_shelfs(user_id):
 
 @app.route('/api/user_ratings/<int:user_id>')
 def get_all_ratings_for_user(user_id):
+    """Gets and returns all ratings by a user"""
 
     all_ratings = Rating.get_by_user_id(user_id)
     all_ratings_dict = {}
@@ -158,16 +165,18 @@ def get_all_ratings_for_user(user_id):
 
 @app.route('/api/create_bookshelf', methods=["POST"])
 def attempt_create_bookshelf():
+    """Checks if book is already on shelf, if not adds it."""
+
     shelf_id = request.json.get("new_shelf")
     book_id = request.json.get("book_id")
     success = False
 
     bookshelf = BookShelf.get(book_id=book_id, shelf_id=shelf_id)
-    print()
-    print('*************************')
-    print(f'shelf_id={shelf_id}')
-    print(f'book_id={book_id}')
-    print()
+    # print()
+    # print('*************************')
+    # print(f'shelf_id={shelf_id}')
+    # print(f'book_id={book_id}')
+    # print()
 
     if bookshelf:
         success = False
@@ -187,6 +196,7 @@ def attempt_create_bookshelf():
 @app.route('/api/create_rating', methods=["POST"])
 def attempt_create_rating():
     """Creates a rating if rating combo does not exist"""
+
     user_id=request.json.get("user_id")
     book_id=request.json.get("book")
     score=request.json.get("score")
@@ -216,7 +226,8 @@ def attempt_create_rating():
 
 @app.route('/api/create_shelf', methods=["POST"])
 def attempt_create_shelf():
-    """Checks if book is already on shelf, if not adds it."""
+    """Creates a new Shelf for a user"""
+
     user_id=request.json.get("user_id")
     shelf_name=request.json.get("shelfName")
 

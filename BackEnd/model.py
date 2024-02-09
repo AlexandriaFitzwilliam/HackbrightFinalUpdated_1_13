@@ -155,17 +155,24 @@ class Book(db.Model):
     
         return Book.query.filter(Book.title == title).first()
     
-    @classmethod
-    def get_by_shelf_id(self, shelf_id):
-        """Return all books in a shelf"""
+    # @classmethod
+    # def get_by_shelf_id(self, shelf_id):
+    #     """Return all books in a shelf"""
 
-        books= []
+    #     books= []
 
-        bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
-        for bookshelf in bookshelves:
-            books.append(bookshelf.book)
+    #     bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
+    #     for bookshelf in bookshelves:
+    #         books.append(bookshelf.book)
+    #         print()
+    #         print()
+    #         print('books inside get by shelf id')
+    #         print(books)
+    #         print()
+    #         print()
 
-        return books
+    #     return books
+    
     
     @classmethod
     def get_by_param(self, param, param_type):
@@ -408,6 +415,19 @@ class BookShelf(db.Model):
 
         return BookShelf.query.filter(BookShelf.book_id == book_id, BookShelf.shelf_id==shelf_id).first()
 
+    @classmethod
+    def get_by_shelf_id(self, shelf_id):
+        
+        books = []
+
+        bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
+
+        for bookshelf in bookshelves:
+            book = bookshelf.book
+            books.append(book)
+
+        return books
+    
     def to_dict(self):
         return { 'bookshelf_id' : self.bookshelf_id,
                 'shelf_id' : self.shelf_id,

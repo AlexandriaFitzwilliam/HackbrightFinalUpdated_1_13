@@ -11,7 +11,7 @@ const AddBook = (props) => {
     const [new_shelf, setNewShelf] = React.useState("")
     const {user_id} = props;
     const userShelfs = [];
-    const book_id = useParams();
+    const book = useParams();
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
@@ -32,8 +32,13 @@ const AddBook = (props) => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        
+        const book_id = book['book']
+        console.log(`new_shelf=${new_shelf}`)
 
         const newBookShelf = {new_shelf, book_id}
+
+        // console.log(book_id)
 
 
         fetch('/api/create_bookshelf', {
