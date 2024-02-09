@@ -94,6 +94,8 @@ def get_one_book_by_id(book_id):
 @app.route('/api/view_all/<int:shelf_id>')
 def get_all_books_in_shelf(shelf_id):
     
+    print(f'shelf_id={shelf_id}')
+
     all_books = Book.get_by_shelf_id(shelf_id=shelf_id)
     all_books_dic = {}
 

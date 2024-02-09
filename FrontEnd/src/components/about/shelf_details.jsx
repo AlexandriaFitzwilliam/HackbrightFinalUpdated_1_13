@@ -37,6 +37,7 @@ const ShelfDetails = (props) => {
         bookCards.push(bookCard)
       }
 
+      // console.log(`bookCards=${bookCards}`)
 
     return (
         <div>

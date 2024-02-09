@@ -33,9 +33,6 @@ const AddBook = (props) => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        // console.log(book)
-        console.log(new_shelf)
-        // const newRating = {user_id, book, score}
         const newBookShelf = {new_shelf, book_id}
 
 
