@@ -71,6 +71,7 @@ const AddBook = (props) => {
                     onChange={e=>setNewShelf(e.target.value)}
                     // onChange={e=>console.log(e.target.value)}
                     >
+                        <option >Pick a shelf</option>
                         {userShelfs}
 
                     </Form.Select>
