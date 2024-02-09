@@ -41,7 +41,7 @@ function BookOverview(props) {
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>
               <Link to={`/create_rating/${book_id}`}>Add Rating</Link>
-              <Reviews />
+              <Reviews book_id={book_id}/>
   
           </div>
       )

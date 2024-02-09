@@ -2,12 +2,13 @@ import React from 'react';
 import './reviews.css';
 import Card from 'react-bootstrap/Card';
 
-const Reviews = () => {
+const Reviews = (props) => {
     const [ratings, setRatings] = React.useState({})
     const ratingCards = []
+    const {book_id} = props
 
     React.useEffect(() => {
-        fetch(`/api/book_ratings/1`)
+        fetch(`/api/book_ratings/${book_id}`)
           .then((response) => response.json())
           .then((result) => setRatings(result));
       }, []);
