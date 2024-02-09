@@ -200,7 +200,9 @@ def attempt_create_rating():
         if new_rating:
             db.session.add(new_rating)
             db.session.commit()
-            user.added_rating()
+            Rating.calculate_avg_and_num(id = user_id, id_type='user')
+            Rating.calculate_avg_and_num(id = book_id, id_type='book')
+            db.session.commit()
             success=True
             
         else:

@@ -4,10 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {redirect, useParams} from "react-router-dom"
 
-const CreateRating = () => {
+const CreateRating = (props) => {
     const [score, setScore] = React.useState(1);
     let { book } = useParams();
-    const user_id = 11;
+    const {user_id} = props;
 
 
 
