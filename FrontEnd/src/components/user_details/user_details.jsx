@@ -19,7 +19,7 @@ const UserDetails = (props) => {
 
     return (
         <div>
-            <h1>User Details go here.</h1>
+            <h1>{userInfo.username}</h1>
             <div className='user-details'>
             <Figure>
                 <Figure.Image
@@ -28,9 +28,6 @@ const UserDetails = (props) => {
                     alt="171x180"
                     src="holder.js/171x180"
                 />
-                <Figure.Caption>
-                    Username: {userInfo.username}
-                </Figure.Caption>
         </Figure>
         <ListGroup>
             <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>

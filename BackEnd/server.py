@@ -158,6 +158,7 @@ def get_all_ratings_for_user(user_id):
     """Gets and returns all ratings by a user"""
 
     all_ratings = Rating.get_by_user_id(user_id)
+    # all_ratings = all_ratings[::-1]
     all_ratings_dict = {}
 
     for rating in all_ratings:
@@ -210,7 +211,10 @@ def attempt_create_rating():
 
 
     if rating:
-        success=False
+        rating.score = score
+        rating.details = details
+        db.session.commit()
+        success=True
     else:
         new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score, details=details)
         if new_rating:

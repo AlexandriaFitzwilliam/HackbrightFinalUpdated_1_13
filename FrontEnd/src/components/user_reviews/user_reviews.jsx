@@ -22,7 +22,7 @@ const UserReviews = (props) => {
             details={rating.details}
             />
         );
-        ratingCards.push(ratingCard)
+        ratingCards.unshift(ratingCard)
       }
 
       
