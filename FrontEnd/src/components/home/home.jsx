@@ -21,6 +21,12 @@ const Home = () => {
             .then((response) => response.json())
             .then((responseJson) => {
               console.log(responseJson.success);
+              if (responseJson.success == true) {
+                sessionStorage.setItem('login', true)
+                sessionStorage.setItem('user_id', responseJson.user_id)
+                // const login_test = sessionStorage.getItem('login')
+                console.log(sessionStorage.getItem('user_id'))
+              }
             });
     }
 

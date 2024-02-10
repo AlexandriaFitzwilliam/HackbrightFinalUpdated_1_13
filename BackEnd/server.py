@@ -71,9 +71,10 @@ def attempt_login():
         print("Something is wrong in attempt_login")
         success = False
 
-    return {
-        "success":success
-    }
+    return jsonify({
+        "success":success,
+        "user_id":user.user_id
+    })
 
 
 @app.route('/api/userid/<int:user_id>')

@@ -15,9 +15,10 @@ const Header = () => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="mr-auto">
+                  <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link>
                   <Nav.Link as={Link} to={"/users"} > Users</Nav.Link>
                   <Nav.Link as={Link} to={"/login"} > Login</Nav.Link>
-                  <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link>
+                  {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
                   <Nav.Link as={Link} to={"/create_account"} > Create Account</Nav.Link>
                   <Nav.Link as={Link} to={"/search"} > Search</Nav.Link>
                   {/* <Nav.Link as={Link} to={"/create_shelf"} > Create New Shelf</Nav.Link> */}
