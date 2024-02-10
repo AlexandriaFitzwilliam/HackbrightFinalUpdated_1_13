@@ -43,10 +43,12 @@ function RatingCard(props) {
     return (
         <div className='ratingcard'>
             <Card border="success" style={{ width: '18rem' }}>
-                <Card.Header>{book_title}</Card.Header>
+                <Card.Header>
+                <Card.Link href={`/book/${id}`}>{book_title}</Card.Link>
+                    
+                    </Card.Header>
                 <Card.Body>
                 <Card.Title>{score} Stars</Card.Title>
-                <Card.Link href={`/book/${id}`}>Book Details</Card.Link>
                 {/* <Card.Text>
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
