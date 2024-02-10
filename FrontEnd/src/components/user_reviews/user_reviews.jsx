@@ -28,7 +28,7 @@ const UserReviews = (props) => {
       
     return (
         <div>
-            <h1>One User's Ratings go here</h1>
+            <h3>Recent Reviews</h3>
             <span>{ratingCards}</span>
 
         </div>
