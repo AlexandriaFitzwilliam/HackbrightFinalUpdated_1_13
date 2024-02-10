@@ -65,11 +65,13 @@ def attempt_login():
 
     if user == None or password != user.password:
         success = False
+        user.user_id = None
     elif password == user.password:
         success = True
     else:
         print("Something is wrong in attempt_login")
         success = False
+        user.user_id = None
 
     return jsonify({
         "success":success,

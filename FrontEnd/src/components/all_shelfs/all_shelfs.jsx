@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 // import './all_users.css';
 import ShelfDetails from '../about/shelf_details';
+import CreateShelf from '../create_shelf/create_shelf';
 
 
 const AllShelfs = (props) => {
@@ -28,6 +30,7 @@ const AllShelfs = (props) => {
     return (
         <div>
             <h2>Your Shelves</h2>
+            <Link to="/create_shelf">Create New Shelf</Link>
             <span>{userShelfs}</span>
 
         </div>

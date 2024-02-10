@@ -13,16 +13,16 @@ const HeaderLoggedIn = () => {
         <div>
           <Navbar bg="dark" expand="lg" variant={"dark"}>
             <Container>
-              <Navbar.Brand href="#home">My Library</Navbar.Brand>
+              <Navbar.Brand href="/home">My Home</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="mr-auto">
-                  <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link>
+                  {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
+                  <Nav.Link as={Link} to={"/search"} > Search</Nav.Link>
                   <Nav.Link as={Link} to={"/users"} > Users</Nav.Link>
                   {/* <Nav.Link as={Link} to={"/login"} > Login</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/create_account"} > Create Account</Nav.Link> */}
-                  <Nav.Link as={Link} to={"/search"} > Search</Nav.Link>
                   {/* <Nav.Link as={Link} to={"/create_shelf"} > Create New Shelf</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"book/create_rating/1"} > Create Rating</Nav.Link> */}
                   <NavDropdown title="Actions" id="basic-nav-dropdown">
@@ -45,3 +45,4 @@ const HeaderLoggedIn = () => {
 }
 
 export default HeaderLoggedIn
+

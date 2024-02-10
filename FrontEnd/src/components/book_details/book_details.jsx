@@ -22,7 +22,6 @@ function BookCard(props) {
               <Card.Body>
                   <Card.Title>
                   <Card.Link href={`/book/${id}`}>{title}</Card.Link>
-
                     </Card.Title>
                   <Card.Text>
                   {author}
@@ -30,6 +29,9 @@ function BookCard(props) {
               </Card.Body>
               <ListGroup className="list-group-flush">
                   <ListGroup.Item>Average Rating: {avg_rating}</ListGroup.Item>
+                  <ListGroup.Item>
+                  <Card.Link href={`/add_book/${id}`}>Add to Shelf</Card.Link>
+                  </ListGroup.Item>
               </ListGroup>
               </Card>
   

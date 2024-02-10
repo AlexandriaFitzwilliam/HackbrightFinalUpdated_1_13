@@ -23,8 +23,8 @@ const LoggedInHome = (props) => {
 
     return (
         <div>
-            <h1>Homepage for User</h1>
             <div className='user-details'>
+                <h1>{userInfo.username}</h1>
             <Figure>
                 <Figure.Image
                     width={171}

@@ -36,7 +36,8 @@ function BookOverview() {
               <h3>{author}</h3>
               <h5>Average Rating: {avg_rating}</h5>
               <h5>Number of Ratings: {num_rating}</h5>
-              <h5>{publish_date}</h5>
+              <h5>Publish Date: {publish_date}</h5>
+              <h5>Book Summary</h5>
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>
               <Link to={`/create_rating/${book_id}`}>Add Rating</Link>

@@ -7,7 +7,7 @@ const Reviews = (props) => {
     const ratingCards = []
     const {book_id} = props
 
-    console.log(`book_id=${book_id}`)
+    // console.log(`book_id=${book_id}`)
 
     React.useEffect(() => {
         fetch(`/api/book_ratings/${book_id}`)
@@ -29,8 +29,8 @@ const Reviews = (props) => {
 
 
     return (
-        <div>
-            <h1>Book Ratings go here</h1>
+        <div className='book_ratings' id={`book_ratings_${book_id}`}>
+            <h2>Reviews</h2>
             <span>{ratingCards}</span>
 
         </div>
@@ -53,7 +53,7 @@ function RatingCard(props) {
                 <Card.Title>{score} Stars</Card.Title>
                 <Card.Text>
                     {details}
-                // </Card.Text>
+                 </Card.Text>
                 </Card.Body>
             </Card>
             <br />
