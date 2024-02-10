@@ -40,9 +40,7 @@ const LoggedInHome = (props) => {
             <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
             <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
             <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
-            <ListGroup.Item>Shelf Ids: {userInfo.shelf_ids}</ListGroup.Item>
         </ListGroup>
-        <h4>The below user ratings are done through the logged in homepage.</h4>
         <AllShelfs user_id={userInfo.user_id}/>
         {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
         <UserReviews user_id={userInfo.user_id}/>

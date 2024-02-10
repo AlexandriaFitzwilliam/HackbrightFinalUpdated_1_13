@@ -27,7 +27,7 @@ const AllShelfs = (props) => {
 
     return (
         <div>
-            <h1>All Shelves - glance goes here</h1>
+            <h2>Your Shelves</h2>
             <span>{userShelfs}</span>
 
         </div>
@@ -41,7 +41,7 @@ function ShelfCard(props) {
 
     return (
         <div>
-            {shelf_name}
+            <h3>{shelf_name}</h3>
             <ShelfDetails shelf_id={shelf_id} />
         </div>
     )

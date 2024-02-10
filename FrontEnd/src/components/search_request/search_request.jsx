@@ -49,7 +49,7 @@ const SearchRequest = (props) => {
         // console.log(bookCard)
         bookCards.push(bookCard)
     }
-    console.log(`bookCards=${bookCards}`)
+    // console.log(`bookCards=${bookCards}`)
 
 
     return (
@@ -57,7 +57,6 @@ const SearchRequest = (props) => {
             <h1>Search Page</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formSearchRequest">
-                    {/* <Form.Label>What would you like to name your shelf?</Form.Label> */}
                     <Form.Control placeholder="Type search keywords here" 
                         value={searchParam} onChange={(e)=>setSearchParam(e.target.value)}/>
                     <Form.Select 

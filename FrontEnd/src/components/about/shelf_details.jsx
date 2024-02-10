@@ -18,7 +18,7 @@ const ShelfDetails = (props) => {
         setBooks(result)
       });
   }, [shelf_id]);
-  console.log(`books=${books}`)
+  // console.log(`books=${books}`)
 
 
   for (const book of Object.values(books)) {
@@ -40,12 +40,8 @@ const ShelfDetails = (props) => {
       // console.log(`bookCards=${bookCards}`)
 
     return (
-        <div>
-            <h1>Shelf Name Goes Here</h1>
-            <span>
-            {bookCards}
-            </span>
-            
+        <div className='shelfcard' id={`shelfcard_${shelf_id}`}>
+          {bookCards}
         </div>
     )
 }
