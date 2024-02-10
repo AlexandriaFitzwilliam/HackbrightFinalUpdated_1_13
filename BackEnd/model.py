@@ -267,6 +267,7 @@ class Rating(db.Model):
     score = db.Column(db.Integer)     #1-5
     book_id = db.Column(db.Integer, db.ForeignKey("books.book_id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
+    details = db.Column(db.Text)
 
     book = db.relationship("Book", back_populates="ratings")
     user = db.relationship("User", back_populates="ratings")
@@ -275,13 +276,14 @@ class Rating(db.Model):
         return f'<Rating rating_id={self.rating_id} book_id={self.book_id}>'
     
     @classmethod
-    def create(self, user_id, book_id, score):
+    def create(self, user_id, book_id, score, details=None):
         """Creates and returns a new rating"""
 
         rating = Rating(
             user_id=user_id,
             book_id=book_id,
-            score=float(score)
+            score=float(score),
+            details=details
         )
 
         return rating
@@ -339,7 +341,8 @@ class Rating(db.Model):
                 'book_id' : self.book_id,
                 'user_id' : self.user_id,
                 'username': self.user.username,
-                'book_title':self.book.title
+                'book_title':self.book.title,
+                'details' : self.details
         }
 
 
