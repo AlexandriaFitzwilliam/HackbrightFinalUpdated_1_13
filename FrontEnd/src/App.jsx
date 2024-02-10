@@ -18,43 +18,119 @@ import AddBook from './components/add_book_to_shelf/add_book_to_shelf';
 import SearchRequest from './components/search_request/search_request';
 
 function App() {
-  const user_id=11;
 
-  return (
-    <div>
-      { <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="shelf" element={<ShelfDetails />} />
-          {/* <Route path="book" element={<BookOverview />} /> */}
-          <Route 
-            path="/book/:id" 
-            element={<BookOverview />} 
-            loader={({ id }) => {console.log(id)}}
-          /> 
-          <Route path="users" element={<AllUsers />} />
-          <Route 
-            path="/users/user/:id" 
-            element={<UserDetails />} 
-            loader={({ id }) => {console.log(id)}}
-          /> 
-          <Route path="login" element={<Home />} />
-          <Route path="create_account" element={<CreateAccount />} />
-          <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
-          <Route path="/create_rating/:book" 
-          element={<CreateRating user_id={user_id}/>} 
-          loader={({ book }) => console.log(book)}
-          />
-          <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
-          <Route path="add_book/:book" 
-          element={<AddBook user_id={user_id}/>} 
-          loader={({ book }) => console.log(book)}
-          />
-          <Route path="search" element={<SearchRequest/>} />
-        </Routes>
-      </BrowserRouter> }
-    </div>
-  );
+  let user_id=sessionStorage.getItem('user_id')
+
+  if (user_id != null) {
+    return (
+      <div>
+        { <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="shelf" element={<ShelfDetails />} />
+            {/* <Route path="book" element={<BookOverview />} /> */}
+            <Route 
+              path="/book/:id" 
+              element={<BookOverview />} 
+              loader={({ id }) => {console.log(id)}}
+            /> 
+            <Route path="users" element={<AllUsers />} />
+            <Route 
+              path="/users/user/:id" 
+              element={<UserDetails />} 
+              loader={({ id }) => {console.log(id)}}
+            /> 
+            <Route path="login" element={<Home />} />
+            <Route path="create_account" element={<CreateAccount />} />
+            <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
+            <Route path="/create_rating/:book" 
+            element={<CreateRating user_id={user_id}/>} 
+            loader={({ book }) => console.log(book)}
+            />
+            <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
+            <Route path="add_book/:book" 
+            element={<AddBook user_id={user_id}/>} 
+            loader={({ book }) => console.log(book)}
+            />
+            <Route path="search" element={<SearchRequest/>} />
+          </Routes>
+        </BrowserRouter> }
+      </div>
+    );
+  }
+
+  else {
+    return (
+      <div>
+        { <BrowserRouter>
+          <Header />
+          <Routes>
+            {/* <Route path="shelf" element={<ShelfDetails />} /> */}
+            {/* <Route path="book" element={<BookOverview />} /> */}
+            {/* <Route 
+              path="/book/:id" 
+              element={<BookOverview />} 
+              loader={({ id }) => {console.log(id)}}
+            />  */}
+            <Route path="users" element={<AllUsers />} />
+            <Route 
+              path="/users/user/:id" 
+              element={<UserDetails />} 
+              loader={({ id }) => {console.log(id)}}
+            /> 
+            <Route path="login" element={<Home />} />
+            <Route path="create_account" element={<CreateAccount />} />
+            {/* <Route path="home" element={<LoggedInHome user_id={user_id}/>} /> */}
+            {/* <Route path="/create_rating/:book" 
+            element={<CreateRating user_id={user_id}/>} 
+            loader={({ book }) => console.log(book)}
+            />
+            <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
+            <Route path="add_book/:book" 
+            element={<AddBook user_id={user_id}/>} 
+            loader={({ book }) => console.log(book)}
+            />
+            <Route path="search" element={<SearchRequest/>} /> */}
+          </Routes>
+        </BrowserRouter> }
+      </div>
+    );
+  }
+      // return (
+      //   <div>
+      //     { <BrowserRouter>
+      //       <Header />
+      //       <Routes>
+      //         <Route path="shelf" element={<ShelfDetails />} />
+      //         {/* <Route path="book" element={<BookOverview />} /> */}
+      //         <Route 
+      //           path="/book/:id" 
+      //           element={<BookOverview />} 
+      //           loader={({ id }) => {console.log(id)}}
+      //         /> 
+      //         <Route path="users" element={<AllUsers />} />
+      //         <Route 
+      //           path="/users/user/:id" 
+      //           element={<UserDetails />} 
+      //           loader={({ id }) => {console.log(id)}}
+      //         /> 
+      //         <Route path="login" element={<Home />} />
+      //         <Route path="create_account" element={<CreateAccount />} />
+      //         <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
+      //         <Route path="/create_rating/:book" 
+      //         element={<CreateRating user_id={user_id}/>} 
+      //         loader={({ book }) => console.log(book)}
+      //         />
+      //         <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
+      //         <Route path="add_book/:book" 
+      //         element={<AddBook user_id={user_id}/>} 
+      //         loader={({ book }) => console.log(book)}
+      //         />
+      //         <Route path="search" element={<SearchRequest/>} />
+      //       </Routes>
+      //     </BrowserRouter> }
+      //   </div>
+      // );
 }
 
 export default App
