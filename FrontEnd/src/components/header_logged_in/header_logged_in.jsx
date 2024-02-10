@@ -18,8 +18,8 @@ const HeaderLoggedIn = () => {
               <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="mr-auto">
                   {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
-                  <Nav.Link as={Link} to={"/search"} > Search</Nav.Link>
-                  <Nav.Link as={Link} to={"/users"} > Users</Nav.Link>
+                  <Nav.Link as={Link} to={"/search_books"} >Search Books</Nav.Link>
+                  <Nav.Link as={Link} to={"/search_users"} >Search Users</Nav.Link>
                   {/* <Nav.Link as={Link} to={"/login"} > Login</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/create_account"} > Create Account</Nav.Link> */}
@@ -27,6 +27,7 @@ const HeaderLoggedIn = () => {
                   {/* <Nav.Link as={Link} to={"book/create_rating/1"} > Create Rating</Nav.Link> */}
                   <NavDropdown title="Actions" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/create_shelf">Create New Shelf</NavDropdown.Item>
+                    <NavDropdown.Item href="/users">All Users</NavDropdown.Item>
                     {/* <NavDropdown.Item href="#action/3.2">
                       Another action
                     </NavDropdown.Item>

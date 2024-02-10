@@ -54,7 +54,7 @@ const SearchRequest = (props) => {
 
     return (
         <div>
-            <h1>Search Page</h1>
+            <h1>Search for a Book</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formSearchRequest">
                     <Form.Control placeholder="Type search keywords here" 
@@ -75,7 +75,6 @@ const SearchRequest = (props) => {
                     Submit
                 </Button>
             </Form>
-            <h5>bookCards below</h5>
             {bookCards}
         </div>
     )

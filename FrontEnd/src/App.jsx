@@ -52,7 +52,7 @@ function App() {
             element={<AddBook user_id={user_id}/>} 
             loader={({ book }) => console.log(book)}
             />
-            <Route path="search" element={<SearchRequest/>} />
+            <Route path="search_books" element={<SearchRequest/>} />
           </Routes>
         </BrowserRouter> }
       </div>
@@ -65,6 +65,7 @@ function App() {
         { <BrowserRouter>
           <Header />
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="users" element={<AllUsers />} />
             <Route 
               path="/users/user/:id" 
