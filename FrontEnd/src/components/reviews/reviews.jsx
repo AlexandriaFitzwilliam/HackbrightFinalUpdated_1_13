@@ -7,6 +7,8 @@ const Reviews = (props) => {
     const ratingCards = []
     const {book_id} = props
 
+    console.log(`book_id=${book_id}`)
+
     React.useEffect(() => {
         fetch(`/api/book_ratings/${book_id}`)
           .then((response) => response.json())
@@ -18,6 +20,7 @@ const Reviews = (props) => {
             <RatingCard
             score={rating.score}
             username={rating.username}
+            id={rating.rating_id}
             />
         );
         ratingCards.push(ratingCard)
@@ -36,11 +39,11 @@ const Reviews = (props) => {
 export default Reviews
 
 function RatingCard(props) {
-    const {score, username} = props;
+    const {score, username, id} = props;
 
 
     return (
-        <div className='ratingcard'>
+        <div className='ratingcard' id={`ratingcard_${id}`}>
             <Card border="success" style={{ width: '18rem' }}>
                 <Card.Header>{username}</Card.Header>
                 <Card.Body>

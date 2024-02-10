@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/headers/header';
+import HeaderLoggedIn from './components/header_logged_in/header_logged_in';
 import Home from './components/home/home';
 import ShelfDetails from './components/about/shelf_details';
 import BookOverview from './components/book_overview/book_overview';
@@ -25,10 +26,9 @@ function App() {
     return (
       <div>
         { <BrowserRouter>
-          <Header />
+          <HeaderLoggedIn />
           <Routes>
             <Route path="shelf" element={<ShelfDetails />} />
-            {/* <Route path="book" element={<BookOverview />} /> */}
             <Route 
               path="/book/:id" 
               element={<BookOverview />} 
@@ -40,8 +40,6 @@ function App() {
               element={<UserDetails />} 
               loader={({ id }) => {console.log(id)}}
             /> 
-            <Route path="login" element={<Home />} />
-            <Route path="create_account" element={<CreateAccount />} />
             <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
             <Route path="/create_rating/:book" 
             element={<CreateRating user_id={user_id}/>} 
@@ -65,13 +63,6 @@ function App() {
         { <BrowserRouter>
           <Header />
           <Routes>
-            {/* <Route path="shelf" element={<ShelfDetails />} /> */}
-            {/* <Route path="book" element={<BookOverview />} /> */}
-            {/* <Route 
-              path="/book/:id" 
-              element={<BookOverview />} 
-              loader={({ id }) => {console.log(id)}}
-            />  */}
             <Route path="users" element={<AllUsers />} />
             <Route 
               path="/users/user/:id" 
@@ -80,57 +71,12 @@ function App() {
             /> 
             <Route path="login" element={<Home />} />
             <Route path="create_account" element={<CreateAccount />} />
-            {/* <Route path="home" element={<LoggedInHome user_id={user_id}/>} /> */}
-            {/* <Route path="/create_rating/:book" 
-            element={<CreateRating user_id={user_id}/>} 
-            loader={({ book }) => console.log(book)}
-            />
-            <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
-            <Route path="add_book/:book" 
-            element={<AddBook user_id={user_id}/>} 
-            loader={({ book }) => console.log(book)}
-            />
-            <Route path="search" element={<SearchRequest/>} /> */}
           </Routes>
         </BrowserRouter> }
       </div>
     );
   }
-      // return (
-      //   <div>
-      //     { <BrowserRouter>
-      //       <Header />
-      //       <Routes>
-      //         <Route path="shelf" element={<ShelfDetails />} />
-      //         {/* <Route path="book" element={<BookOverview />} /> */}
-      //         <Route 
-      //           path="/book/:id" 
-      //           element={<BookOverview />} 
-      //           loader={({ id }) => {console.log(id)}}
-      //         /> 
-      //         <Route path="users" element={<AllUsers />} />
-      //         <Route 
-      //           path="/users/user/:id" 
-      //           element={<UserDetails />} 
-      //           loader={({ id }) => {console.log(id)}}
-      //         /> 
-      //         <Route path="login" element={<Home />} />
-      //         <Route path="create_account" element={<CreateAccount />} />
-      //         <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
-      //         <Route path="/create_rating/:book" 
-      //         element={<CreateRating user_id={user_id}/>} 
-      //         loader={({ book }) => console.log(book)}
-      //         />
-      //         <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
-      //         <Route path="add_book/:book" 
-      //         element={<AddBook user_id={user_id}/>} 
-      //         loader={({ book }) => console.log(book)}
-      //         />
-      //         <Route path="search" element={<SearchRequest/>} />
-      //       </Routes>
-      //     </BrowserRouter> }
-      //   </div>
-      // );
+
 }
 
 export default App

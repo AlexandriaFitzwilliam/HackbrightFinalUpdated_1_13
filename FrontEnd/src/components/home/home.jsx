@@ -25,7 +25,7 @@ const Home = () => {
                 sessionStorage.setItem('login', true)
                 sessionStorage.setItem('user_id', responseJson.user_id)
                 // const login_test = sessionStorage.getItem('login')
-                console.log(sessionStorage.getItem('user_id'))
+                // console.log(sessionStorage.getItem('user_id'))
               }
             });
     }
