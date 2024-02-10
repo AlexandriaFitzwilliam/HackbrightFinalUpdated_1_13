@@ -13,7 +13,7 @@ const Reviews = (props) => {
         fetch(`/api/book_ratings/${book_id}`)
           .then((response) => response.json())
           .then((result) => setRatings(result));
-      }, []);
+      }, [book_id]);
 
       for (const rating of Object.values(ratings)) {
         const ratingCard = (
@@ -45,7 +45,9 @@ function RatingCard(props) {
     return (
         <div className='ratingcard' id={`ratingcard_${id}`}>
             <Card border="success" style={{ width: '18rem' }}>
-                <Card.Header>{username}</Card.Header>
+                <Card.Header>
+                <Card.Link href={`/users/user/${id}`}>{username}</Card.Link>
+                    </Card.Header>
                 <Card.Body>
                 <Card.Title>{score} Stars</Card.Title>
                 {/* <Card.Text>
