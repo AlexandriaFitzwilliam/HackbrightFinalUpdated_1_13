@@ -4,18 +4,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {redirect, useParams} from "react-router-dom"
 
-const CreateRating = (props) => {
+const CreateRating = () => {
     const [score, setScore] = React.useState(1);
+    const [details, setDetails] = React.useState('');
     let { book } = useParams();
-    const {user_id} = props;
-
+    const user_id = sessionStorage.getItem('user_id');
 
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(book)
-        const newRating = {user_id, book, score}
+        const newRating = {user_id, book, score, details}
     
 
         fetch('/api/create_rating', {
@@ -41,7 +40,7 @@ const CreateRating = (props) => {
             <h1>Create Rating</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
-                    <Form.Label>Book Title Goes Here</Form.Label>
+                    <Form.Label>How many Stars?</Form.Label>
                     <Form.Select 
                     aria-label="Choose a rating"
                     value={score} 
@@ -54,6 +53,11 @@ const CreateRating = (props) => {
                         <option value="4">Four Stars</option>
                         <option value="5">Five Stars</option>
                     </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="text" placeholder="(Optional) Write review here" 
+                    value={details} onChange={(e)=>setDetails(e.target.value)}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

@@ -34,15 +34,14 @@ function BookOverview() {
               {/* <h4>{cover_pic}</h4> */}
               <h1>{title}</h1>
               <h3>{author}</h3>
+              <Link to={`/add_book/${book_id}`}>Add to Shelf</Link>
               <h5>Average Rating: {avg_rating}</h5>
               <h5>Number of Ratings: {num_rating}</h5>
               <h5>Publish Date: {publish_date}</h5>
               <h5>Book Summary</h5>
               <p>{overview}</p>
               <h5>The below reviews are done through reviews page</h5>
-              <Link to={`/create_rating/${book_id}`}>Add Rating</Link>
-              <br></br>
-              <Link to={`/add_book/${book_id}`}>Add to Shelf</Link>
+              <Link to={`/create_rating/${book_id}`} title={title}>Add Rating</Link>
               <Reviews book_id={book_id}/>
   
           </div>

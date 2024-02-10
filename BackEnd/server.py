@@ -203,6 +203,7 @@ def attempt_create_rating():
     user_id=request.json.get("user_id")
     book_id=request.json.get("book")
     score=request.json.get("score")
+    details=request.json.get("details")
 
     rating = Rating.get_by_user_and_book(user_id=user_id, book_id=book_id)
     user = User.get_by_id(user_id=user_id)
@@ -211,7 +212,7 @@ def attempt_create_rating():
     if rating:
         success=False
     else:
-        new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score)
+        new_rating = Rating.create(user_id=user_id, book_id=book_id,score=score, details=details)
         if new_rating:
             db.session.add(new_rating)
             db.session.commit()

@@ -52,7 +52,7 @@ function RatingCard(props) {
                 <Card.Title>{score} Stars</Card.Title>
                 <Card.Text>
                     {details}
-                // </Card.Text>
+                 </Card.Text>
                 </Card.Body>
             </Card>
             <br />

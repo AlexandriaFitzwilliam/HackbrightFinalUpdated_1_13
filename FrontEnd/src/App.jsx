@@ -42,7 +42,7 @@ function App() {
             /> 
             <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
             <Route path="/create_rating/:book" 
-            element={<CreateRating user_id={user_id}/>} 
+            element={<CreateRating />} 
             loader={({ book }) => console.log(book)}
             />
             <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
