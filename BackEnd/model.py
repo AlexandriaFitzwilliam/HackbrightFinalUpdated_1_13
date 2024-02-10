@@ -60,6 +60,13 @@ class User(db.Model):
 
         return User.query.filter(User.username == username).first()
     
+    
+    @classmethod
+    def get_by_param(self, param):
+        """Returns a list of users by a partial match"""
+
+        return User.query.filter(User.username.like(f'%{param}%')).all()
+    
     def to_dict(self):
         """Returns info of each user as a dictionary"""
 
@@ -154,24 +161,6 @@ class Book(db.Model):
         """Returns a book by its title."""
     
         return Book.query.filter(Book.title == title).first()
-    
-    # @classmethod
-    # def get_by_shelf_id(self, shelf_id):
-    #     """Return all books in a shelf"""
-
-    #     books= []
-
-    #     bookshelves = BookShelf.query.filter(BookShelf.shelf_id == shelf_id).all()
-    #     for bookshelf in bookshelves:
-    #         books.append(bookshelf.book)
-    #         print()
-    #         print()
-    #         print('books inside get by shelf id')
-    #         print(books)
-    #         print()
-    #         print()
-
-    #     return books
     
     
     @classmethod

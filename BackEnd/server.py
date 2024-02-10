@@ -176,11 +176,6 @@ def attempt_create_bookshelf():
     success = False
 
     bookshelf = BookShelf.get(book_id=book_id, shelf_id=shelf_id)
-    # print()
-    # print('*************************')
-    # print(f'shelf_id={shelf_id}')
-    # print(f'book_id={book_id}')
-    # print()
 
     if bookshelf:
         success = False
@@ -239,10 +234,6 @@ def attempt_create_shelf():
     user_id=request.json.get("user_id")
     shelf_name=request.json.get("shelfName")
 
-    print("******************")
-    print(shelf_name)
-    print("**************")
-
     shelf = Shelf.create(user_id=user_id, shelf_name=shelf_name)
 
     if shelf:
@@ -256,6 +247,22 @@ def attempt_create_shelf():
     return {
         "success":success
     }
+
+
+@app.route('/api/search_users', methods=["POST"])
+def search_users():
+    """Searches db for users with matching partial"""
+
+    param=request.json.get("searchParam")
+    all_users = User.get_by_param(param)
+    all_users_dict = {}
+
+    for user in all_users:
+        all_users_dict[user.user_id] = user.to_dict()
+
+    return jsonify(all_users_dict)
+    
+
 
 @app.route('/api/search_request', methods=["POST"])
 def search_books():

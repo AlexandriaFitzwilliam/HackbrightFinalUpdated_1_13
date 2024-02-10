@@ -17,6 +17,7 @@ import CreateRating from './components/create_rating/create_rating';
 import CreateShelf from './components/create_shelf/create_shelf';
 import AddBook from './components/add_book_to_shelf/add_book_to_shelf';
 import SearchRequest from './components/search_request/search_request';
+import SearchUsers from './components/search_users/search_users';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
             element={<CreateRating />} 
             loader={({ book }) => console.log(book)}
             />
+            <Route path="search_users" element={<SearchUsers />} />
             <Route path="create_shelf" element={<CreateShelf user_id={user_id}/>} />
             <Route path="add_book/:book" 
             element={<AddBook user_id={user_id}/>} 
