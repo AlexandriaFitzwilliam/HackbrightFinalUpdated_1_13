@@ -21,6 +21,7 @@ const Reviews = (props) => {
             score={rating.score}
             username={rating.username}
             id={rating.rating_id}
+            details={rating.details}
             />
         );
         ratingCards.push(ratingCard)
@@ -39,7 +40,7 @@ const Reviews = (props) => {
 export default Reviews
 
 function RatingCard(props) {
-    const {score, username, id} = props;
+    const {score, username, id, details} = props;
 
 
     return (
@@ -50,10 +51,9 @@ function RatingCard(props) {
                     </Card.Header>
                 <Card.Body>
                 <Card.Title>{score} Stars</Card.Title>
-                {/* <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                // </Card.Text>  uncomment this out if want to add words to reviews*/}
+                <Card.Text>
+                    {details}
+                // </Card.Text>
                 </Card.Body>
             </Card>
             <br />

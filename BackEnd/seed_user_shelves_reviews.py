@@ -9,6 +9,7 @@ from server import app
 connect_to_db(app)
 all_users = User.get_all()
 books_in_db = Book.get_all()
+rating_text = ['This book was great.', 'This book was terrible.']
 
 for user in all_users:
     first_shelf = Shelf.create(
@@ -32,7 +33,8 @@ for user in all_users:
         rating = Rating.create(
             book_id=book.book_id,
             score=randint(1,5),
-            user_id=user.user_id
+            user_id=user.user_id,
+            details=choice(rating_text)
         )
         model.db.session.add(rating)
         model.db.session.commit()
