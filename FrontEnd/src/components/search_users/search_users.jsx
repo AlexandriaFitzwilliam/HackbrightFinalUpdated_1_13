@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import BookCard from '../book_details/book_details';
+import Card from 'react-bootstrap/Card';
 
 
 const SearchUsers = (props) => {
@@ -32,22 +32,17 @@ const SearchUsers = (props) => {
 
     }
 
-    // for (const user of Object.values(userSearched)) {
-    //     const userCard = (
-    //         <BookCard
-    //           id={book.book_id}
-    //           title={book.title}
-    //           author={book.author}
-    //         //   overview={book.overview}
-    //         //   publish_date={book.publish_date}
-    //           cover_pic={book.cover_pic}
-    //           avg_rating={book.avg_rating}
-    //           // num_ratings={book.num_ratings}
-    //           />
-    //     )
-    //     // console.log(bookCard)
-    //     userCards.push(userCard)
-    // }
+    for (const user of Object.values(userSearched)) {
+        const userCard = (
+            <Card className='searchUserCard' id={`searchUserCard_${user.user_id}`} border="success" style={{ width: '18rem' }}>
+                <Card.Header>
+                <Card.Link href={`/users/user/${user.user_id}`}>{user.username}</Card.Link>
+                </Card.Header>
+            </Card>
+        )
+        // console.log(bookCard)
+        userCards.push(userCard)
+    }
 
 
     return (
