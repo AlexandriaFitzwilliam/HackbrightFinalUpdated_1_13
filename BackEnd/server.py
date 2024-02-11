@@ -285,14 +285,20 @@ def search_books():
             cur_book = Book.get_by_title(title=title)
 
             if not cur_book:
-                author = book.get('volumeInfo', {}).get('authors', None)
+                authors = book.get('volumeInfo', {}).get('authors', [])
                 overview = book.get('volumeInfo', {}).get('description', None)
                 publish_date = book.get('volumeInfo', {}).get('publishedDate', None)
                 cover_pic = book.get('volumeInfo', {}).get('imageLinks', {}).get('thumbnail', 'Book cover')
+                authors_strip = ''
+
+                for author in authors:
+                    authors_strip += f"{author}, "
+
+                authors_strip = authors_strip.rstrip(', ')
 
                 new_book = Book.create_book(
                         title=title,
-                        author=author,
+                        author=authors_strip,
                         overview=overview,
                         publish_date=publish_date,
                         cover_pic=cover_pic
