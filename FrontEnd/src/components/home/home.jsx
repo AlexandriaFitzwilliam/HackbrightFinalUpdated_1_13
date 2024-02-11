@@ -31,7 +31,7 @@ const Home = () => {
     }
 
     return (
-        <div class="container-fluid">
+        <div class="container-fluid image-test"  id="log-in form">
             <h1>Log in</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

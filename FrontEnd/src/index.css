@@ -71,17 +71,21 @@ button:focus-visible {
 } */
 
 
-/* #root {
-  max-height: 100%;
+body {
+  height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 
   background: url("static/open_book.jpg") no-repeat center center;
   background-size: cover;
+}
+
+/* #root {
+  height: 46vh;
 } */
 
-/* .container-fluid {
-  background: url("/static/open_book.jpg") no-repeat center center;
+/* .image-test {
+  background: url("static/open_book.jpg") no-repeat center center;
   background-size: cover;
 } */
