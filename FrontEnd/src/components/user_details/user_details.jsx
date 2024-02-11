@@ -17,16 +17,18 @@ const UserDetails = (props) => {
           .then((result) => setUserInfo(result));
     }, [user_id]);
 
+    console.log(userInfo.profile_pic)
+
     return (
         <div>
             <h1>{userInfo.username}</h1>
             <div className='user-details'>
             <Figure>
                 <Figure.Image
-                    width={171}
-                    height={180}
-                    alt="171x180"
-                    src="holder.js/171x180"
+                    // width={171}
+                    // height={180}
+                    // alt="171x180"
+                    src={userInfo.profile_pic}
                 />
         </Figure>
         <ListGroup>

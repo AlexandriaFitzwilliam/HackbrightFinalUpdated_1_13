@@ -2,12 +2,12 @@
 
 from model import db, User, connect_to_db, Book, Shelf, BookShelf, Genre, BookGenre, Rating
 
-def create_user(username, password):
+def create_user(username, password, profile_pic=''):
     """Creates and returns a new user"""
 
     user = User(username = username, 
                 password = password,
-                profile_pic = "test",
+                profile_pic = profile_pic,
                 avg_rating = 0,
                 num_rating = 0,
                 about_me = "Here's a little thing about me...")

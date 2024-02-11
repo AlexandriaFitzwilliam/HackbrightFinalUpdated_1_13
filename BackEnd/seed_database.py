@@ -74,10 +74,21 @@ model.db.create_all()
 
 #create 10 users
 users_in_db = []
+profile_pic = ['../src/static/profile_pic_1.PNG',
+               '../src/static/profile_pic_2.PNG',
+               '../src/static/profile_pic_3.PNG',
+               '../src/static/profile_pic_4.jpg',
+               '../src/static/profile_pic_5.jpg',
+               '../src/static/profile_pic_6.jpg',
+               '../src/static/profile_pic_7.jpg',
+               ]
+
+
 for x in range(10):
     user = crud.create_user(
         username = fake.name(),
-        password = "test"
+        password = "test",
+        profile_pic = choice(profile_pic)
     )
     model.db.session.add(user)
     model.db.session.commit()

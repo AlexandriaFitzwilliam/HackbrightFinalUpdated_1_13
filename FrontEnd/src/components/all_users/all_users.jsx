@@ -23,6 +23,7 @@ const AllUsers = () => {
             user_id={user.user_id} // this needs to be user_id={user.user_id} -Thu
             />
         );
+        console.log(user.profile_pic)
         userCards.push(userCard)
       }
 
@@ -44,7 +45,7 @@ function UserCard(props) {
     return (
         <div className='usercard' id={user_id}>
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={profile_pic} />
       <Card.Body>
         <Card.Title>{username}</Card.Title>
         <Card.Text>
