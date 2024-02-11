@@ -1,0 +1,4 @@
+.container-fluid {
+    background: url("../../static/open_book.jpg") no-repeat center center;
+    background-size: cover;
+  }

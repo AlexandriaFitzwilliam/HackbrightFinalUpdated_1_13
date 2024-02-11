@@ -31,7 +31,7 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div class="container-fluid">
             <h1>Log in</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -48,9 +48,6 @@ const Home = () => {
                     Submit
                 </Button>
                 <br></br>
-                {/* <Button variant="primary" type="submit">
-                    Create Account
-                </Button> */}
             </Form>
         </div>
     )

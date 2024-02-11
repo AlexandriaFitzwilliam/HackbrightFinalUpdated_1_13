@@ -7,8 +7,6 @@ import HeaderLoggedIn from './components/header_logged_in/header_logged_in';
 import Home from './components/home/home';
 import ShelfDetails from './components/about/shelf_details';
 import BookOverview from './components/book_overview/book_overview';
-import Reviews from './components/reviews/reviews';
-import UserReviews from './components/user_reviews/user_reviews';
 import AllUsers from './components/all_users/all_users';
 import UserDetails from './components/user_details/user_details';
 import CreateAccount from './components/create_account/create_account';
@@ -21,6 +19,7 @@ import SearchUsers from './components/search_users/search_users';
 
 function App() {
 
+  // store user id in browser if logged in
   let user_id=sessionStorage.getItem('user_id')
 
   if (user_id != null) {
