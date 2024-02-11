@@ -6,8 +6,8 @@ import BookCard from '../book_details/book_details';
 
 const SearchRequest = (props) => {
 
-    const [searchParam, setSearchParam] = React.useState('');
-    const [searchType, setSearchType] = React.useState('');
+    const [searchParam, setSearchParam] = React.useState(sessionStorage.getItem('searchParam'));
+    const [searchType, setSearchType] = React.useState(sessionStorage.getItem('searchType'));
     const [bookSearched, setBookSearched] = React.useState({});
     const bookCards = [];
 
@@ -16,6 +16,8 @@ const SearchRequest = (props) => {
 
         const newSearch = {searchParam, searchType}
         console.log("request to server.py made")
+        sessionStorage.setItem('searchParam', searchParam)
+        sessionStorage.setItem('searchType', searchType)
 
         fetch('/api/search_request', {
             method: 'POST',
