@@ -22,6 +22,7 @@ const Reviews = (props) => {
             username={rating.username}
             id={rating.rating_id}
             details={rating.details}
+            user_id={rating.user_id}
             />
         );
         ratingCards.unshift(ratingCard)
@@ -40,14 +41,14 @@ const Reviews = (props) => {
 export default Reviews
 
 function RatingCard(props) {
-    const {score, username, id, details} = props;
+    const {score, username, id, details, user_id} = props;
 
 
     return (
         <div className='ratingcard' id={`ratingcard_${id}`}>
             <Card border="success" style={{ width: '18rem' }}>
                 <Card.Header>
-                <Card.Link href={`/users/user/${id}`}>{username}</Card.Link>
+                <Card.Link href={`/users/user/${user_id}`}>{username}</Card.Link>
                     </Card.Header>
                 <Card.Body>
                 <Card.Title>{score} Stars</Card.Title>
