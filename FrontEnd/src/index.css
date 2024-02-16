@@ -77,15 +77,9 @@ body {
   padding: 2rem;
   text-align: center;
 
-  background: url("static/open_book.jpg") no-repeat center center;
+  font-family: "Old Standard TT", serif;
+
+  background-color: #B1B5B8;
+  /* background: url("static/open_book.jpg") no-repeat center center; */
   background-size: cover;
 }
-
-/* #root {
-  height: 46vh;
-} */
-
-/* .image-test {
-  background: url("static/open_book.jpg") no-repeat center center;
-  background-size: cover;
-} */
