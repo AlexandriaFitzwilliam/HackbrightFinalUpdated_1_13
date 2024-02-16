@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import AllShelfs from '../all_shelfs/all_shelfs';
 import {Link, useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import {redirect, useParams} from "react-router-dom"
 
 const AddBook = (props) => {
@@ -12,6 +13,7 @@ const AddBook = (props) => {
     const {user_id} = props;
     const userShelfs = [];
     const book = useParams();
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         fetch(`/api/all_shelfs/${user_id}`)
@@ -51,8 +53,8 @@ const AddBook = (props) => {
             .then((response) => response.json())
             .then((responseJson) => {
               console.log(responseJson.success)
-              if (responseJson.succes == true) {
-                return redirect('/home');
+              if (responseJson.success == true) {
+                navigate(`/book/${book_id}`)
               }
             });
 

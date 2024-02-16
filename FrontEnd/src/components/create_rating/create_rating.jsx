@@ -3,12 +3,14 @@ import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {redirect, useParams} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const CreateRating = () => {
     const [score, setScore] = React.useState(1);
     const [details, setDetails] = React.useState('');
     let { book } = useParams();
     const user_id = sessionStorage.getItem('user_id');
+    const navigate = useNavigate();
 
 
     function handleSubmit(e) {
@@ -27,8 +29,8 @@ const CreateRating = () => {
             .then((response) => response.json())
             .then((responseJson) => {
               console.log(responseJson.success)
-              if (responseJson.succes == true) {
-                return redirect('/home');
+              if (responseJson.success == true) {
+                navigate(`/book/${book}`)
               }
             });
 
