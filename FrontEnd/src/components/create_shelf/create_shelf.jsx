@@ -2,10 +2,12 @@ import React from 'react';
 import './create_shelf.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from "react-router-dom";
 
 const CreateShelf = (props) => {
     const [shelfName, setShelfName] = React.useState("");
     const {user_id} = props;
+    const navigate = useNavigate();
 
 
     function handleSubmit(e) {
@@ -23,6 +25,9 @@ const CreateShelf = (props) => {
             .then((response) => response.json())
             .then((responseJson) => {
               console.log(responseJson.success)
+              if (responseJson.success == true) {
+                navigate('/home')
+              }
             });
 
     }

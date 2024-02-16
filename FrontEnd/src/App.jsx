@@ -40,7 +40,7 @@ function App() {
               element={<UserDetails />} 
               loader={({ id }) => {console.log(id)}}
             /> 
-            <Route path="home" element={<LoggedInHome user_id={user_id}/>} />
+            <Route path="/home" element={<LoggedInHome user_id={user_id}/>} />
             <Route path="/create_rating/:book" 
             element={<CreateRating />} 
             loader={({ book }) => console.log(book)}

@@ -23,14 +23,15 @@ const UserDetails = (props) => {
         <div>
             <h1>{userInfo.username}</h1>
             <div className='user-details'>
-            <Figure>
+                <img src={userInfo.profile_pic}></img>
+            {/* <Figure>
                 <Figure.Image
                     // width={171}
                     // height={180}
                     // alt="171x180"
                     src={userInfo.profile_pic}
                 />
-        </Figure>
+        </Figure> */}
         <ListGroup>
             <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
             <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>

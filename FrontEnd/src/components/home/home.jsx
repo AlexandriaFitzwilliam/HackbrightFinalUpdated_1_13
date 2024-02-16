@@ -2,10 +2,12 @@ import React from 'react';
 import './home.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,6 +26,7 @@ const Home = () => {
               if (responseJson.success == true) {
                 sessionStorage.setItem('login', true)
                 sessionStorage.setItem('user_id', responseJson.user_id)
+                navigate('/home')
                 // const login_test = sessionStorage.getItem('login')
                 // console.log(sessionStorage.getItem('user_id'))
               }
