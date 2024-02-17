@@ -17,28 +17,43 @@ const UserDetails = (props) => {
           .then((result) => setUserInfo(result));
     }, [user_id]);
 
-    console.log(userInfo.profile_pic)
 
     return (
-        <div>
-            <h1>{userInfo.username}</h1>
-            
-            <div className='user-details'>
-                {/* <img src={`../${userInfo.profile_pic}`}></img> */}
-            <Figure>
-                <Figure.Image
-                    width={171}
-                    height={180}
-                    alt="171x180"
-                    src={`../${userInfo.profile_pic}`}
-                />
-        </Figure>
-        <ListGroup>
-            <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
-            <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
-            <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
-        </ListGroup>
-        <UserReviews user_id={userInfo.user_id}/>
+        <div class='container-fluid'>
+            <br></br>
+
+            <div class='row'>
+
+                <div class='col-4' className='user-details'>
+                    <Figure>
+                        <Figure.Image
+                            // width={250}
+                            // height={180}
+                            src={`../${userInfo.profile_pic}`}
+                        />
+                    </Figure>
+                </div>
+
+                <div class='col'>
+                    <br></br>
+                    <h1 className='username'>{userInfo.username}</h1>
+                    <p>
+                        <h5>Number of Ratings: <span>{userInfo.num_rating}</span></h5>
+                        <h5>Average Rating: <span>{userInfo.avg_rating}</span></h5>
+                        <h5>About Me: <span>{userInfo.about_me}</span></h5>
+                    </p>
+                </div>
+
+                {/* <div class='col'>
+                    <ListGroup>
+                        <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
+                        <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
+                        <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
+                    </ListGroup>
+                </div> */}
+        </div>
+        <div class='row'>
+            <UserReviews user_id={userInfo.user_id}/>
         </div>
 
         </div>
