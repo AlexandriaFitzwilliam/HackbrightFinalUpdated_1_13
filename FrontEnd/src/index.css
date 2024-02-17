@@ -89,6 +89,25 @@ a{
   color: #db405c;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.username {
+  font-weight: bolder;
+}
+
+.details {
+  font-weight: lighter;
+  font-family: "Trocchi", serif;
+  font-size: medium;
+}
+
 #navbar {
   background-color: pink;
 }
