@@ -11,9 +11,6 @@ const LoggedInHome = (props) => {
     const {user_id} = props;
     const [userInfo, setUserInfo] = React.useState({});
 
-    // console.log('*****************')
-    // console.log(user_id)
-    // console.log('*****************')
 
     React.useEffect(() => {
         fetch(`/api/userid/${user_id}`)

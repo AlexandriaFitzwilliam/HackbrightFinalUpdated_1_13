@@ -5,7 +5,10 @@ import BookCard from '../book_details/book_details'
 const ShelfDetails = (props) => {
     const {shelf_id} = props;
     const [books, setBooks] = React.useState({});
+    const [beg, setBeg] = React.useState(0);
+    const [end, setEnd] = React.useState(5);
     const bookCards = [];
+    const displayArea = [];
 
 
   React.useEffect(() => {
@@ -37,11 +40,15 @@ const ShelfDetails = (props) => {
         bookCards.push(bookCard)
       }
 
+  // for (const completeBookCard of bookCards) {
+
+  // }
+
       // console.log(`bookCards=${bookCards}`)
 
     return (
-        <div className='shelfcard' id={`shelfcard_${shelf_id}`}>
-          {bookCards}
+        <div class='row' className='shelfcard' id={`shelfcard_${shelf_id}`}>
+          {bookCards.slice(beg,end)}
         </div>
     )
 }

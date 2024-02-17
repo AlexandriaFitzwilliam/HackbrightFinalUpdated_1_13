@@ -34,7 +34,7 @@ const UserDetails = (props) => {
                     </Figure>
                 </div>
 
-                <div class='col text-start'>
+                <div class='col-8 text-start'>
                     <br></br>
                     <h1 className='username'>{userInfo.username}</h1>
                     <p>

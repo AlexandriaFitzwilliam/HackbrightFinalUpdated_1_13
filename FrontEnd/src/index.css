@@ -78,10 +78,12 @@ body {
   text-align: center;
 
   font-family: "Old Standard TT", serif;
-  color: #202418;
+  color: #1c2a1d;
 
-  background-color: #b1b5b8;
+  background-color: #dbe1db;
   background-size: cover;
+
+  /* background:url('/static/book_stack.jpg') */
 }
 
 /* link attributes */
@@ -95,7 +97,13 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
+  color: #202418;
+}
+
+h1{
+  color: #1c2a1d;
 }
 
 .username {
@@ -106,6 +114,13 @@ h6 {
   font-weight: lighter;
   font-family: "Trocchi", serif;
   font-size: medium;
+}
+
+.book_title {
+  font-family: "Old Standard TT", serif;
+  font-weight: bold;
+  font-size: 25px;
+
 }
 
 #navbar {

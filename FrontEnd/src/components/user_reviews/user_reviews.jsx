@@ -27,8 +27,8 @@ const UserReviews = (props) => {
 
       
     return (
-        <div>
-            <h3>Recent Reviews</h3>
+        <div class='row'>
+            <h2 class='col'>Recent Reviews</h2>
             <span>{ratingCards}</span>
 
         </div>
@@ -45,7 +45,7 @@ function RatingCard(props) {
         <div className='ratingcard'>
             <Card border="success" style={{ width: '18rem' }}>
                 <Card.Header>
-                <Card.Link href={`/book/${id}`}>{book_title}</Card.Link>
+                <Card.Link className='book_title' href={`/book/${id}`}>{book_title}</Card.Link>
                     
                     </Card.Header>
                 <Card.Body>
