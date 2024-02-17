@@ -78,8 +78,17 @@ body {
   text-align: center;
 
   font-family: "Old Standard TT", serif;
+  color: #202418;
 
-  background-color: #B1B5B8;
-  /* background: url("static/open_book.jpg") no-repeat center center; */
+  background-color: #b1b5b8;
   background-size: cover;
+}
+
+/* link attributes */
+a{
+  color: #db405c;
+}
+
+#navbar {
+  background-color: pink;
 }

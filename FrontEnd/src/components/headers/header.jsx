@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Routes, Route, Link,  } from 'react-router-dom
 const Header = () => {
 
     return (
-      <div class="container-fluid">
-        <Navbar bg="dark" expand="lg" variant={"dark"}>
+      <div class="container-fluid" id="navbar">
+        <Navbar expand="lg">
           <Container>
             <Navbar.Brand href="/login">GoodBooks</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -16,7 +16,7 @@ function BookCard(props) {
       // num_ratings
                     } = props;
       return (
-          <div className='bookcard' id={`bookcard_id`}>
+          <div className='bookcard ' id={`bookcard_id`}>
               <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={cover_pic} />
               <Card.Body>
@@ -27,7 +27,7 @@ function BookCard(props) {
                   {author}
                   </Card.Text>
               </Card.Body>
-              <ListGroup className="list-group-flush">
+              <ListGroup className="list-group-flush p-3">
                   <ListGroup.Item>Average Rating: {avg_rating}</ListGroup.Item>
                   <ListGroup.Item>
                   <Card.Link href={`/add_book/${id}`}>Add to Shelf</Card.Link>

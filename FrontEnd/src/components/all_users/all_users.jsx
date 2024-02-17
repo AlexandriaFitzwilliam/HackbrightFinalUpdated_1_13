@@ -23,7 +23,7 @@ const AllUsers = () => {
             user_id={user.user_id} // this needs to be user_id={user.user_id} -Thu
             />
         );
-        console.log(user.profile_pic)
+        // console.log(user.profile_pic)
         userCards.push(userCard)
       }
 
