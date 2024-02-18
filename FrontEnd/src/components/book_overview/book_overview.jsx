@@ -1,5 +1,4 @@
 import React from 'react';
-import './book_overview.css';
 import Reviews from '../reviews/reviews'
 import {Link, useParams} from "react-router-dom";
 import Image from 'react-bootstrap/Image';

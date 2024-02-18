@@ -1,5 +1,4 @@
 import React from 'react';
-import './logged_in_home.jsx';
 import Figure from 'react-bootstrap/Figure';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UserReviews from '../user_reviews/user_reviews'

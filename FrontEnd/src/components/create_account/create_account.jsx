@@ -1,5 +1,4 @@
 import React from 'react';
-import './create_account.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 

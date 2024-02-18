@@ -1,5 +1,4 @@
 import React from 'react';
-import './user_details.css';
 import Figure from 'react-bootstrap/Figure';
 import ListGroup from 'react-bootstrap/ListGroup';
 import UserReviews from '../user_reviews/user_reviews'
@@ -34,7 +33,7 @@ const UserDetails = (props) => {
                     </Figure>
                 </div>
 
-                <div class='col-8 text-start'>
+                <div class='col text-start'>
                     <br></br>
                     <h1 className='username'>{userInfo.username}</h1>
                     <p>

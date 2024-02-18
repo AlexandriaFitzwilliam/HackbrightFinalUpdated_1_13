@@ -1,5 +1,4 @@
 import React from 'react';
-import './all_users.css';
 import Card from 'react-bootstrap/Card';
 import {Link} from "react-router-dom";
 

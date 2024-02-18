@@ -1,5 +1,4 @@
 import React from 'react';
-import './create_shelf.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";

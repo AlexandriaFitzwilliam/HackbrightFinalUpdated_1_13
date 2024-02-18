@@ -1,5 +1,4 @@
 import React from 'react';
-import './shelf_details.css';
 import BookCard from '../book_details/book_details'
 
 const ShelfDetails = (props) => {
@@ -40,6 +39,11 @@ const ShelfDetails = (props) => {
         bookCards.push(bookCard)
       }
 
+  // function handleRightClick() {
+  //   setBeg(beg+=1)
+  //   setEnd(end+=1)
+  // }
+
   // for (const completeBookCard of bookCards) {
 
   // }
@@ -48,7 +52,9 @@ const ShelfDetails = (props) => {
 
     return (
         <div class='row' className='shelfcard' id={`shelfcard_${shelf_id}`}>
+          <button onClick={setBeg}>Left</button>
           {bookCards.slice(beg,end)}
+          <button>Right</button>
         </div>
     )
 }

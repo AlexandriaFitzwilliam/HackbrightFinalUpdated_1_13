@@ -1,5 +1,4 @@
 import React from 'react';
-import './create_rating.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {redirect, useParams} from "react-router-dom"
