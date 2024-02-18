@@ -80,15 +80,29 @@ body {
   font-family: "Old Standard TT", serif;
   color: #1c2a1d;
 
-  background-color: #dbe1db;
+  background-color: #CBD4C4;
   background-size: cover;
 
-  /* background:url('/static/book_stack.jpg') */
+  /* background:url('/static/so-white.png'); */
 }
+
+#root {
+  /* background:url('/src/static/so-white.png'); */
+}
+
+/* Why is this making everything fuzzy instead of just the background? */
+/* 
+.transparent {
+  margin: 0px;
+  background-color: #CBD4C4;
+  border: 1px solid black;
+  opacity: 0.6;
+} */
+
 
 /* link attributes */
 a{
-  color: #db405c;
+  color: #A23B72;
 }
 
 h1,
@@ -124,5 +138,5 @@ h1{
 }
 
 #navbar {
-  background-color: pink;
+  background-color: #839871;
 }

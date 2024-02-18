@@ -11,7 +11,7 @@ const HeaderLoggedIn = () => {
 
     return (
         <div>
-          <Navbar bg="dark" expand="lg" variant={"dark"}>
+          <Navbar class="container-fluid" id='navbar'>
             <Container>
               <Navbar.Brand href="/home">My Home</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />

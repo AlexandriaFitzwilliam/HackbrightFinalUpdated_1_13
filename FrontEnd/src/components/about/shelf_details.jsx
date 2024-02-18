@@ -7,7 +7,6 @@ const ShelfDetails = (props) => {
     const [beg, setBeg] = React.useState(0);
     const [end, setEnd] = React.useState(5);
     const bookCards = [];
-    const displayArea = [];
 
 
   React.useEffect(() => {
@@ -51,10 +50,13 @@ const ShelfDetails = (props) => {
       // console.log(`bookCards=${bookCards}`)
 
     return (
-        <div class='row' className='shelfcard' id={`shelfcard_${shelf_id}`}>
-          <button onClick={setBeg}>Left</button>
-          {bookCards.slice(beg,end)}
-          <button>Right</button>
+        <div class='container' className='shelfcard' id={`shelfcard_${shelf_id}`}>
+          {/* <div class='row'>
+            {bookCards.slice(beg,end)}
+          </div> */}
+          <div class='row'>
+            {bookCards}
+          </div>
         </div>
     )
 }

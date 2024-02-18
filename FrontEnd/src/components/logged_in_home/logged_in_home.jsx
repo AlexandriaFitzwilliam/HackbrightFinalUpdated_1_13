@@ -28,14 +28,11 @@ const LoggedInHome = (props) => {
                     alt="171x180"
                     src="holder.js/171x180"
                 />
-                <Figure.Caption>
-                    Username: {userInfo.username}
-                </Figure.Caption>
         </Figure>
         <ListGroup>
-            <ListGroup.Item>Number of Ratings: {userInfo.num_rating}</ListGroup.Item>
-            <ListGroup.Item>Average Rating: {userInfo.avg_rating}</ListGroup.Item>
-            <ListGroup.Item>About Me: {userInfo.about_me}</ListGroup.Item>
+            <ListGroup.Item>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></ListGroup.Item>
+            <ListGroup.Item>Average Rating: <span className='details'>{userInfo.avg_rating}</span></ListGroup.Item>
+            <ListGroup.Item>About Me: <span className='details'>{userInfo.about_me}</span></ListGroup.Item>
         </ListGroup>
         <AllShelfs user_id={userInfo.user_id}/>
         {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
