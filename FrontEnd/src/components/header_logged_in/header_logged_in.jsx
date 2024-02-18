@@ -12,14 +12,15 @@ const HeaderLoggedIn = () => {
     return (
         <div>
           <Navbar class="container-fluid" id='navbar'>
-            <Container>
-              <Navbar.Brand href="/home">My Home</Navbar.Brand>
+            <Container fluid>
+              <Navbar.Brand href="/home"><span id='dark'>My Home</span></Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" >
                 <Nav className="mr-auto">
                   {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
-                  <Nav.Link as={Link} to={"/search_books"} >Search Books</Nav.Link>
-                  <Nav.Link as={Link} to={"/search_users"} >Search Users</Nav.Link>
+                  {/* <Nav.Link href="/home"><span id='dark'>My Home</span></Nav.Link> */}
+                  <Nav.Link as={Link} to={"/search_books"} ><span id='dark'>Search Books</span></Nav.Link>
+                  <Nav.Link as={Link} to={"/search_users"} ><span id='dark'>Search Users</span></Nav.Link>
                   {/* <Nav.Link as={Link} to={"/login"} > Login</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/home"} > My Home</Nav.Link> */}
                   {/* <Nav.Link as={Link} to={"/create_account"} > Create Account</Nav.Link> */}

@@ -139,4 +139,14 @@ h1{
 
 #navbar {
   background-color: #839871;
+  font-size: 26px;
+  font-weight: 1000;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+#dark {
+  color: #1c2a1d;
 }
