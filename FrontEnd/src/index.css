@@ -32,15 +32,15 @@ h6 {
 }
 
 h1 {
-  font-size: 15vh;
-}
-
-h2 {
   font-size: 10vh;
 }
 
-h3 {
+h2 {
   font-size: 8vh;
+}
+
+h3 {
+  font-size: 7vh;
 }
 
 h4 {
