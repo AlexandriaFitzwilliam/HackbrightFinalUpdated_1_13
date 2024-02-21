@@ -175,8 +175,8 @@ img {
 
 .container .box{
     position: relative;
-    width: 150px;
-    height: 240px;
+    width: 20vh;
+    height: 30vh;
     margin: 20px;
     transform-style: preserve-3d;
     perspective: 1000px;
