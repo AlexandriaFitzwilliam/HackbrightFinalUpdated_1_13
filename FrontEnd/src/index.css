@@ -1,13 +1,18 @@
+/* :root {
+  
+} */
+
 body {
   height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-size: 4vh;
 
-  font-family: "Old Standard TT", serif;
+  font-family: "Courgette", cursive;
   color: #1c2a1d;
 
-  background-color: #CBD4C4;
+  background: linear-gradient(45deg, #8fa17d,#5b6a4d);
   background-size: cover;
 
   /* background:url('/static/so-white.png'); */
@@ -24,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Old Standard TT", serif;
+  font-family: "Courgette", cursive;
   /* font-size: 15vh; */
   font-weight: bold;
   color: #161810;
@@ -62,13 +67,13 @@ img {
 .details {
   font-weight: lighter;
   font-family: "Trocchi", serif;
-  font-size: medium;
+  font-size: 3vh;
 }
 
 .book_title {
   font-family: "Old Standard TT", serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 5vh;
 
 }
 
@@ -99,25 +104,29 @@ img {
 }
 
 .shelf-name {
-  background-color: #5b6a4d;
+  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
   box-shadow: 6px 6px 29px 0px #202418;
+  color: #B6C3AC;
 }
 
 .review-header {
   background-color: #e4b4ce;
   box-shadow: 6px 6px 29px 0px #A23B72;
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
 }
 
 .shelf-scroll{
   overflow: scroll;
-  max-height: 280px;
+  max-height: 34vh;
+  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
+  box-shadow: 6px 6px 29px 0px #202418;
   /* scroll-direction: horizontal; */
 }
 
 
 /* CSS */
 .button-52 {
-  font-size: 25px;
+  font-size: 3vh;
   font-weight: 200;
   letter-spacing: 1px;
   padding: 10px 20px 10px;
@@ -133,7 +142,7 @@ img {
 
 .button-52:after {
   content: "";
-  background-color: #E4B4CE;
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -187,8 +196,8 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 20vh;
+    height: 30vh;
     transform-style: preserve-3d;
     transition: 0.9s ease;
 }
