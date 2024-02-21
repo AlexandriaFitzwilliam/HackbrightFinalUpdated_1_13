@@ -18,22 +18,21 @@ const UserDetails = (props) => {
 
 
     return (
-        <div class='container-fluid'>
+        <div class='container'>
             <br></br>
 
             <div class='row'>
 
-                <div class='col-4' className='user-details'>
+                <div className='col-4 user-details-pic'>
+                    {/* <img src={`../${userInfo.profile_pic}`} /> */}
                     <Figure>
                         <Figure.Image
-                            // width={250}
-                            // height={180}
                             src={`../${userInfo.profile_pic}`}
                         />
                     </Figure>
                 </div>
 
-                <div class='col text-start'>
+                <div className='col text-start'>
                     <br></br>
                     <h1 className='username'>{userInfo.username}</h1>
                     <p>

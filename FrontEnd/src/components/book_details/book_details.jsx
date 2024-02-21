@@ -15,7 +15,7 @@ function BookCard(props) {
       // num_ratings
                     } = props;
       return (
-          <div class='col' className='bookcard' id={`bookcard_id`}>
+          <div className='col bookcard' id={`bookcard_id`}>
               <Card style={{ width: '12rem' }}>
               <Card.Img variant="top" src={cover_pic} />
               <Card.Body>

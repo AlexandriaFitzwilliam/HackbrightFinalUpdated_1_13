@@ -41,7 +41,7 @@ function RatingCard(props) {
 
 
     return (
-        <div className='ratingcard'>
+        <div className='col ratingcard'>
             <Card border="success" style={{ width: '18rem' }}>
                 <Card.Header>
                 <Card.Link className='book_title' href={`/book/${id}`}>{book_title}</Card.Link>

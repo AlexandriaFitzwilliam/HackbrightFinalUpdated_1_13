@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-// import './all_users.css';
 import ShelfDetails from '../about/shelf_details';
 import CreateShelf from '../create_shelf/create_shelf';
 

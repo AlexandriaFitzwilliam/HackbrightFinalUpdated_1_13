@@ -19,26 +19,23 @@ const LoggedInHome = (props) => {
 
     return (
         <div>
-            <div className='user-details'>
-                <h1>{userInfo.username}</h1>
-            <Figure>
+            <br></br>
+        <div className="row">
+            <Figure className="col-4">
                 <Figure.Image
-                    width={171}
-                    height={180}
-                    alt="171x180"
-                    src="holder.js/171x180"
+                    src="../../src/static/open_book.jpg"
                 />
-        </Figure>
-        <ListGroup>
-            <ListGroup.Item>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></ListGroup.Item>
-            <ListGroup.Item>Average Rating: <span className='details'>{userInfo.avg_rating}</span></ListGroup.Item>
-            <ListGroup.Item>About Me: <span className='details'>{userInfo.about_me}</span></ListGroup.Item>
-        </ListGroup>
-        <AllShelfs user_id={userInfo.user_id}/>
+            </Figure>
+            <div className='col user-details'>
+                <h1>{userInfo.username}</h1>
+                <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
+                <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
+                <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
+        </div>
+        <AllShelfs className="row" user_id={userInfo.user_id}/>
         {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
         <UserReviews user_id={userInfo.user_id}/>
         </div>
-
         </div>
     )
 }

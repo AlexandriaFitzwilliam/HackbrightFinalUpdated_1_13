@@ -54,7 +54,7 @@ const ShelfDetails = (props) => {
           {/* <div class='row'>
             {bookCards.slice(beg,end)}
           </div> */}
-          <div class='row'>
+          <div className='row'>
             {bookCards}
           </div>
         </div>
