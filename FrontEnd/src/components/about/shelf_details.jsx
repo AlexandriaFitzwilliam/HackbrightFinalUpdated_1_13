@@ -36,7 +36,7 @@ const ShelfDetails = (props) => {
           // num_ratings={book.num_ratings}
           />
         );
-        bookCards.push(bookCard)
+        bookCards.unshift(bookCard)
       }
 
   // function handleRightClick() {
