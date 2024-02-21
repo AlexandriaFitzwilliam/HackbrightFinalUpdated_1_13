@@ -29,7 +29,7 @@ const AllShelfs = (props) => {
     return (
         <div className='row'>
             <h2 className='col'id='your-shelves'>Your Shelves</h2>
-            <Link to="/create_shelf" className='col-2 align-self-center'>Create New Shelf</Link>
+            <Link to="/create_shelf" className='col-2 align-self-center button-52'>Create New Shelf</Link>
             <span>{userShelfs}</span>
 
         </div>

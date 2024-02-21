@@ -25,9 +25,30 @@ h4,
 h5,
 h6 {
   font-family: "Old Standard TT", serif;
+  /* font-size: 15vh; */
   font-weight: bold;
   color: #161810;
   filter: drop-shadow(1px 1px 2px #5b6a4d);
+}
+
+h1 {
+  font-size: 15vh;
+}
+
+h2 {
+  font-size: 10vh;
+}
+
+h3 {
+  font-size: 8vh;
+}
+
+h4 {
+  font-size: 6vh;
+}
+
+h5 {
+  font-size: 5vh;
 }
 
 img {
@@ -93,7 +114,45 @@ img {
   /* scroll-direction: horizontal; */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* CSS */
+.button-52 {
+  font-size: 25px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 10px 20px 10px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  /* background-color: #E4B4CE; */
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-52:after {
+  content: "";
+  background-color: #E4B4CE;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
+}
 
 /* Reseting */
 /* * {
