@@ -20,22 +20,23 @@ const LoggedInHome = (props) => {
     return (
         <div>
             <br></br>
-        <div className="row">
+        <div className="row user-details-full">
             <Figure className="col-4">
                 <Figure.Image
                     src="../../src/static/open_book.jpg"
                 />
             </Figure>
-            <div className='col user-details'>
+            <div className='col user-details text-start'>
                 <h1>{userInfo.username}</h1>
                 <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
                 <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
                 <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
         </div>
+        </div>
         <AllShelfs className="row" user_id={userInfo.user_id}/>
         {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
-        <UserReviews user_id={userInfo.user_id}/>
-        </div>
+        <UserReviews className="row" user_id={userInfo.user_id}/>
+        
         </div>
     )
 }

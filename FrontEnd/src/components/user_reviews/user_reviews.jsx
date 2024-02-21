@@ -26,9 +26,9 @@ const UserReviews = (props) => {
 
       
     return (
-        <div class='row'>
-            <h2 class='col'>Recent Reviews</h2>
-            <span>{ratingCards}</span>
+        <div className='border-double'>
+            <h2 className='col'>Recent Reviews</h2>
+            <span className='row'>{ratingCards}</span>
 
         </div>
     )

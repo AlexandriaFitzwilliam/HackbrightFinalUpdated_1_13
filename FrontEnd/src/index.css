@@ -27,7 +27,7 @@ h6 {
   font-family: "Old Standard TT", serif;
   font-weight: bold;
   color: #161810;
-  filter: drop-shadow(2px 2px 2px #5b6a4d);
+  filter: drop-shadow(1px 1px 2px #5b6a4d);
 }
 
 img {
@@ -49,6 +49,14 @@ img {
   font-weight: bold;
   font-size: 25px;
 
+}
+
+.user-details-full{
+  border: medium groove #5b6a4d;
+}
+
+.border-double {
+  border: medium double #5b6a4d;
 }
 
 #navbar {

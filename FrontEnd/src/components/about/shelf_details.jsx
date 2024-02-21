@@ -1,5 +1,6 @@
 import React from 'react';
-import BookCard from '../book_details/book_details'
+// import BookCard from '../book_details/book_details'
+import BookCardShelf from '../book_details/book_details_shelf_view';
 
 const ShelfDetails = (props) => {
     const {shelf_id} = props;
@@ -24,7 +25,7 @@ const ShelfDetails = (props) => {
 
   for (const book of Object.values(books)) {
         const bookCard = (
-          <BookCard
+          <BookCardShelf
           id={book.book_id}
           title={book.title}
           author={book.author}
@@ -50,7 +51,7 @@ const ShelfDetails = (props) => {
       // console.log(`bookCards=${bookCards}`)
 
     return (
-        <div class='container' className='shelfcard' id={`shelfcard_${shelf_id}`}>
+        <div className='row shelfcard border-double' id={`shelfcard_${shelf_id}`}>
           {/* <div class='row'>
             {bookCards.slice(beg,end)}
           </div> */}
