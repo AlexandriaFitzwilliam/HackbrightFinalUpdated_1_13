@@ -27,6 +27,11 @@ h6 {
   font-family: "Old Standard TT", serif;
   font-weight: bold;
   color: #161810;
+  filter: drop-shadow(2px 2px 2px #5b6a4d);
+}
+
+img {
+  filter: drop-shadow(10px 10px 10px #5b6a4d);
 }
 
 .username {
