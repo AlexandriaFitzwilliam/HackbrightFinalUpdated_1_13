@@ -51,7 +51,7 @@ const ShelfDetails = (props) => {
       // console.log(`bookCards=${bookCards}`)
 
     return (
-        <div className='row shelfcard border-double' id={`shelfcard_${shelf_id}`}>
+        <div className='container d-flex align-items-center justify-content-center flex-wrap border-double' id={`shelfcard_${shelf_id}`}>
           {/* <div class='row'>
             {bookCards.slice(beg,end)}
           </div> */}

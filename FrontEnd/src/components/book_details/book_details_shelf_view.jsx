@@ -15,8 +15,16 @@ function BookCardShelf(props) {
       // num_ratings
                     } = props;
       return (
-          <div className='col bookcard' id={`bookcard_id`}>
-              <Card style={{ width: '12rem' }}>
+          <div className='box bookcard' id={`bookcard_id`}>
+            <div className='body'>
+                <img className='imgContainer' src={cover_pic} />
+                <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <h3 className='text-white fs-5'>{title}</h3>
+                        <p className='fs-6 text-white'>{author}</p>
+                    </div>
+                </div>
+              {/* <Card style={{ width: '12rem' }}>
               <Card.Img variant="top" src={cover_pic} />
               <Card.Body>
                   <Card.Title>
@@ -26,8 +34,8 @@ function BookCardShelf(props) {
                   {author}
                   </Card.Text>
               </Card.Body>
-              </Card>
-  
+              </Card> */}
+              </div>
           </div>
       )
   }
