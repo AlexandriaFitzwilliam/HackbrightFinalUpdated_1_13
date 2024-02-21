@@ -20,7 +20,7 @@ function BookCardShelf(props) {
                 <img className='imgContainer' src={cover_pic} />
                 <div class="content d-flex flex-column align-items-center justify-content-center">
                     <div>
-                        <h3 className='text-white fs-5'>{title}</h3>
+                        <a className='text-white fs-5' href={`/book/${id}`}>{title}</a>
                         <p className='fs-6 text-white'>{author}</p>
                     </div>
                 </div>

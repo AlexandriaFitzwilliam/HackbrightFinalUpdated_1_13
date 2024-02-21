@@ -77,6 +77,21 @@ img {
   color: #161810;
 }
 
+.shelf-name {
+  background-color: #5b6a4d;
+  box-shadow: 6px 6px 29px 0px #202418;
+}
+
+.review-header {
+  background-color: #e4b4ce;
+  box-shadow: 6px 6px 29px 0px #A23B72;
+}
+
+.shelf-scroll{
+  overflow: scroll;
+  max-height: 280px;
+  /* scroll-direction: horizontal; */
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 

@@ -27,9 +27,9 @@ const AllShelfs = (props) => {
 
 
     return (
-        <div>
-            <h2>Your Shelves</h2>
-            <Link to="/create_shelf">Create New Shelf</Link>
+        <div className='row'>
+            <h2 className='col'id='your-shelves'>Your Shelves</h2>
+            <Link to="/create_shelf" className='col-2 align-self-center'>Create New Shelf</Link>
             <span>{userShelfs}</span>
 
         </div>
@@ -43,7 +43,7 @@ function ShelfCard(props) {
 
     return (
         <div>
-            <h3>{shelf_name}</h3>
+            <h3 className='shelf-name d-inline-flex p-1 '>{shelf_name}</h3>
             <ShelfDetails shelf_id={shelf_id} />
         </div>
     )

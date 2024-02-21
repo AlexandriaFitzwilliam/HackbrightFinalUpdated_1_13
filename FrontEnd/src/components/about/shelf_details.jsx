@@ -55,7 +55,7 @@ const ShelfDetails = (props) => {
           {/* <div class='row'>
             {bookCards.slice(beg,end)}
           </div> */}
-          <div className='row'>
+          <div className='row overflow-auto shelf-scroll'>
             {bookCards}
           </div>
         </div>

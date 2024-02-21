@@ -27,7 +27,7 @@ const UserReviews = (props) => {
       
     return (
         <div className='border-double'>
-            <h2 className='col'>Recent Reviews</h2>
+            <h2 className='col review-header'>Recent Reviews</h2>
             <span className='row'>{ratingCards}</span>
 
         </div>
