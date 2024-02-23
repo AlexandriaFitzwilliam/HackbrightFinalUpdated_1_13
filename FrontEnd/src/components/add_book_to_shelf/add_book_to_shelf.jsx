@@ -62,11 +62,12 @@ const AddBook = (props) => {
 
     return (
         <div>
-            <h1>Add book to shelf</h1>
+            <h1 className='search-title'>Add book to shelf</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
-                    <Form.Label>Book Title Goes Here</Form.Label>
+                    {/* <Form.Label className='pink-text'>Book Title Goes Here</Form.Label> */}
                     <Form.Select 
+                    className='form-css'
                     aria-label="Choose a Shelf"
                     value={new_shelf} 
                     onChange={e=>setNewShelf(e.target.value)}
@@ -77,7 +78,7 @@ const AddBook = (props) => {
 
                     </Form.Select>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='form-button' variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
