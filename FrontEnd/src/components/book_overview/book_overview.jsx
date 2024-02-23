@@ -47,8 +47,10 @@ function BookOverview() {
                 <h5 className='shelf-name d-inline-flex p-1'>Book Summary</h5>
                 <p className='col border-double green-background pink-text'>{overview}</p>
             </div>
+                <br></br>
                 <Link className='button-52 author-header' to={`/create_rating/${book_id}`} title={title}>Add Rating</Link>
-              <Reviews className='col' book_id={book_id}/>
+                <br></br>
+                <Reviews book_id={book_id}/>
           </div>
       )
   }

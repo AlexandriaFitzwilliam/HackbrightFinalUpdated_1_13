@@ -29,9 +29,9 @@ const Reviews = (props) => {
 
 
     return (
-        <div className='book_ratings' id={`book_ratings_${book_id}`}>
-            <h2>Reviews</h2>
-            <span>{ratingCards}</span>
+        <div className='border-double buffer-top green-background justify-content-center' id={`book_ratings_${book_id}`}>
+            <h2 className='review-header'>Reviews</h2>
+            <span className='row'>{ratingCards}</span>
 
         </div>
     )
@@ -44,14 +44,14 @@ function RatingCard(props) {
 
 
     return (
-        <div className='col ratingcard' id={`ratingcard_${id}`}>
-            <Card border="success" style={{ width: '18rem' }}>
+        <div className='col-3 ratingcard' id={`ratingcard_${id}`}>
+            <Card className="ratingcard-details" style={{ width: '18rem' }}>
                 <Card.Header>
-                <Card.Link href={`/users/user/${user_id}`}>{username}</Card.Link>
+                <Card.Link className='ratingcard-title' href={`/users/user/${user_id}`}>{username}</Card.Link>
                     </Card.Header>
                 <Card.Body>
-                <Card.Title>{score} Stars</Card.Title>
-                <Card.Text>
+                <Card.Title className='ratingcard-score'>{score} Stars</Card.Title>
+                <Card.Text className='ratingcard-text'>
                     {details}
                  </Card.Text>
                 </Card.Body>
