@@ -78,7 +78,12 @@ const SearchRequest = (props) => {
                     Submit
                 </Button>
             </Form>
+
+        <div className='container d-flex align-items-center justify-content-center flex-wrap'>
             {bookCards}
+        </div>
+
+
         </div>
     )
 }

@@ -52,9 +52,6 @@ const ShelfDetails = (props) => {
 
     return (
         <div className='container d-flex align-items-center justify-content-center flex-wrap border-double' id={`shelfcard_${shelf_id}`}>
-          {/* <div class='row'>
-            {bookCards.slice(beg,end)}
-          </div> */}
           <div className='row overflow-auto shelf-scroll'>
             {bookCards}
           </div>

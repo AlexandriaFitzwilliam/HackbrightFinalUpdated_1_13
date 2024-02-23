@@ -23,17 +23,6 @@ function BookCardShelf(props) {
                         <a className='text-white fs-5' href={`/book/${id}`}>Average Rating:<br></br>{avg_rating} Stars</a>
                     </div>
                 </div>
-              {/* <Card style={{ width: '12rem' }}>
-              <Card.Img variant="top" src={cover_pic} />
-              <Card.Body>
-                  <Card.Title>
-                  <Card.Link href={`/book/${id}`}>{title}</Card.Link>
-                    </Card.Title>
-                  <Card.Text>
-                  {author}
-                  </Card.Text>
-              </Card.Body>
-              </Card> */}
               </div>
           </div>
       )
