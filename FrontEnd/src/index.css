@@ -175,9 +175,25 @@ img {
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
   box-shadow: 6px 2px 29px 2px #a23b72;
   margin: 1rem;
+  font-size: 3vh;
+  border-color: #a23b72;
 }
 
+.search-title {
+  margin: 2rem;
+  border: double;
+  border-color: #202418;
+  padding: 1rem;
+  background: linear-gradient(45deg,#a23b72, #e4b4c3,#a23b72);
+}
 
+.form-button {
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  box-shadow: 6px 2px 29px 2px #a23b72;
+  border-color: #a23b72;
+  font-size: 3vh;
+  margin: 1rem;
+}
 
 /* .all-shelves-home {
   padding: 2rem;

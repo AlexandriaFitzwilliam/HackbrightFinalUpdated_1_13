@@ -74,7 +74,7 @@ const SearchRequest = (props) => {
 
                         </Form.Select>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='form-button' variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
