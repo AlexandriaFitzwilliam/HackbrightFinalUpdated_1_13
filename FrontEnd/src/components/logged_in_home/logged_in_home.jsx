@@ -28,9 +28,11 @@ const LoggedInHome = (props) => {
             </Figure>
             <div className='col user-details text-start'>
                 <h1 className='username'>{userInfo.username}</h1>
-                <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
-                <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
-                <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
+                <div className='border-double'>
+                    <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
+                    <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
+                    <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
+                </div>
         </div>
         </div>
         <AllShelfs className="row" user_id={userInfo.user_id}/>

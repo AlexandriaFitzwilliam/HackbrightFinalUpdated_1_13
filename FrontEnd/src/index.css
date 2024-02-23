@@ -1,10 +1,10 @@
-/* :root {
-  
-} */
+:root {
+  margin: 0;
+}
 
 body {
   /* height: 100vh; */
-  /* margin: 0 auto; */
+  /* margin: 0vh; */
   /* padding: 2rem; */
   text-align: center;
   font-size: 4vh;
@@ -63,6 +63,8 @@ img {
 
 .username {
   font-weight: bolder;
+  text-align: center;
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
 }
 
 .details {
@@ -80,17 +82,20 @@ img {
 
 .user-details-full{
   border: medium groove #5b6a4d;
+  padding: 2rem;
 }
 
 .border-double {
   border: medium double #5b6a4d;
+  padding: 1rem;
 }
 
 .navbar {
   background: linear-gradient(45deg,#d996ba, #e4b4c3, #a23b72);
+  /* position: fixed; */
   font-size: 26px;
   font-weight: 1000;
-  /* width: 100vw!important; */
+  width: 100vw!important;
   /* height: 100vw!important; */
 }
 
@@ -107,15 +112,16 @@ img {
 }
 
 .shelf-name {
-  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
+  background: linear-gradient(45deg,#a23b72, #e4b4c3);
   box-shadow: 6px 6px 29px 0px #202418;
-  color: #B6C3AC;
+  /* color: #B6C3AC; */
 }
 
 .review-header {
   background-color: #e4b4ce;
   box-shadow: 6px 6px 29px 0px #A23B72;
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  /* width: 100vw!important; */
 }
 
 .shelf-scroll{
@@ -124,10 +130,6 @@ img {
   background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
   box-shadow: 6px 6px 29px 0px #202418;
   /* scroll-direction: horizontal; */
-}
-
-.username {
-  color: #A23B72
 }
 
 /* CSS */
