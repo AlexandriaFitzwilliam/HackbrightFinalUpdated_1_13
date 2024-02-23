@@ -20,7 +20,7 @@ body {
 
 /* link attributes */
 a{
-  color: #A23B72;
+  color: #161810;
 }
 
 h1,
@@ -86,7 +86,7 @@ img {
 }
 
 #navbar {
-  background-color: #839871;
+  background: linear-gradient(45deg,#d996ba, #e4b4c3, #a23b72);
   font-size: 26px;
   font-weight: 1000;
 }
