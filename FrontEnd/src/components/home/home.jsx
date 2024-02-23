@@ -2,10 +2,12 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 
 const Home = () => {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [show, setShow] = React.useState(false)
     const navigate = useNavigate();
 
     function handleSubmit(e) {
@@ -25,15 +27,27 @@ const Home = () => {
               if (responseJson.success == true) {
                 sessionStorage.setItem('login', true)
                 sessionStorage.setItem('user_id', responseJson.user_id)
-                navigate('/home')
+                navigate('/')
                 // const login_test = sessionStorage.getItem('login')
                 // console.log(sessionStorage.getItem('user_id'))
+              }
+              else {
+                setShow(true)
               }
             });
     }
 
     return (
         <div class="container-fluid image-test"  id="log-in form">
+          <Alert show={show} variant="warning">
+              <Alert.Heading>Sorry. Your username and password do not match.</Alert.Heading>
+                <div className="d-flex justify-content-end">
+                  <Button onClick={() => setShow(false)} variant="outline-dark">
+                    X
+                  </Button>
+                </div>
+            </Alert>
+            
             <h1 className='search-title'>Log in</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
