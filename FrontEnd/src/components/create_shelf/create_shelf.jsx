@@ -34,14 +34,14 @@ const CreateShelf = (props) => {
 
     return (
         <div>
-            <h1>Create Shelf</h1>
-            <Form onSubmit={handleSubmit}>
+            <h1 className='search-title'>Create Shelf</h1>
+            <Form className='form-marg' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formShelfName">
                     <Form.Label>What would you like to name your shelf?</Form.Label>
-                    <Form.Control placeholder="Enter name here" 
+                    <Form.Control className='form-css' placeholder="Enter name here" 
                     value={shelfName} onChange={(e)=>setShelfName(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='form-button' variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
