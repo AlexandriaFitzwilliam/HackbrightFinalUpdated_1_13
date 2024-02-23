@@ -38,29 +38,29 @@ const CreateRating = () => {
 
     return (
         <div>
-            <h1>Create Rating</h1>
-            <Form onSubmit={handleSubmit}>
+            <h1 className='search-title'>Create Rating</h1>
+            <Form className='form-marg' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
-                    <Form.Label>How many Stars?</Form.Label>
+                    <Form.Label className='pink-text'>How many Stars?</Form.Label>
                     <Form.Select 
+                    className='form-css'
                     aria-label="Choose a rating"
                     value={score} 
                     onChange={e=>setScore(e.target.value)}
                     >
-                        {/* <option>Choose a rating</option> */}
-                        <option value="1">One Star</option>
-                        <option value="2">Two Stars</option>
+                        <option>Choose a rating</option>
+                        <option className='form-css' value="1">One Star</option>
+                        <option className='form-css' value="2">Two Stars</option>
                         <option value="3">Three Stars</option>
                         <option value="4">Four Stars</option>
                         <option value="5">Five Stars</option>
                     </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="text" placeholder="(Optional) Write review here" 
+                    <Form.Control className='form-css' type="text" placeholder="(Optional) Write review here" 
                     value={details} onChange={(e)=>setDetails(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='form-button' variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
