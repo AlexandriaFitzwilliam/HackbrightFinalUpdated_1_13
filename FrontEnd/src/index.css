@@ -13,8 +13,9 @@ body {
   color: #1c2a1d;
 
   background: linear-gradient(45deg, #8fa17d,#5b6a4d);
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
 
   /* background:url('/static/so-white.png'); */
 }
@@ -38,19 +39,19 @@ h6 {
 }
 
 h1 {
-  font-size: 10vh;
+  font-size: 9vh;
 }
 
 h2 {
-  font-size: 8vh;
-}
-
-h3 {
   font-size: 7vh;
 }
 
-h4 {
+h3 {
   font-size: 6vh;
+}
+
+h4 {
+  font-size: 5vh;
 }
 
 h5 {
@@ -153,6 +154,21 @@ img {
 
 .shelf-full {
   margin: 2rem;
+}
+
+.ratingcard-title {
+  font-weight: bold;
+  font-size: 4vh;
+}
+
+.ratingcard-score {
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+.ratingcard-text {
+  font-weight: bold;
+  font-size: 3vh;
 }
 
 /* .all-shelves-home {

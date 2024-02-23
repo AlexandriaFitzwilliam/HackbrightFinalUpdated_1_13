@@ -317,7 +317,7 @@ class Rating(db.Model):
 
         avg_rating = total_score / total_num
 
-        avg_rating = round(avg_rating, 2)
+        avg_rating = round(avg_rating, 3)
 
         book_user.avg_rating = avg_rating
         book_user.num_rating = total_num
