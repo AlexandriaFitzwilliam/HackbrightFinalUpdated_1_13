@@ -19,7 +19,15 @@ import SearchUsers from './components/search_users/search_users';
 function App() {
 
   // store user id in browser if logged in
-  let user_id=sessionStorage.getItem('user_id')
+  // let user_id=sessionStorage.getItem('user_id')
+
+  const [user_id, setUserId] = React.useState(null)
+
+  React.useEffect(() => {
+    setUserId(sessionStorage.getItem('user_id'))
+  }, []
+  );
+
 
   if (user_id != null) {
     return (

@@ -27,7 +27,7 @@ const Home = () => {
               if (responseJson.success == true) {
                 sessionStorage.setItem('login', true)
                 sessionStorage.setItem('user_id', responseJson.user_id)
-                navigate('/')
+                navigate('/home')
                 // const login_test = sessionStorage.getItem('login')
                 // console.log(sessionStorage.getItem('user_id'))
               }

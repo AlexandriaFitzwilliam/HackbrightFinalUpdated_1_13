@@ -5,8 +5,6 @@ import BookCardShelf from '../book_details/book_details_shelf_view';
 const ShelfDetails = (props) => {
     const {shelf_id} = props;
     const [books, setBooks] = React.useState({});
-    const [beg, setBeg] = React.useState(0);
-    const [end, setEnd] = React.useState(5);
     const bookCards = [];
 
 
