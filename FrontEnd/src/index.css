@@ -97,6 +97,8 @@ img {
   font-weight: 1000;
   width: 100vw!important;
   /* height: 100vw!important; */
+  margin-right: 0px;
+  margin-left: -15px;
 }
 
 .navbar-brand {
@@ -119,11 +121,11 @@ img {
 
 .review-header {
   background-color: #e4b4ce;
-  box-shadow: 6px 6px 29px 6px #A23B72;
+  box-shadow: 6px 6px 29px 15px #A23B72;
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
-  margin-right: -15px;
+  margin-right: 0px;
   margin-left: 0px;
-  /* width: 100vw!important; */
+  width: 100%;
 }
 
 .shelf-scroll{

@@ -28,7 +28,7 @@ const AllShelfs = (props) => {
 
     return (
         <div className='row'>
-            <div className='row'>
+            <div className='container-fluid'>
                 <h2 className='col review-header'id='your-shelves'>Your Shelves</h2>
             </div>
             <div className='row'>
