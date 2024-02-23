@@ -26,7 +26,7 @@ const UserReviews = (props) => {
 
       
     return (
-        <div className='border-double'>
+        <div className='border-double green-background'>
             <h2 className='col review-header'>Recent Reviews</h2>
             <span className='row'>{ratingCards}</span>
 
@@ -42,7 +42,7 @@ function RatingCard(props) {
 
     return (
         <div className='col ratingcard'>
-            <Card border="success" style={{ width: '18rem' }}>
+            <Card className="ratingcard-details" border="success" style={{ width: '18rem' }}>
                 <Card.Header>
                 <Card.Link className='book_title' href={`/book/${id}`}>{book_title}</Card.Link>
                     

@@ -14,7 +14,7 @@ body {
 
   background: linear-gradient(45deg, #8fa17d,#5b6a4d);
   background-size: cover;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 
   /* background:url('/static/so-white.png'); */
 }
@@ -119,8 +119,10 @@ img {
 
 .review-header {
   background-color: #e4b4ce;
-  box-shadow: 6px 6px 29px 0px #A23B72;
+  box-shadow: 6px 6px 29px 6px #A23B72;
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  margin-right: -15px;
+  margin-left: 0px;
   /* width: 100vw!important; */
 }
 
@@ -130,6 +132,14 @@ img {
   background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
   box-shadow: 6px 6px 29px 0px #202418;
   /* scroll-direction: horizontal; */
+}
+
+.green-background {
+  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
+}
+
+.ratingcard-details {
+  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
 }
 
 /* CSS */
@@ -146,6 +156,8 @@ img {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-left: 60px;
+  margin-top: 20px;
 }
 
 .button-52:after {
