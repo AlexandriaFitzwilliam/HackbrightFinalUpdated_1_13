@@ -27,22 +27,28 @@ function BookOverview() {
 
 
       return (
-          <div className='bookoverview'>
-              
-              <Image src={cover_pic} thumbnail />
-              {/* <h4>{cover_pic}</h4> */}
-              <h1>{title}</h1>
-              <h3>{author}</h3>
-              <Link to={`/add_book/${book_id}`}>Add to Shelf</Link>
-              <h5>Average Rating: {avg_rating}</h5>
-              <h5>Number of Ratings: {num_rating}</h5>
-              <h5>Publish Date: {publish_date}</h5>
-              <h5>Book Summary</h5>
-              <p>{overview}</p>
-              <h5>The below reviews are done through reviews page</h5>
-              <Link to={`/create_rating/${book_id}`} title={title}>Add Rating</Link>
-              <Reviews book_id={book_id}/>
-  
+          <div className='container-fluid bookoverview'>
+            <div className='border-double'>
+                <div className='row'>
+                    <span className='col'></span>
+                    <Image className='col-2' src={cover_pic} />
+                    <div className='col-5'>
+                        <h1 className='review-header author-header'>{title}</h1>
+                        <h3 className='author-header'>{author}</h3>
+                        <Link className='button-52' to={`/add_book/${book_id}`}>Add to Shelf</Link>
+                    </div>
+                    <span className='col'></span>
+                </div>
+                <div className='author-header'>
+                    <h5 >Average Rating: {avg_rating}</h5>
+                    <h5>Number of Ratings: {num_rating}</h5>
+                    <h5>Publish Date: {publish_date}</h5>
+                </div>
+                <h5 className='shelf-name d-inline-flex p-1'>Book Summary</h5>
+                <p className='col border-double green-background pink-text'>{overview}</p>
+            </div>
+                <Link className='button-52 author-header' to={`/create_rating/${book_id}`} title={title}>Add Rating</Link>
+              <Reviews className='col' book_id={book_id}/>
           </div>
       )
   }
