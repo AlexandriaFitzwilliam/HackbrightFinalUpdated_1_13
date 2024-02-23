@@ -14,6 +14,7 @@ body {
 
   background: linear-gradient(45deg, #8fa17d,#5b6a4d);
   background-size: cover;
+  /* background-repeat: no-repeat; */
 
   /* background:url('/static/so-white.png'); */
 }

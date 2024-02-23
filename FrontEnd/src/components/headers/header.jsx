@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, Link,  } from 'react-router-dom
 const Header = () => {
 
     return (
-      <div class="container-fluid" id="navbar">
+      <div class="navbar sticky-top" id="navbar">
         <Navbar expand="lg">
           <Container>
             <Navbar.Brand href="/login">GoodBooks</Navbar.Brand>

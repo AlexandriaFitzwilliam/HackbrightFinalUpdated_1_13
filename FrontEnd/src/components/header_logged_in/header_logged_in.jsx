@@ -10,7 +10,7 @@ const HeaderLoggedIn = () => {
 
     return (
         <div>
-          <Navbar class="container-fluid" id='navbar'>
+          <Navbar class="navbar sticky-top" id='navbar'>
             <Container fluid>
               <Navbar.Brand href="/home"><span id='dark'>My Home</span></Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -24,6 +24,7 @@ function App() {
   if (user_id != null) {
     return (
       <div>
+        
         { <BrowserRouter>
           <HeaderLoggedIn />
           <Routes>
