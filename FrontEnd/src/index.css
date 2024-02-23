@@ -136,9 +136,10 @@ img {
 
 .shelf-scroll{
   overflow: scroll;
-  max-height: 34vh;
+  max-height: 44vh;
   background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
   box-shadow: 6px 6px 29px 0px #202418;
+  margin: 1rem;
   /* scroll-direction: horizontal; */
 }
 
@@ -199,6 +200,14 @@ img {
 
 .form-marg {
   margin-right: 40px;
+}
+
+.searchUserCard {
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  box-shadow: 6px 2px 29px 2px #a23b72;
+  border-color: #a23b72;
+  font-size: 5vh;
+  margin: 4rem;
 }
 
 /* .all-shelves-home {

@@ -21,7 +21,9 @@ function BookCard(props) {
                               <img className='imgContainer' src={cover_pic} />
                               <div className="content d-flex flex-column align-items-center justify-content-center">
                                   <div>
-                                      <a className='text-white fs-5' href={`/book/${id}`}>Avg Rating:<br></br>{avg_rating} Stars</a>
+                                      <a className='fs-5' href={`/book/${id}`}>Avg Rating:<br></br>{avg_rating} Stars</a>
+                                      <br></br>
+                                      <a className='text-white fs-5' href={`/add_book/${id}`}>Add to Shelf</a>
                                   </div>
                               </div>
                             </div>

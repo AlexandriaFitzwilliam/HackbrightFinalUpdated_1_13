@@ -34,7 +34,7 @@ const SearchUsers = (props) => {
 
     for (const user of Object.values(userSearched)) {
         const userCard = (
-            <Card className='searchUserCard' id={`searchUserCard_${user.user_id}`} border="success" style={{ width: '18rem' }}>
+            <Card className='searchUserCard col-3' id={`searchUserCard_${user.user_id}`} style={{ width: '18rem' }}>
                 <Card.Header>
                 <Card.Link href={`/users/user/${user.user_id}`}>{user.username}</Card.Link>
                 </Card.Header>
@@ -48,7 +48,7 @@ const SearchUsers = (props) => {
     return (
         <div>
             <h1 className='search-title'>Search for a User</h1>
-            <Form className='col' onSubmit={handleSubmit}>
+            <Form className='form-marg' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formSearchRequest">
                     <Form.Control className='form-css' placeholder="Type search keywords here" 
                          value={searchParam} onChange={(e)=>setSearchParam(e.target.value)}/>
@@ -59,7 +59,9 @@ const SearchUsers = (props) => {
                 </Button>
             </Form>
             <br></br>
-            {userCards}
+            <div className='row'>
+                {userCards}
+            </div>
         </div>
     )
 }
