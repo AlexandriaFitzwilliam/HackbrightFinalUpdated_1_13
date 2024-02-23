@@ -21,21 +21,22 @@ const UserDetails = (props) => {
         <div class='container'>
             <br></br>
 
-            <div class='row'>
+            <div className="row user-details-full">
 
                 <div className='col-4 user-details-pic'>
                     {/* <img src={`../${userInfo.profile_pic}`} /> */}
                     <Figure>
                         <Figure.Image
+                            className='border-double'
                             src={`../${userInfo.profile_pic}`}
                         />
                     </Figure>
                 </div>
 
-                <div className='col text-start'>
+                <div className='col user-details text-start'>
                     <br></br>
                     <h1 className='username'>{userInfo.username}</h1>
-                    <p>
+                    <p className='border-double'>
                         <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
                         <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
                         <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
@@ -51,7 +52,7 @@ const UserDetails = (props) => {
                 </div> */}
         </div>
         <div class='row'>
-            <UserReviews user_id={userInfo.user_id}/>
+            <UserReviews className="row" user_id={userInfo.user_id}/>
         </div>
 
         </div>
