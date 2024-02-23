@@ -3,9 +3,9 @@
 } */
 
 body {
-  height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
+  /* height: 100vh; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
   font-size: 4vh;
 
@@ -86,10 +86,12 @@ img {
   border: medium double #5b6a4d;
 }
 
-#navbar {
+.navbar {
   background: linear-gradient(45deg,#d996ba, #e4b4c3, #a23b72);
   font-size: 26px;
   font-weight: 1000;
+  /* width: 100vw!important; */
+  /* height: 100vw!important; */
 }
 
 .navbar-brand {
@@ -124,6 +126,9 @@ img {
   /* scroll-direction: horizontal; */
 }
 
+.username {
+  color: #A23B72
+}
 
 /* CSS */
 .button-52 {
