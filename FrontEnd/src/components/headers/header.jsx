@@ -8,10 +8,10 @@ import { BrowserRouter as Router, Routes, Route, Link,  } from 'react-router-dom
 const Header = () => {
 
     return (
-      <div class="navbar sticky-top" id="navbar">
-        <Navbar expand="lg">
-          <Container>
-            <Navbar.Brand href="/login">GoodBooks</Navbar.Brand>
+      <div className="navbar container-fluid sticky-top" id="navbar">
+        <Navbar className="navbar" expand="lg">
+          <Container fluid>
+            <Navbar.Brand href="/login">BookMark</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" >
               <Nav className="mr-auto">

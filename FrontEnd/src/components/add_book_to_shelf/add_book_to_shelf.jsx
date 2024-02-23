@@ -4,11 +4,13 @@ import Form from 'react-bootstrap/Form';
 import AllShelfs from '../all_shelfs/all_shelfs';
 import {Link, useParams} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 // import {redirect, useParams} from "react-router-dom"
 
 const AddBook = (props) => {
     const [shelfs, setShelfs] = React.useState({});
     const [new_shelf, setNewShelf] = React.useState("")
+    const [show, setShow] = React.useState(false)
     const {user_id} = props;
     const userShelfs = [];
     const book = useParams();
@@ -55,6 +57,9 @@ const AddBook = (props) => {
               if (responseJson.success == true) {
                 navigate(`/book/${book_id}`)
               }
+              else {
+                setShow(true)
+              }
             });
 
     }
@@ -62,6 +67,14 @@ const AddBook = (props) => {
 
     return (
         <div>
+                <Alert show={show} variant="warning">
+                    <Alert.Heading>This book is already added to this shelf.</Alert.Heading>
+                    <div className="d-flex justify-content-end">
+                      <Button onClick={() => setShow(false)} variant="outline-dark">
+                        X
+                      </Button>
+                    </div>
+                </Alert>
             <h1 className='search-title'>Add book to shelf</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">

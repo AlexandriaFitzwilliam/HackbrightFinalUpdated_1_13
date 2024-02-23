@@ -34,19 +34,19 @@ const Home = () => {
 
     return (
         <div class="container-fluid image-test"  id="log-in form">
-            <h1>Log in</h1>
+            <h1 className='search-title'>Log in</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="username" placeholder="Enter username" 
+                    <Form.Label className='pink-text'>Username</Form.Label>
+                    <Form.Control className='form-css' type="username" placeholder="Enter username" 
                     value={username} onChange={(e)=>setUsername(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" 
+                    <Form.Label className='pink-text'>Password</Form.Label>
+                    <Form.Control className='form-css' type="password" placeholder="Password" 
                     value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className='form-button' variant="primary" type="submit">
                     Submit
                 </Button>
                 <br></br>

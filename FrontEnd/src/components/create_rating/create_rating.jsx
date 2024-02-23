@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {redirect, useParams} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import Alert from 'react-bootstrap/Alert';
 
 const CreateRating = () => {
     const [score, setScore] = React.useState(1);
     const [details, setDetails] = React.useState('');
+    // const [show, setShow] = React.useState(true);
     let { book } = useParams();
     const user_id = sessionStorage.getItem('user_id');
     const navigate = useNavigate();
@@ -31,6 +33,9 @@ const CreateRating = () => {
               if (responseJson.success == true) {
                 navigate(`/book/${book}`)
               }
+            //   else {
+            //     setShow(true)
+            //   }
             });
 
     }
