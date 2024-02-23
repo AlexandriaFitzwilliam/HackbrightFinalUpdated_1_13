@@ -16,12 +16,12 @@ function BookCard(props) {
                     } = props;
 
                     return (
-                        <div className='box bookcard' id={`bookcard_id`}>
+                        <div className='box bookcard col-4' id={`bookcard_id`}>
                           <div className='body'>
                               <img className='imgContainer' src={cover_pic} />
-                              <div class="content d-flex flex-column align-items-center justify-content-center">
+                              <div className="content d-flex flex-column align-items-center justify-content-center">
                                   <div>
-                                      <a className='text-white fs-5' href={`/book/${id}`}>Average Rating:<br></br>{avg_rating} Stars</a>
+                                      <a className='text-white fs-5' href={`/book/${id}`}>Avg Rating:<br></br>{avg_rating} Stars</a>
                                   </div>
                               </div>
                             </div>
