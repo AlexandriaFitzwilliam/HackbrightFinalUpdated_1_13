@@ -56,12 +56,13 @@ const SearchRequest = (props) => {
 
     return (
         <div>
-            <h1>Search for a Book</h1>
+            <h1 className='search-title'>Search for a Book</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formSearchRequest">
-                    <Form.Control placeholder="Type search keywords here" 
+                    <Form.Control className="form-css" placeholder="Type search keywords here" 
                         value={searchParam} onChange={(e)=>setSearchParam(e.target.value)}/>
                     <Form.Select 
+                        className="form-css"
                         aria-label="How would you like to search?"
                         value={searchType}
                         onChange={e=>setSearchType(e.target.value)}

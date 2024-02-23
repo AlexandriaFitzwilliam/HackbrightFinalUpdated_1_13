@@ -171,6 +171,14 @@ img {
   font-size: 3vh;
 }
 
+.form-css {
+  background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  box-shadow: 6px 2px 29px 2px #a23b72;
+  margin: 1rem;
+}
+
+
+
 /* .all-shelves-home {
   padding: 2rem;
 } */
