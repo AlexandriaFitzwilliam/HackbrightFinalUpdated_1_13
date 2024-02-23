@@ -45,7 +45,7 @@ function ShelfCard(props) {
     const {shelf_name, shelf_id} = props;
 
     return (
-        <div>
+        <div className='shelf-full'>
             <h3 className='shelf-name d-inline-flex p-1 '>{shelf_name}</h3>
             <ShelfDetails shelf_id={shelf_id} />
         </div>

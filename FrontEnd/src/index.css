@@ -65,6 +65,8 @@ img {
   font-weight: bolder;
   text-align: center;
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
+  box-shadow: 6px 6px 29px 6px #e4b4c3;
+  padding: 1rem;
 }
 
 .details {
@@ -115,17 +117,20 @@ img {
 
 .shelf-name {
   background: linear-gradient(45deg,#a23b72, #e4b4c3);
-  box-shadow: 6px 6px 29px 0px #202418;
+  box-shadow: 6px 6px 29px 6px #e4b4c3;
+  margin-bottom: 1rem;
   /* color: #B6C3AC; */
 }
 
 .review-header {
   background-color: #e4b4ce;
-  box-shadow: 6px 6px 29px 15px #A23B72;
+  box-shadow: 6px 6px 29px 6px #A23B72;
   background: linear-gradient(45deg, #e4b4c3,#a23b72);
   margin-right: 0px;
   margin-left: 0px;
+  margin-top: 1rem;
   width: 100%;
+  padding: 1rem;
 }
 
 .shelf-scroll{
@@ -141,8 +146,18 @@ img {
 }
 
 .ratingcard-details {
-  background: linear-gradient(45deg,#202418, #5b6a4d,#202418);
+  background: linear-gradient(45deg,#a23b72, #e4b4c3);
+  box-shadow: 6px 6px 29px 6px #e4b4c3;
+  margin: 1rem;
 }
+
+.shelf-full {
+  margin: 2rem;
+}
+
+/* .all-shelves-home {
+  padding: 2rem;
+} */
 
 /* CSS */
 .button-52 {

@@ -21,9 +21,10 @@ const LoggedInHome = (props) => {
         <div>
             <br></br>
         <div className="row user-details-full">
-            <Figure className="col-4">
+            <Figure className="col-4 ">
                 <Figure.Image
                     src="../../src/static/open_book.jpg"
+                    className='border-double'
                 />
             </Figure>
             <div className='col user-details text-start'>
@@ -35,7 +36,7 @@ const LoggedInHome = (props) => {
                 </div>
         </div>
         </div>
-        <AllShelfs className="row" user_id={userInfo.user_id}/>
+        <AllShelfs className="row all-shelves-home" user_id={userInfo.user_id}/>
         {/* <ShelfDetails shelf_id={userInfo.user_id}/> */}
         <UserReviews className="row" user_id={userInfo.user_id}/>
         
