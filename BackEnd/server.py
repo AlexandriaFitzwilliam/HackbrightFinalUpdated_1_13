@@ -311,10 +311,12 @@ def search_books():
                 db.session.add(new_book)
                 db.session.commit()
                 adding_list.append(new_book)
+            else:
+                adding_list.append(cur_book)
 
         display_list = Book.get_by_param(param=param, param_type=type)
 
-        for book in display_list:
+        for book in adding_list:
             display_list_dic[book.book_id] = book.to_dict()
         
         success=True
