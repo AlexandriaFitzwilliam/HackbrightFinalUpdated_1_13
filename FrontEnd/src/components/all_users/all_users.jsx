@@ -28,8 +28,8 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h1>All Users - glance goes here</h1>
-            <span>{userCards}</span>
+            <h1 className='search-title'>All Users</h1>
+            <div className='row'>{userCards}</div>
 
         </div>
     )
@@ -41,18 +41,18 @@ function UserCard(props) {
     const {username, avg_rating, num_ratings, profile_pic, user_id} = props;
 
     return (
-        <div className='usercard' id={user_id}>
-    <Card style={{ width: '18rem' }}>
+        <div className='col-4 usercard' id={user_id}>
+    <Card className="ratingcard-details" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={profile_pic} />
       <Card.Body>
-        <Card.Title>{username}</Card.Title>
-        <Card.Text>
+        <Card.Title className='ratingcard-title'>{username}</Card.Title>
+        <Card.Text className='ratingcard-score'>
           Number of Ratings: {num_ratings}
         </Card.Text>
-        <Card.Text>
+        <Card.Text className='ratingcard-score'>
           Average Rating: {avg_rating}
         </Card.Text>
-        <Link to={`user/${user_id}`}>View User</Link>
+        <Link className='ratingcard-text' to={`user/${user_id}`}>View User</Link>
       </Card.Body>
     </Card>
             <br />
