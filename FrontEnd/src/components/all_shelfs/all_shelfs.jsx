@@ -22,7 +22,7 @@ const AllShelfs = (props) => {
             shelf_id={shelf.shelf_id}
             />
         );
-        userShelfs.push(shelfCard)
+        userShelfs.unshift(shelfCard)
       }
 
 

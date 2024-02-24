@@ -37,9 +37,9 @@ const UserDetails = (props) => {
                     <br></br>
                     <h1 className='username'>{userInfo.username}</h1>
                     <p className='border-double'>
-                        <h5>Number of Ratings: <span className='details'>{userInfo.num_rating}</span></h5>
-                        <h5>Average Rating: <span className='details'>{userInfo.avg_rating}</span></h5>
-                        <h5>About Me: <span className='details'>{userInfo.about_me}</span></h5>
+                        <h5>Number of Ratings: {userInfo.num_rating}</h5>
+                        <h5>Average Rating: {userInfo.avg_rating}</h5>
+                        <h5>About Me: {userInfo.about_me}</h5>
                     </p>
                 </div>
 
